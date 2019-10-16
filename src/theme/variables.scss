@@ -3,6 +3,10 @@
 
 /** Ionic CSS Variables **/
 :root {
+    // ************** FONTS **************
+    --ion-font-family: 'Source Sans Pro';
+
+    // ************** COLORS **************
     /** primary **/
     --ion-color-primary: #6C63FF;
     --ion-color-primary-rgb: 108, 99, 255;
@@ -74,4 +78,88 @@
     --ion-color-light-contrast-rgb: 0, 0, 0;
     --ion-color-light-shade: #d7d8da;
     --ion-color-light-tint: #f5f6f9;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/SourceSansPro-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: normal;
+    src: url('../assets/fonts/SourceSansPro-BlackItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: bolder;
+    src: url('../assets/fonts/SourceSansPro-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: bolder;
+    src: url('../assets/fonts/SourceSansPro-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: lighter;
+    src: url('../assets/fonts/SourceSansPro-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: lighter;
+    src: url('../assets/fonts/SourceSansPro-ExtraLightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: normal;
+    src: url('../assets/fonts/SourceSansPro-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: lighter;
+    src: url('../assets/fonts/SourceSansPro-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: lighter;
+    src: url('../assets/fonts/SourceSansPro-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../assets/fonts/SourceSansPro-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: bold;
+    src: url('../assets/fonts/SourceSansPro-SemiBoldItalic.ttf');
 }

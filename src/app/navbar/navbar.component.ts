@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, Platform } from '@ionic/angular';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { Platform } from '@ionic/angular';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
     selector: 'app-navbar',
@@ -13,10 +14,10 @@ export class NavbarComponent implements OnInit {
 
     constructor(public platform: Platform,
                 public breakpointObserver: BreakpointObserver,
-                private menu: MenuController) {}
+                public breakpoints: BreakpointsService) {}
 
     ngOnInit(): void {
-        this.breakpointObserver.observe('(max-width: 899px)').subscribe(result => {
+        this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
         });
     }
