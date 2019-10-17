@@ -14,9 +14,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HomePage implements OnInit {
 
-    corsHeaders = new HttpHeaders({
-        'Content-Type': 'application/json'
-    });
+    // corsHeaders = new HttpHeaders({
+    //     'Content-Type': 'application/json'
+    // });
 
     constructor(private http: HttpClient,
                 public platform: Platform,
@@ -27,22 +27,22 @@ export class HomePage implements OnInit {
 
     ngOnInit() {}
 
-    async testApi() {
-        if (this.platform.is('cordova') === true) {
-            const loading = await this.loadingCtrl.create();
-            await loading.present();
-            const nativeCall = this.nativeHttp.get(this.apiLocationService.apiLocation + '/hello', {}, {
-                'Content-Type': 'application/json'
-            });
-            from(nativeCall).pipe(
-                finalize(() => loading.dismiss())
-            )
-                .subscribe(data => {
-                    console.log(data);
-                });
-        } else {
-            this.http.get(this.apiLocationService.apiLocation + '/hello').subscribe(res => { console.log(res) });
-        }
-    }
+    // async testApi() {
+    //     if (this.platform.is('cordova') === true) {
+    //         const loading = await this.loadingCtrl.create();
+    //         await loading.present();
+    //         const nativeCall = this.nativeHttp.get(this.apiLocationService.apiLocation + '/hello', {}, {
+    //             'Content-Type': 'application/json'
+    //         });
+    //         from(nativeCall).pipe(
+    //             finalize(() => loading.dismiss())
+    //         )
+    //             .subscribe(data => {
+    //                 console.log(data);
+    //             });
+    //     } else {
+    //         this.http.get(this.apiLocationService.apiLocation + '/hello').subscribe(res => { console.log(res) });
+    //     }
+    // }
 
 }
