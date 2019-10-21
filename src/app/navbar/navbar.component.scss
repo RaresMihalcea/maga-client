@@ -8,4 +8,15 @@
 
 .navbar-button {
     font-size: 18px;
+    color: black;
+}
+
+.navbar-home {
+    background-color: transparent;
+    box-shadow: 0px;
+}
+
+ion-toolbar {
+    --border-width: 0;
+    --background: transparent;
 }
