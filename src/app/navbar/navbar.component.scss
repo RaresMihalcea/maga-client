@@ -3,12 +3,21 @@
 }
 
 .active-home {
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid var(--ion-color-light);
+}
+
+.ion-header-padding {
+    padding-top: 30px;
+}
+
+ion-toolbar {
+    --border-width: 0;
+    --background: transparent;
 }
 
 .navbar-button {
-    font-size: 18px;
     color: black;
+    font-size: 18px;
 }
 
 .navbar-home {
@@ -16,7 +25,3 @@
     box-shadow: 0px;
 }
 
-ion-toolbar {
-    --border-width: 0;
-    --background: transparent;
-}
