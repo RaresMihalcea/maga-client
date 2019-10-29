@@ -7,8 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 
 import { HomePage } from './home.page';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { HeroComponent } from '../hero/hero.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -16,6 +16,7 @@ import { HeroComponent } from '../hero/hero.component';
         FormsModule,
         IonicModule,
         HttpClientModule,
+        SharedModule,
         RouterModule.forChild([
             {
                 path: '',
@@ -26,7 +27,6 @@ import { HeroComponent } from '../hero/hero.component';
     providers: [HTTP],
     declarations: [
         HomePage,
-        NavbarComponent,
         HeroComponent
     ]
 })

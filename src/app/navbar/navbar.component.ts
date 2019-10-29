@@ -23,4 +23,37 @@ export class NavbarComponent implements OnInit {
             this.mobile = (result.matches) ? true : false;
         });
     }
+
+    navigateToHome(): void {
+        this.router.navigate(['/home']);
+    }
+
+    navigateToInvitations(): void {
+        this.router.navigate(['./invitations']);
+    }
+
+    navigateToCourses(): void {
+        this.router.navigate(['/courses']);
+    }
+
+    navigateToConferences(): void {
+        this.router.navigate(['/conferences']);
+    }
+
+    navigateToInstructors(): void {
+        this.router.navigate(['./instructors']);
+    }
+
+    navigateToSponsors(): void {
+        this.router.navigate(['/sponsors']);
+    }
+
+    navigateToContact(): void {
+        this.router.navigate(['/contact']);
+    }
+
+    navigateToLogin(): void {
+        this.router.navigate(['./login']);
+    }
+
 }
