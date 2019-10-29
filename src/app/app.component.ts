@@ -14,14 +14,36 @@ import { BreakpointsService } from './services/breakpoints.service';
 export class AppComponent implements OnInit {
     public appPages = [
         {
-            title: 'Home',
-            url: '/home',
-            icon: 'home'
+            title: 'Acasă',
+            url: '/home'
         },
         {
-            title: 'List',
-            url: '/list',
-            icon: 'list'
+            title: 'Invitați',
+            url: '/invitations'
+        },
+        {
+            title: 'Cursuri',
+            url: '/courses'
+        },
+        {
+            title: 'Conferințe',
+            url: '/conferences'
+        },
+        {
+            title: 'Instructori',
+            url: '/instructors'
+        },
+        {
+            title: 'Sponsori',
+            url: '/sponsors'
+        },
+        {
+            title: 'Contact',
+            url: '/contact'
+        },
+        {
+            title: 'Login',
+            url: '/login'
         }
     ];
     public mobile = true;

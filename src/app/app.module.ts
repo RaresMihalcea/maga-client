@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     imports: [
         BrowserModule,
         HttpClientModule,
-        IonicModule.forRoot({animated: false}),
+        IonicModule.forRoot(),
         AppRoutingModule,
         BrowserAnimationsModule
     ],

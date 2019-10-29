@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { Router } from '@angular/router';
+import { HomePage } from '../home/home.page';
 
 @Component({
     selector: 'app-navbar',
@@ -16,7 +17,8 @@ export class NavbarComponent implements OnInit {
     constructor(public platform: Platform,
                 public breakpointObserver: BreakpointObserver,
                 public breakpoints: BreakpointsService,
-                public router: Router) {}
+                public router: Router,
+                public navCtrl: NavController) {}
 
     ngOnInit(): void {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -25,7 +27,8 @@ export class NavbarComponent implements OnInit {
     }
 
     navigateToHome(): void {
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
+        this.navCtrl.navigateForward('/home', {animated: false});
     }
 
     navigateToInvitations(): void {
