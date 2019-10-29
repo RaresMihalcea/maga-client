@@ -31,7 +31,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToInvitations()">
+                    (click)="navigateToInvitations()"
+                    [ngClass]='{"active": router.url == "/invitations"}'>
                     Invitați
                 </ion-button>
                 <ion-button 
@@ -40,7 +41,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToCourses()">
+                    (click)="navigateToCourses()"
+                    [ngClass]='{"active": router.url == "/courses"}'>
                     Cursuri
                 </ion-button>
                 <ion-button 
@@ -49,7 +51,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToConferences()">
+                    (click)="navigateToConferences()"
+                    [ngClass]='{"active": router.url == "/conferences"}'>
                     Conferințe
                 </ion-button>
                 <ion-button 
@@ -58,7 +61,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToInstructors()">
+                    (click)="navigateToInstructors()"
+                    [ngClass]='{"active": router.url == "/instructors"}'>
                     Instructori
                 </ion-button>
                 <ion-button 
@@ -67,7 +71,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToSponsors()">
+                    (click)="navigateToSponsors()"
+                    [ngClass]='{"active": router.url == "/sponsors"}'>
                     Sponsori
                 </ion-button>
                 <ion-button 
@@ -76,7 +81,8 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToContact()">
+                    (click)="navigateToContact()"
+                    [ngClass]='{"active": router.url == "/contact"}'>
                     Contact
                 </ion-button>
                 <ion-button 
@@ -86,7 +92,7 @@
                     *ngIf='!mobile' 
                     class='navbar-button'
                     (click)="navigateToLogin()"
-                    >
+                    [ngClass]='{"active": router.url == "/login"}'>
                     Login
                 </ion-button>
             </ion-row>
