@@ -1,4 +1,4 @@
-<ion-header no-border [ngClass]='{"ion-header-padding": !mobile}'>
+<ion-header [attr.no-border]='router.url == "/home" ? true : null' [ngClass]='{"ion-header-padding": !mobile && router.url == "/home"}'>
     <ion-toolbar [ngClass]='{"navbar-home": !mobile && router.url == "/home"}'>
         <ion-buttons slot="start" *ngIf='mobile'>
             <ion-menu-button></ion-menu-button>

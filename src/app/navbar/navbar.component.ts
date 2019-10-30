@@ -32,31 +32,38 @@ export class NavbarComponent implements OnInit {
     }
 
     navigateToInvitations(): void {
-        this.router.navigate(['./invitations']);
+        // this.router.navigate(['./invitations']);
+        this.navCtrl.navigateForward('/invitations', {animated: false});
     }
 
     navigateToCourses(): void {
-        this.router.navigate(['/courses']);
+        // this.router.navigate(['/courses']);
+        this.navCtrl.navigateForward('/courses', {animated: false});
     }
 
     navigateToConferences(): void {
-        this.router.navigate(['/conferences']);
+        // this.router.navigate(['/conferences']);
+        this.navCtrl.navigateForward('/conferences', {animated: false});
     }
 
     navigateToInstructors(): void {
-        this.router.navigate(['./instructors']);
+        // this.router.navigate(['./instructors']);
+        this.navCtrl.navigateForward('/instructors', {animated: false});
     }
 
     navigateToSponsors(): void {
-        this.router.navigate(['/sponsors']);
+        // this.router.navigate(['/sponsors']);
+        this.navCtrl.navigateForward('/sponsors', {animated: false});
     }
 
     navigateToContact(): void {
-        this.router.navigate(['/contact']);
+        // this.router.navigate(['/contact']);
+        this.navCtrl.navigateForward('/contact', {animated: false});
     }
 
     navigateToLogin(): void {
-        this.router.navigate(['./login']);
+        // this.router.navigate(['./login']);
+        this.navCtrl.navigateForward('/login', {animated: false});
     }
 
 }
