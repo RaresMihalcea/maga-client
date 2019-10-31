@@ -15,35 +15,43 @@ export class AppComponent implements OnInit {
     public appPages = [
         {
             title: 'Acasă',
-            url: '/home'
+            url: '/home',
+            icon: 'home'
         },
         {
             title: 'Invitați',
-            url: '/invitations'
+            url: '/invitations',
+            icon: 'globe'
         },
         {
             title: 'Cursuri',
-            url: '/courses'
+            url: '/courses',
+            icon: 'school'
         },
         {
             title: 'Conferințe',
-            url: '/conferences'
+            url: '/conferences',
+            icon: 'bonfire'
         },
         {
             title: 'Instructori',
-            url: '/instructors'
+            url: '/instructors',
+            icon: 'medal'
         },
         {
             title: 'Sponsori',
-            url: '/sponsors'
+            url: '/sponsors',
+            icon: 'star'
         },
         {
             title: 'Contact',
-            url: '/contact'
+            url: '/contact',
+            icon: 'mail'
         },
         {
             title: 'Login',
-            url: '/login'
+            url: '/login',
+            icon: 'key'
         }
     ];
     public mobile: boolean;
