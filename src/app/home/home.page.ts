@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Platform, LoadingController } from '@ionic/angular';
-import { HTTP } from '@ionic-native/http/ngx';
-import { finalize } from 'rxjs/operators';
-import { from } from 'rxjs';
-import { ApiLocationService } from '../services/api-location.service';
+import { Platform } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -18,11 +13,7 @@ export class HomePage implements OnInit {
     //     'Content-Type': 'application/json'
     // });
 
-    constructor(private http: HttpClient,
-                public platform: Platform,
-                private nativeHttp: HTTP,
-                private loadingCtrl: LoadingController,
-                private apiLocationService: ApiLocationService,
+    constructor(public platform: Platform,
                 public breakpointObserver: BreakpointObserver) { }
 
     ngOnInit() {}

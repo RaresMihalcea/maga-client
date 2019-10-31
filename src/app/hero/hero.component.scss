@@ -2,6 +2,8 @@
     color: white;
     font-size: 70px;
     font-weight: bold;
+    z-index: 2;
+    position: absolute;
 }
 
 #hero-image {
@@ -9,8 +11,10 @@
     max-height: 100%;
     width: 100%;
     position: absolute;
+    z-index: 0;
 }
 
 .overlay-navbar {
     margin-top: -10%;
 }
+

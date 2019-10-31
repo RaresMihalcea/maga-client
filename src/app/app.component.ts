@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
             url: '/login'
         }
     ];
-    public mobile = true;
+    public mobile: boolean;
 
     constructor(
         private platform: Platform,
@@ -62,6 +62,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
+            console.log(this.mobile);
             this.menu.enable(this.mobile, 'main-menu');
         });
     }
