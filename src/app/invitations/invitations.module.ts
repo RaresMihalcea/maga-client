@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { InvitationsPage } from './invitations.page';
 import { SharedModule } from '../shared/shared.module';
+import { CardPopoverComponent } from '../card-popover/card-popover.component';
 
 const routes: Routes = [
     {
@@ -23,6 +24,9 @@ const routes: Routes = [
         SharedModule,
         RouterModule.forChild(routes)
     ],
-    declarations: [InvitationsPage]
+    declarations: [
+        InvitationsPage,
+    ],
+    entryComponents: [CardPopoverComponent]
 })
 export class InvitationsPageModule { }
