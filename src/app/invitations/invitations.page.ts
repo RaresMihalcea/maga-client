@@ -9,14 +9,14 @@ import { PopoverController } from '@ionic/angular';
 })
 export class InvitationsPage implements OnInit {
 
-    constructor(public popoverControler: PopoverController) { }
-    ngOnInit() {
-    }
+    constructor(public popoverController: PopoverController) { }
+    ngOnInit() { }
 
-    async presentPopover(event) {
-        const popover = await this.popoverControler.create({
+    async presentPopover(ev: any) {
+        const popover = await this.popoverController.create({
             component: CardPopoverComponent,
-            event
+            event: ev,
+            translucent: true
         });
         return await popover.present();
     }
