@@ -3,7 +3,6 @@ import { Platform, NavController } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { Router } from '@angular/router';
-import { HomePage } from '../home/home.page';
 
 @Component({
     selector: 'app-navbar',
@@ -13,6 +12,7 @@ import { HomePage } from '../home/home.page';
 export class NavbarComponent implements OnInit {
 
     public mobile = true;
+    public scrollDownNavbarFlag = false;
 
     constructor(public platform: Platform,
                 public breakpointObserver: BreakpointObserver,

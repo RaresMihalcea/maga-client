@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
@@ -8,6 +8,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+    scrollDownNavbarFlag: boolean;
 
     // corsHeaders = new HttpHeaders({
     //     'Content-Type': 'application/json'
@@ -17,6 +18,12 @@ export class HomePage implements OnInit {
                 public breakpointObserver: BreakpointObserver) { }
 
     ngOnInit() {}
+
+    @HostListener("window:scroll", [])
+    onWindowScroll() {
+        this.scrollDownNavbarFlag = true;
+        console.log('scrolling');
+    }
 
     // async testApi() {
     //     if (this.platform.is('cordova') === true) {
