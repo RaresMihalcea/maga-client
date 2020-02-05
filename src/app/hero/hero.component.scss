@@ -8,9 +8,15 @@
 }
 
 #hero-container {
-    background-image: url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
-    background-repeat: no-repeat;
+    background: 
+    linear-gradient(
+        rgba(68, 68, 68, 0.1), 
+        // rgba(255, 0, 0, 0.45)
+        rgba(17, 17, 17, 0.45)
+    ),
+    url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
 }
@@ -44,9 +50,9 @@
 }
 
 .space-hero-subt {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .space-hero-title {
-    margin-top: 8%;
+    margin-top: 14%;
 }

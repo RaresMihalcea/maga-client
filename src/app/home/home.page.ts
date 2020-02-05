@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
     selector: 'app-home',
@@ -8,21 +9,20 @@ import { BreakpointObserver } from '@angular/cdk/layout';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-    scrollDownNavbarFlag: boolean;
-
     // corsHeaders = new HttpHeaders({
     //     'Content-Type': 'application/json'
     // });
 
+    public mobile = true;
+
     constructor(public platform: Platform,
-                public breakpointObserver: BreakpointObserver) { }
+                public breakpointObserver: BreakpointObserver,
+                public breakpoints: BreakpointsService) { }
 
-    ngOnInit() {}
-
-    @HostListener("window:scroll", [])
-    onWindowScroll() {
-        this.scrollDownNavbarFlag = true;
-        console.log('scrolling');
+    ngOnInit() {
+        this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+            this.mobile = (result.matches) ? true : false;
+        });
     }
 
     // async testApi() {
