@@ -1,3 +1,89 @@
+#home-screen {
+	background-color: #eeeeee;
+	height: 105%;
+	margin-top: -50px;
+}
+
+.main-col {
+	margin-top: -65px;
+	text-align: center;
+}
+
+#material-card {
+	background-color: white;
+	border-radius: 3%;
+	box-shadow: 380px;
+	height: 110%;
+	left: 0;
+	margin: -60px auto 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute;
+	right: 0;
+	width: 90%;
+}
+
+svg {
+	path,
+	polyline {
+		fill: none;
+		stroke: black;
+		stroke-width: 2;
+		stroke-linecap: round;
+	}
+}
+
+svg {
+}
+
+path {
+	opacity: 0;
+	animation: stroke 0.9s 0.35s forwards;
+	animation-timing-function: cubic-bezier(1, 0.1, 0.8, 1);
+}
+
+svg {
+	margin: 5em;
+}
+
+@keyframes stroke {
+	100% {
+		opacity: 1;
+		stroke-dashoffset: 0;
+	}
+}
+
 body {
-    background-color: black;
+ 	 background: black;
+}
+
+polyline {
+	opacity: 0;
+	animation: arrows 0.7s infinite, arrow_intro 2.25s forwards;
+
+	+ polyline {
+		animation-delay: 0.1s;
+	}
+}
+
+@keyframes arrow_intro {
+	0%,
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes arrows {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	50% {
+		transform: translate3d(0, -2px, 0);
+	}
 }

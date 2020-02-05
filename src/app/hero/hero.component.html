@@ -1,5 +1,4 @@
 <div id='hero-container'  class='overlay-navbar'>
-    <!-- [ngClass]='{"overlay-navbar": !mobile}' -->
     <div id='hero-content'>
         <div id='hero-content-position' class='ion-text-center ion-justify-content-center' fxLayout="column" fxLayoutAlign="center center">
             <h1 id='hero-title' [ngClass]='{"space-hero-title": !mobile}'>Academia Atlantykron</h1>
@@ -8,11 +7,7 @@
             </ion-button>
             <h2 class='hero-subheader' *ngIf='tablet' [ngClass]='{"space-hero-subt": !mobile}'>Ediția 31 de Ani</h2>
             <h2 class='hero-subheader' *ngIf='tablet'>02 August - 11 August 2020</h2>
+            <div id='scrim'></div>
         </div>
     </div>
-    <!-- <img src='../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg' 
-    alt='Stary Night From the Island Hero Image' 
-    [ngClass]='{"overlay-navbar": !mobile}'
-    id='hero-image'
-    > -->
 </div>
