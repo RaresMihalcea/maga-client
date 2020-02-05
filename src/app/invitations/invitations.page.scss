@@ -1,0 +1,39 @@
+ion-content{
+    --background: url(../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg) no-repeat center center / cover !important ;
+ 
+}
+ion-list{
+    background:transparent;
+}
+.invitate{
+    --background: rgb(148, 150, 255);
+    --background-activated:rgb(44, 44, 61);
+    --background-hover:rgb(92, 87, 161);
+    //--border-width:10px;
+    //--border-color	:rgb(61, 61, 150);
+
+    //opacity: 0.8;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 10px;
+    --border-radius: 45px;
+    padding-bottom: 25px;
+}
+.name-label{
+    font-size: 25px;
+}
+.avatar{
+    width: 70px;
+    height: 70px;
+}
+.select-year{
+    --background:rgb(86, 40, 124);
+    --background-hover:rgb(105, 60, 141);
+    --backgroud-activated:rgb(58, 36, 77);
+    --border-radius: 35px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
