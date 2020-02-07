@@ -1,3 +1,9 @@
+.card-section-divider {
+	background-color: var(--ion-color-secondary);
+	margin-top: -70px;
+	width: 50px;
+}
+
 #home-screen {
 	background-color: #eeeeee;
 	height: 105%;
@@ -15,7 +21,7 @@
 	box-shadow: 380px;
 	height: 110%;
 	left: 0;
-	margin: -80px auto 0 auto;
+	margin: -65px auto 0 auto;
 	margin-left: auto;
 	margin-right: auto;
 	position: absolute;
@@ -31,6 +37,10 @@ svg {
 		stroke-width: 2;
 		stroke-linecap: round;
 	}
+}
+
+#scroll-svg {
+	border-bottom: 3px solid color( secondary, base);
 }
 
 path {

@@ -11,7 +11,7 @@
     background: 
     linear-gradient(
         rgba(68, 68, 68, 0.1), 
-        rgba(17, 17, 17, 0.45)
+        rgba(17, 17, 17, 0.6)
     ),
     url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
     background-size: cover;
@@ -30,7 +30,7 @@
     color: white;
     opacity: 80%;
     font-size: 40px;
-    font-style: italic;
+    font-style: bold;
 }
 
 #hero-title {
@@ -49,7 +49,8 @@
 }
 
 .space-hero-subt {
-    margin-top: 5%;
+    margin-top: 4%;
+    margin-bottom: 2%;
 }
 
 .space-hero-title {
