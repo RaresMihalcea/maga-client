@@ -9,8 +9,14 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { HomePage } from './home.page';
 import { HeroComponent } from '../hero/hero.component';
 import { SharedModule } from '../shared/shared.module';
+import { PresentationComponent } from '../presentation/presentation.component';
 
 @NgModule({
+    declarations: [
+        HomePage,
+        HeroComponent,
+        PresentationComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -24,10 +30,6 @@ import { SharedModule } from '../shared/shared.module';
             }
         ])
     ],
-    providers: [HTTP],
-    declarations: [
-        HomePage,
-        HeroComponent
-    ]
+    providers: [HTTP]
 })
 export class HomePageModule { }
