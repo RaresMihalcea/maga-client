@@ -15,4 +15,7 @@ export class LoginPage implements OnInit {
     pass_forgot() {
         console.log('parola uiata');
     }
+    Sign_In() {
+        console.log('want to sign in');
+    }
 }

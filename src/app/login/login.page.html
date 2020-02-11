@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
-<ion-content>
-    
+
+<ion-content class="animated bounceIn">
+    <app-navbar></app-navbar>
 
     <div id="background">
         <div id="card">
@@ -20,11 +20,11 @@
                               
                               <div id="pass-forgot">
                                   <p>Ai uitat parola? </p>
-                                  <a id="pass-forgot-click" (click)='pass_forgot()'>Click aici</a>
+                                  <a (click)='pass_forgot()'>Click aici</a>
                               </div>
                               <div>
                                 <p>Sau</p>
-                                <a>Inregistrare</a>
+                                <a (click)='Sign_In()' >Inregistrare</a>
                               </div>
                         </div>
                     </ion-col>

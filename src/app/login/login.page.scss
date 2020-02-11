@@ -13,6 +13,8 @@
     height: 80%;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 255, .2);
+
 }
 
 
@@ -41,8 +43,24 @@ ion-col{
 #pass-forgot{
     display: inline-flex;
 }
-#pass-forgot-click{
+a{
     color: rgb(59, 23, 156);
     margin-top: 16px;
-    
+    cursor: pointer;
+    animation: anchor_hover 2s infinite;
+    border-color: red;
+}
+//a:hover{
+    //color: red;
+//}
+
+@keyframes anchor_hover{
+    0%,
+	50% {
+		font:14px;
+	}
+
+	100% {
+		font:20px;
+	}
 }
