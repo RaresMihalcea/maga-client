@@ -12,4 +12,7 @@ export class LoginPage implements OnInit {
     ngOnInit() {
     }
 
+    pass_forgot() {
+        console.log('parola uiata');
+    }
 }

@@ -1,5 +1,41 @@
 <app-navbar></app-navbar>
-
 <ion-content>
+    
 
+    <div id="background">
+        <div id="card">
+            <ion-grid id="login-grid">
+                <ion-row id="login-row">
+                    <ion-col justify-content-center>
+                        <div id="login-card">
+                              <ion-item>
+                                <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+                              </ion-item>
+                              <div>
+                                <ion-button shape="round" fill="outline" id="login-btn">Login</ion-button>
+                              </div>
+                              
+                              <div id="pass-forgot">
+                                  <p>Ai uitat parola? </p>
+                                  <a id="pass-forgot-click" (click)='pass_forgot()'>Click aici</a>
+                              </div>
+                              <div>
+                                <p>Sau</p>
+                                <a>Inregistrare</a>
+                              </div>
+                        </div>
+                    </ion-col>
+                    <ion-col justify-content-center>
+                        <img width="50%" src="../../assets/images/login.svg">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div>
+            <h1 text-center>Bottom Component</h1>
+        </div>
+    </div>
 </ion-content>

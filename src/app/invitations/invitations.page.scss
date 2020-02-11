@@ -1,23 +1,18 @@
 ion-content{
     --background: url(../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg) no-repeat center center / cover !important ;
- 
 }
 ion-list{
     background:transparent;
 }
 .invitate{
-    --background: rgb(148, 150, 255);
+    --background: rgb(148, 150, 255, 0.5);
     --background-activated:rgb(44, 44, 61);
-    --background-hover:rgb(92, 87, 161);
-    //--border-width:10px;
-    //--border-color	:rgb(61, 61, 150);
-
-    //opacity: 0.8;
+    --background-hover:rgb(92, 87, 161, 0.7);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
     border-right: 10px;
-    --border-radius: 45px;
+    --border-radius: 40px;
     padding-bottom: 25px;
 }
 .name-label{
