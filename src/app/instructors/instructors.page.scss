@@ -1,0 +1,57 @@
+#background{
+    background-color: #e6dede;
+    //padding:30px;
+    height: auto;
+    padding-bottom: 50px;
+}
+#card{
+    background-color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 255, .2);
+    
+}
+
+#main{
+    //background-color: rgb(122, 161, 117);
+    flex: 80%;
+    margin-bottom: 10%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.id-card{
+    padding: 10px;
+    flex-basis: 30%;
+}
+
+#timeline{
+    //position: sticky;
+    margin: 20px;
+    flex: 20%;
+    border-radius: 2px;
+    height: fit-content;
+}
+
+h4{
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.year{
+    border-right: none;
+    cursor: pointer;
+}
+.year-active{
+    border-right: 5px solid rgb(40, 31, 177);
+    cursor: pointer;
+}
+.year:hover{
+    background-image: linear-gradient(to right, rgba(205, 208, 230, 0), rgb(204, 201, 250));
+}
+.year-active:hover{
+    background-image: linear-gradient(to right, rgba(205, 208, 230, 0), rgb(204, 201, 250));
+}
