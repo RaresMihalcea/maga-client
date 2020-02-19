@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { IonicModule } from '@ionic/angular';
 import { CardPopoverComponent } from '../card-popover/card-popover.component';
+import { FancyCardComponent } from '../fancy-card/fancy-card.component';
 
 @NgModule({
     declarations: [
         NavbarComponent,
-        CardPopoverComponent
+        CardPopoverComponent,
+        FancyCardComponent
     ],
     imports: [
         CommonModule,
@@ -15,7 +17,8 @@ import { CardPopoverComponent } from '../card-popover/card-popover.component';
     ],
     exports: [
         NavbarComponent,
-        CardPopoverComponent
+        CardPopoverComponent,
+        FancyCardComponent
     ]
 })
 export class SharedModule { }

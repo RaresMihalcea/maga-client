@@ -2,7 +2,6 @@
     <app-navbar></app-navbar>
     <app-hero></app-hero>
     <div id='home-screen'>
-        <!-- <div id='material-card' [ngClass]="{'bump-up-mobile': mobile}"> -->
             <ion-grid id='material-card' [ngClass]="{'bump-up-mobile': mobile}">
                 <ion-row class='main-col'>
                     <ion-col class='justify-content-center'>
@@ -15,11 +14,10 @@
                         </svg>
                         <hr class='card-section-divider' [ngClass]="{'bump-down': mobile}">
                         <app-presentation></app-presentation>
-                        <hr class='presentation-section-divider card-section-divider'>
+                        <app-invited-showcase></app-invited-showcase>
                     </ion-col>
                 </ion-row>
             </ion-grid>
-        <!-- </div> -->
     </div>
 </ion-content>
 
