@@ -1,3 +1,11 @@
+.bump-down {
+	margin-top: 20px !important;
+}
+
+.bump-up {
+	margin-top: -100px !important;
+}
+
 .bump-up-mobile {
 	margin-top: -300px !important;
 }
@@ -12,14 +20,12 @@
 	margin-top: 165px;
 }
 
-#home-screen {
-	background-color: #eeeeee;
-	height: 130%;
-	margin-top: -50px;
+ion-content {
+	--ion-background-color: #eeeeee;
 }
 
 .main-col {
-	margin-top: -65px;
+	// margin-top: -65px;
 	text-align: center;
 }
 
@@ -27,9 +33,8 @@
 	background-color: white;
 	border-radius: 55px;
 	box-shadow: 380px;
-	height: 130%;
 	left: 0;
-	margin: -65px auto 0 auto;
+	margin: -100px auto 0 auto;
 	margin-left: auto;
 	margin-right: auto;
 	position: absolute;
@@ -42,6 +47,7 @@
 }
 
 svg {
+	margin-top: 5px !important;
 	path,
 	polyline {
 		fill: none;

@@ -2,8 +2,8 @@
     <app-navbar></app-navbar>
     <app-hero></app-hero>
     <div id='home-screen'>
-        <div id='material-card' [ngClass]="{'bump-up-mobile': mobile}">
-            <ion-grid [ngClass]="{'first-card-section-divider-bump-up': mobile}">
+        <!-- <div id='material-card' [ngClass]="{'bump-up-mobile': mobile}"> -->
+            <ion-grid id='material-card' [ngClass]="{'bump-up-mobile': mobile}">
                 <ion-row class='main-col'>
                     <ion-col class='justify-content-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="34.375" height="80.375"
@@ -13,13 +13,13 @@
                             <polyline id="arrow1" points="26.948,58.5 17.136,68.313   7.323,58.5 " />
                             <polyline id="arrow2" points="26.948,65.25 17.136,75.063   7.323,65.25 " />
                         </svg>
-                        <hr class='card-section-divider'>
+                        <hr class='card-section-divider' [ngClass]="{'bump-down': mobile}">
                         <app-presentation></app-presentation>
                         <hr class='presentation-section-divider card-section-divider'>
                     </ion-col>
                 </ion-row>
             </ion-grid>
-        </div>
+        <!-- </div> -->
     </div>
 </ion-content>
 

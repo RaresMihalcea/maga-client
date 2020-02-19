@@ -2,12 +2,6 @@
     height: 1px !important;
 }
 
-#first-path {
-    margin-left: -680px;
-    margin-top: 185px;
-    position: absolute;
-}
-
 .illustration-bump-down {
     margin-top: 75px;
 }
@@ -17,7 +11,7 @@
 }
 
 .illustration-content-container {
-    margin-left: 70px;
+    margin-left: 60px;
     justify-content: center;
     text-align: center;
 }
@@ -45,12 +39,6 @@
     width: 100px;
 }
 
-#second-path {
-    margin-top: 190px;
-    transform: rotate(-55deg);
-    position: absolute;
-}
-
 .section-subtitle {
     margin: 0 auto;
     margin-top: 40px;
@@ -67,6 +55,7 @@
 .presentation-button {
     --border-color: var(--ion-color-secondary);
     --border-radius: 30px;
+    cursor: pointer;
     --color: var(--ion-color-secondary);
     margin-top: 60px;
     --padding-bottom: 25px;
@@ -83,10 +72,4 @@
 .presentation-illustration-container {
     margin-top: 20px;
     justify-content: space-around;
-}
-
-#third-path {
-    margin-left: 680px;
-    margin-top: 180px;
-    position: absolute;
 }
