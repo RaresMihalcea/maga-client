@@ -12,8 +12,8 @@ export class HeroComponent implements OnInit {
     public mobile = true;
     public tablet = true;
 
-    constructor( public breakpointObserver: BreakpointObserver,
-                 public breakpoints: BreakpointsService) { }
+    constructor(public breakpointObserver: BreakpointObserver,
+        public breakpoints: BreakpointsService) { }
 
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
