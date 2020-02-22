@@ -10,14 +10,16 @@ import { HomePage } from './home.page';
 import { HeroComponent } from '../hero/hero.component';
 import { SharedModule } from '../shared/shared.module';
 import { PresentationComponent } from '../presentation/presentation.component';
-import { InvitedShowcaseComponent } from '../invited-showcase/invited-showcase.component'
+import { InvitedShowcaseComponent } from '../invited-showcase/invited-showcase.component';
+import { GuideComponent } from '../guide/guide.component';
 
 @NgModule({
     declarations: [
         HomePage,
         HeroComponent,
         PresentationComponent,
-        InvitedShowcaseComponent
+        InvitedShowcaseComponent,
+        GuideComponent
     ],
     imports: [
         CommonModule,
