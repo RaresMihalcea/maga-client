@@ -12,6 +12,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { InvitedShowcaseComponent } from '../invited-showcase/invited-showcase.component';
 import { GuideComponent } from '../guide/guide.component';
+import { CarouselComponent } from '../carousel/carousel.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,8 @@ import { GuideComponent } from '../guide/guide.component';
         HeroComponent,
         PresentationComponent,
         InvitedShowcaseComponent,
-        GuideComponent
+        GuideComponent,
+        CarouselComponent
     ],
     imports: [
         CommonModule,
@@ -32,7 +35,8 @@ import { GuideComponent } from '../guide/guide.component';
                 path: '',
                 component: HomePage
             }
-        ])
+        ]),
+        NgImageSliderModule
     ],
     providers: [HTTP]
 })
