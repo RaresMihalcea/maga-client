@@ -14,6 +14,7 @@ import { InvitedShowcaseComponent } from '../invited-showcase/invited-showcase.c
 import { GuideComponent } from '../guide/guide.component';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { MapComponent } from '../map/map.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
         PresentationComponent,
         InvitedShowcaseComponent,
         GuideComponent,
-        CarouselComponent
+        CarouselComponent,
+        MapComponent
     ],
     imports: [
         CommonModule,

@@ -8,16 +8,35 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent implements OnInit {
 
 	imageObject: Array<object> = [{
-		image: 'assets/images/avatar.png',
-		thumbImage: 'assets/images/avatar.png',
+		image: 'assets/gallery/Atlantykron-48.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-48.jpg',
 		alt: 'alt of image',
-		title: 'title of image'
-	}, {
-		image: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
-		thumbImage: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
-		title: 'Image title', //Optional: You can use this key if want to show image with title
-		alt: 'Image alt' //Optional: You can use this key if want to show image with alt
-	}
+	}, 
+	{
+		image: 'assets/gallery/Atlantykron-63.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-63.jpg',
+		alt: 'alt of image',
+	},
+	{
+		image: 'assets/gallery/Atlantykron-65.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-65.jpg',
+		alt: 'alt of image',
+	},
+	{
+		image: 'assets/gallery/Atlantykron-92.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-92.jpg',
+		alt: 'alt of image',
+	},
+	{
+		image: 'assets/gallery/Atlantykron-145.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-145.jpg',
+		alt: 'alt of image',
+	},
+	{
+		image: 'assets/gallery/Atlantykron-481.jpg',
+		thumbImage: 'assets/gallery/Atlantykron-481.jpg',
+		alt: 'alt of image',
+	},
 	];
 
 	constructor() { }
