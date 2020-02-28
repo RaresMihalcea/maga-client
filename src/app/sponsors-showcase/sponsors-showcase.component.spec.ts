@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { SponsorsShowcaseComponent } from './sponsors-showcase.component';
 
-describe('MapComponent', () => {
-	let component: MapComponent;
-	let fixture: ComponentFixture<MapComponent>;
+describe('SponsorsShowcaseComponent', () => {
+	let component: SponsorsShowcaseComponent;
+	let fixture: ComponentFixture<SponsorsShowcaseComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [MapComponent],
+			declarations: [SponsorsShowcaseComponent],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
 		})
 			.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(MapComponent);
+		fixture = TestBed.createComponent(SponsorsShowcaseComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});
