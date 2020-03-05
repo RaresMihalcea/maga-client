@@ -4,12 +4,14 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { IonicModule } from '@ionic/angular';
 import { CardPopoverComponent } from '../card-popover/card-popover.component';
 import { FancyCardComponent } from '../fancy-card/fancy-card.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
     declarations: [
         NavbarComponent,
         CardPopoverComponent,
-        FancyCardComponent
+        FancyCardComponent,
+        FooterComponent
     ],
     imports: [
         CommonModule,
@@ -18,7 +20,8 @@ import { FancyCardComponent } from '../fancy-card/fancy-card.component';
     exports: [
         NavbarComponent,
         CardPopoverComponent,
-        FancyCardComponent
+        FancyCardComponent,
+        FooterComponent
     ]
 })
 export class SharedModule { }
