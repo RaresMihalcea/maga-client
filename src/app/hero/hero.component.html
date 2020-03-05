@@ -1,0 +1,14 @@
+<div id='hero-container'  class='overlay-navbar'>
+    <div id='hero-content'>
+        <div id='hero-content-position' class='ion-text-center ion-justify-content-center' fxLayout="column" fxLayoutAlign="center center">
+            <h1 id='hero-title' [ngClass]='{"space-hero-title": !mobile}'>Academia Atlantykron</h1>
+            <ion-button shape='round' class='call-to-action' [ngClass]='{"space-hero-btn": !mobile}'>
+                Înscrie-te în Aventură
+            </ion-button>
+            <div id='scrim'>
+                <h2 class='hero-subheader' *ngIf='tablet' [ngClass]='{"space-hero-subt": !mobile}'>Ediția 31</h2>
+                <h2 class='hero-subheader' *ngIf='tablet'>02 August - 11 August 2020</h2>
+            </div>
+        </div>
+    </div>
+</div>

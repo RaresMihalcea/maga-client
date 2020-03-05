@@ -1,20 +1,101 @@
-<ion-header>
-    <ion-toolbar>
+<ion-header [attr.no-border]='router.url == "/home" ? true : null' [ngClass]='{"ion-header-padding": !mobile && router.url == "/home"}'>
+    <ion-toolbar [ngClass]='{"navbar-home": !mobile && router.url == "/home"}' scroll='false'>
         <ion-buttons slot="start" *ngIf='mobile'>
-            <ion-menu-button></ion-menu-button>
+            <ion-menu-button [attr.color]="router.url == '/home' ? 'light' : 'dark'"></ion-menu-button>
         </ion-buttons>
         <ion-grid>
-            <ion-row class="ion-justify-content-around">
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Logo</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button active'>Acasă</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Invitați</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Cursuri</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Conferințe</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Instructori</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Sponsori</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Contact</ion-button>
-                <ion-button fill='clear' expand='full' color="dark" *ngIf='!mobile' class='navbar-button'>Login</ion-button>
+            <ion-row class="ion-justify-content-center">
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToHome()">
+                    Logo
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    [ngClass]='{"active-home": router.url == "/home"}'
+                    (click)="navigateToHome()"
+                    >
+                    Acasă
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToInvitations()"
+                    [ngClass]='{"active": router.url == "/invitations"}'>
+                    Invitați
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToCourses()"
+                    [ngClass]='{"active": router.url == "/courses"}'>
+                    Cursuri
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToConferences()"
+                    [ngClass]='{"active": router.url == "/conferences"}'>
+                    Conferințe
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToInstructors()"
+                    [ngClass]='{"active": router.url == "/instructors"}'>
+                    Instructori
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToSponsors()"
+                    [ngClass]='{"active": router.url == "/sponsors"}'>
+                    Sponsori
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToContact()"
+                    [ngClass]='{"active": router.url == "/contact"}'>
+                    Contact
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToLogin()"
+                    [ngClass]='{"active": router.url == "/login"}'>
+                    Login
+                </ion-button>
             </ion-row>
-        </ion-grid>
+        </ion-grid >
     </ion-toolbar>
 </ion-header>

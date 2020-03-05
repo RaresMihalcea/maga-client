@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+
+			</ion-col>
+			<ion-col>
+				<ion-item class="select-year">
+					<ion-label>Selectati anul</ion-label>
+					<ion-select>
+						<ion-select-option value="all">Toti anii</ion-select-option>
+						<ion-select-option value="2019">2019</ion-select-option>
+						<ion-select-option value="2018">2018</ion-select-option>
+					</ion-select>
+				</ion-item>
+				<ion-list>  
+                    <ion-item button class="invitate" *ngFor="let invitate of invitations" (click)="presentPopover($event)">
+                        <ion-avatar class="avatar" slot="start">
+                          <img src="../../assets/images/avatar.png">
+                        </ion-avatar>
+                        <ion-label>
+                          <h2 class="name-label">{{invitate.name+' '+invitate.surname}}</h2>
+                        </ion-label>
+                        
+                      </ion-item>
+                                 
+                  </ion-list>
+
+			</ion-col>
+			<ion-col>
+
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+
+</ion-content>

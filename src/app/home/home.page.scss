@@ -1,3 +1,112 @@
+.bump-down {
+	margin-top: 20px !important;
+}
+
+.bump-up {
+	margin-top: -100px !important;
+}
+
+.bump-up-mobile {
+	margin-top: -300px !important;
+}
+
+.card-section-divider {
+	background-color: var(--ion-color-secondary);
+	margin-top: -70px;
+	width: 50px;
+}
+
+.first-card-section-divider-bump-up {
+	margin-top: 165px;
+}
+
+ion-content {
+	--ion-background-color: #eeeeee;
+}
+
+.main-col {
+	text-align: center;
+}
+
+#material-card {
+	background-color: white;
+	border-radius: 55px;
+	box-shadow: 380px;
+	left: 0;
+	margin: -100px auto 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	right: 0;
+	width: 90%;
+}
+
+.presentation-section-divider {
+	margin-top: 70px;
+}
+
+svg {
+	margin-top: 5px !important;
+	path,
+	polyline {
+		fill: none;
+		stroke: black;
+		stroke-width: 2;
+		stroke-linecap: round;
+	}
+}
+
+#scroll-svg {
+	border-bottom: 3px solid color( secondary, base);
+}
+
+path {
+	opacity: 0;
+	animation: stroke 0.9s 0.35s forwards;
+	animation-timing-function: cubic-bezier(1, 0.1, 0.8, 1);
+}
+
+svg {
+	margin: 5em;
+}
+
+@keyframes stroke {
+	100% {
+		opacity: 1;
+		stroke-dashoffset: 0;
+	}
+}
+
 body {
-    background-color: black;
+ 	 background: black;
+}
+
+polyline {
+	opacity: 0;
+	animation: arrows 0.7s infinite, arrow_intro 2.25s forwards;
+
+	+ polyline {
+		animation-delay: 0.1s;
+	}
+}
+
+@keyframes arrow_intro {
+	0%,
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes arrows {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	50% {
+		transform: translate3d(0, -2px, 0);
+	}
 }

@@ -14,17 +14,47 @@ import { BreakpointsService } from './services/breakpoints.service';
 export class AppComponent implements OnInit {
     public appPages = [
         {
-            title: 'Home',
+            title: 'Acasă',
             url: '/home',
             icon: 'home'
         },
         {
-            title: 'List',
-            url: '/list',
-            icon: 'list'
+            title: 'Invitați',
+            url: '/invitations',
+            icon: 'globe'
+        },
+        {
+            title: 'Cursuri',
+            url: '/courses',
+            icon: 'school'
+        },
+        {
+            title: 'Conferințe',
+            url: '/conferences',
+            icon: 'bonfire'
+        },
+        {
+            title: 'Instructori',
+            url: '/instructors',
+            icon: 'medal'
+        },
+        {
+            title: 'Sponsori',
+            url: '/sponsors',
+            icon: 'star'
+        },
+        {
+            title: 'Contact',
+            url: '/contact',
+            icon: 'mail'
+        },
+        {
+            title: 'Login',
+            url: '/login',
+            icon: 'key'
         }
     ];
-    public mobile = true;
+    public mobile: boolean;
 
     constructor(
         private platform: Platform,
@@ -40,6 +70,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
+            console.log(this.mobile);
             this.menu.enable(this.mobile, 'main-menu');
         });
     }
