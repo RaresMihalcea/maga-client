@@ -17,7 +17,10 @@ const routes: Routes = [
     { path: 'instructors', loadChildren: './instructors/instructors.module#InstructorsPageModule' },
     { path: 'sponsors', loadChildren: './sponsors/sponsors.module#SponsorsPageModule' },
     { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
-    { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+    { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+    { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' },
+    { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' }
+
 ];
 
 @NgModule({

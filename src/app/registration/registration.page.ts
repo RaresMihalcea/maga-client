@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.page.html',
-	styleUrls: ['./login.page.scss'],
+	selector: 'app-registration',
+	templateUrl: './registration.page.html',
+	styleUrls: ['./registration.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegistrationPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
@@ -28,8 +28,8 @@ export class LoginPage implements OnInit {
 		});
 	}
 
-	navRegistration(): void {
-		this.navCtrl.navigateForward('/registration', { animated: false });
+	navLogin(): void {
+		this.navCtrl.navigateForward('/login', { animated: false });
 	}
 
 	navForgot(): void {
