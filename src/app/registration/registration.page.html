@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<ion-content>
+    <ion-grid id='material-card'>
+        <ion-row>
+            <ion-col id='form-col'>
+                <ion-item class='form-item'>
+                    <ion-label position='floating'>E-mail</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+                <ion-item class='form-item'>
+                    <ion-label position='floating'>Parolă</ion-label>
+                    <ion-input type='password'></ion-input>
+				</ion-item>
+				<ion-item class='form-item'>
+                    <ion-label position='floating'>Confirmare Parolă</ion-label>
+                    <ion-input type='password'></ion-input>
+                </ion-item>
+                <ion-button fill='outline' class='login-button'>Înregistrare</ion-button>
+                <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
+                <p>Sau</p>
+                <ion-button fill='outline' class='login-button' (click)='navLogin()'>Logare</ion-button>
+            </ion-col>
+            <ion-row *ngIf='!mobile'>
+                <img class='svg-login' src='../../assets/illustrations/Group 2.svg' alt='login illustration'>
+                <img class='svg-login' id='login-blob' src='../../assets/illustrations/blob-shape-login.svg'
+                    alt='login blob'>
+            </ion-row>
+        </ion-row>
+    </ion-grid>
+
+    <app-footer></app-footer>
+</ion-content>

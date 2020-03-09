@@ -1,0 +1,33 @@
+.card-container {
+    align-items: flex-end;
+    width: 180px;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 10px;
+    display: flex;
+    height: 250px;
+    margin: 0 0 60px 30px;
+    margin-top: inherit;
+    z-index: 2;
+}
+
+.card-text {
+    color: white;
+    text-align: left;
+}
+
+.card-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+}
+
+.card-name {
+    margin-bottom: -8px !important;
+}
+
+@media(max-width: 500px) {
+    .card-container {
+        margin-bottom: 30px;
+        margin-right: 20px;
+    }
+}

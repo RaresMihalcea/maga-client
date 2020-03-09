@@ -1,0 +1,65 @@
+<ion-grid class='showcase-grid'>
+	<ion-row>
+		<ion-col class='first-section' justify-content-center size='4' *ngIf='!mobile'>
+			<h2 class='section-title'>
+				Invitați
+			</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+				labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+			</p>
+			<ion-button fill='outline' class='section-button' (click)='navInvitations()'>Vezi Toți Invitații
+			</ion-button>
+		</ion-col>
+		<ion-col size='8' size-lg *ngIf='!mobile' [ngClass]="{'blob-background': !mobile && !tablet}">
+			<ion-row justify-content-center>
+				<app-fancy-card
+					[image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+					[name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'">
+				</app-fancy-card>
+				<app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+					[title]="'Președinte Centrul Pentru Pace Unesco'">
+				</app-fancy-card>
+				<app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+					[name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'">
+				</app-fancy-card>
+			</ion-row>
+			<ion-row *ngIf='!tablet && !mobile' justify-content-center>
+				<app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
+					[name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'">
+				</app-fancy-card>
+				<app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+					[name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+				</app-fancy-card>
+				<app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+					[name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+				</app-fancy-card>
+			</ion-row>
+		</ion-col>
+		<ion-row *ngIf='mobile'>
+			<ion-col class='section-mobile'>
+				<h2 class='section-title'>
+					Invitați
+				</h2>
+				<p class='section-mobile-subtitle'>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+					labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+				</p>
+				<ion-button fill='outline' class='section-button' (click)='navInvitations()'>Vezi Toți Invitații
+				</ion-button>
+			</ion-col>
+		</ion-row>
+		<ion-row justify-content-center class='justify-content-center mobile-images' *ngIf='mobile'>
+			<app-fancy-card
+				[image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+				[name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'">
+			</app-fancy-card>
+			<app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+				[title]="'Președinte Centrul Pentru Pace Unesco'">
+			</app-fancy-card>
+			<app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+				[name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'">
+			</app-fancy-card>
+		</ion-row>
+	</ion-row>
+</ion-grid>

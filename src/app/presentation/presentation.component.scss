@@ -1,0 +1,76 @@
+.divider-thicker {
+    height: 1px !important;
+}
+
+.illustration-bump-down {
+    margin-top: 75px;
+}
+
+.illustration-column {
+    max-width: 230px;
+}
+
+.illustration-content-container {
+    margin-left: 45px;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.illustration-subtitle {
+    font-weight: bold;
+    text-align: left;
+    margin-top: -10px;
+}
+
+.illustration-description {
+    max-width: 156px;
+    font-size: smaller;
+    opacity: 65%;
+    text-align: left;
+}
+
+.illustration-divider {
+    background-color: black;
+    height: 0.5px;
+    margin: 0 auto;
+    margin-left: 15px;
+    opacity: 35%;
+    width: 100px;
+}
+
+.section-subtitle {
+    margin: 0 auto;
+    margin-top: 40px;
+    opacity: 65%;
+    text-align: left;
+    width: 42%;
+}
+
+.section-title { 
+    font-size: 35px;
+    margin-top: 42.5px;
+}
+
+.presentation-button {
+    --border-color: var(--ion-color-secondary);
+    --border-radius: 30px;
+    cursor: pointer;
+    --color: var(--ion-color-secondary);
+    margin-bottom: 85px;
+    margin-top: 60px;
+    --padding-bottom: 25px;
+    --padding-left: 25px;
+    --padding-right: 25px;
+    --padding-top: 25px;
+}
+
+.presentation-illustration {
+    height: 230px;
+    width: 230px;
+}
+
+.presentation-illustration-container {
+    margin-top: 20px;
+    justify-content: space-around;
+}
