@@ -1,5 +1,34 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-
+    <ion-grid id='material-card'>
+        <ion-row  >
+            <ion-col class="message-col">
+                <ion-item color="transparent">
+                    <ion-label position="floating">Subiect</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item color="transparent">
+                    <ion-label position="floating">Text</ion-label>
+                    <ion-textarea></ion-textarea>
+                  </ion-item>
+                  <ion-item color="transparent">
+                    <ion-label position="floating">Adresa ta de mail</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-button fill='outline' class='message-btn'>Trimite</ion-button>
+            </ion-col>
+            <ion-col>
+                <div class="contact-map">
+                    <h1>Contacteaza-ne</h1>
+                    <p>Echipa de organizare Atlantykron munceste din greu pentru a permite magiei sa se intample din nou.</p>
+                    <p>Asigura-te ca ai citit Ghidul Participantului si Conditiile de Participare, precum si alte documente puse la dispozitie de organizatori, inainte de a adresa o intrebare. Iti multumim!</p>
+                    <p>Vrei să ne trimiți un mesaj? Folosește pagina de Facebook sau trimite-ne un mail.</p>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <app-map></app-map>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <app-footer></app-footer>
 </ion-content>

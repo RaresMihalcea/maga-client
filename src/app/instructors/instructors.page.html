@@ -2,162 +2,60 @@
 
 <ion-content>
 
-    <div id="background">
-        <div id="card">
-            
-            <div id="timeline">
-                <h4 (click)="toggle1()" [ngClass]=" status1 == true ? 'year-active' : 'year' " >Instructori 2019</h4>
-                <h4 (click)="toggle2()" [ngClass]=" status2 == true ? 'year-active' : 'year' " >Instructori 2018</h4>
-                <h4 (click)="toggle3()" [ngClass]=" status3 == true ? 'year-active' : 'year' " >Instructori 2017</h4>
-            </div>
-            
-            <div id="main">
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
+  <ion-grid id='material-card'>
+    <ion-row class='main-col'>
+            <ion-col size=2 *ngIf="!mobile && !tablet">
+                <div class='year-selection-div'>
+                    <p (click)="toggle1()" [ngClass]=" status1 == true ? 'active' : 'year-selection' " class='year-selection '>Instructori 2020</p>
+                    <p (click)="toggle2()" [ngClass]=" status2 == true ? 'active' : 'year-selection' " class='year-selection'>Instructori 2019</p>
+                    <p (click)="toggle3()" [ngClass]=" status3 == true ? 'active' : 'year-selection' " class='year-selection'>Instructori 2018</p>
+                    <p (click)="toggle4()" [ngClass]=" status4 == true ? 'active' : 'year-selection' " class='year-selection'>Instructori 2017</p>
+                    <p (click)="toggle5()" [ngClass]=" status5 == true ? 'active' : 'year-selection' " class='year-selection'>Toţi Instructorii</p>
                 </div>
-                <div class="id-card">
-                    <ion-card button>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-                <div class="id-card">
-                    <ion-card>
-                        <img src="../../assets/images/avatar.png" />
-                        <ion-card-header>
-                          <ion-card-subtitle>Ocupatie</ion-card-subtitle>
-                          <ion-card-title>Nume Prenume</ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          Scurta descriere...
-                        </ion-card-content>
-                      </ion-card>                
-                </div>
-            </div>
+            </ion-col>
+            <ion-col justify-content-center>
+                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Știință</h2>
+                <ion-row justify-content-center>
+                    <app-fancy-card
+                        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+                        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+                        [title]="'Președinte Centrul Pentru Pace Unesco'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+                        [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
+                        [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                        [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                        [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                        [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                        [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                        [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                    </app-fancy-card>
+                    <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                        [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                    </app-fancy-card>
+                    
+                </ion-row>
+                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Artă</h2>
 
-        </div>
-      </div>
+                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Cultură</h2>
+
+                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Sport</h2>
+            </ion-col>
+    </ion-row>
+</ion-grid>
+<app-footer></app-footer>
 </ion-content>
