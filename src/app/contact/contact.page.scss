@@ -24,11 +24,17 @@ ion-item{
 
 
 .message-col{
-    padding-left: 150px;
-    padding-right: 50px;    
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
+}
+.contact-map-col{
+    padding-right: 50px;
+    padding-bottom: 100px;
+    padding-left: 50px;
 }
 .message-btn{
     --border-color: var(--ion-color-secondary);
@@ -43,7 +49,5 @@ ion-item{
     --padding-top: 20px;
 }
 .contact-map{
-    padding-right: 150px;
-    padding-bottom: 100px;
-    padding-left: 50px;
+    
 }

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { ContactPage } from './contact.page';
 import { SharedModule } from '../shared/shared.module';
-import { MapComponent } from '../map/map.component';
 
 const routes: Routes = [
     {
@@ -25,7 +24,6 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ],
     declarations: [ContactPage,
-    MapComponent,
 ]
 })
 export class ContactPageModule { }
