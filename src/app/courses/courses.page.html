@@ -5,6 +5,7 @@
         <ion-row class='main-col'>
                 <ion-col size=2 *ngIf="!mobile && !tablet">
                     <div class='year-selection-div'>
+                        <p class='year-selection'>Cursuri 2021</p>
                         <p class='year-selection active'>Cursuri 2020</p>
                         <p class='year-selection'>Cursuri 2019</p>
                         <p class='year-selection'>Cursuri 2018</p>
@@ -13,46 +14,194 @@
                     </div>
                 </ion-col>
                 <ion-col justify-content-center>
+                    <ion-row *ngIf="mobile || tablet">
+                        <ion-item class="select-year central-cards">
+                            <ion-label>Selectati anul</ion-label>
+                            <ion-select>
+                                <ion-select-option value="all">Toti anii</ion-select-option>
+                                <ion-select-option value="2019">2019</ion-select-option>
+                                <ion-select-option value="2018">2018</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-row>
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Știință</h2>
                     <ion-row justify-content-center>
                         <app-fancy-card
                             [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
-                            [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'">
+                            [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
-                            [title]="'Președinte Centrul Pentru Pace Unesco'">
+                            [title]="'Președinte Centrul Pentru Pace Unesco'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
-                            [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'">
+                            [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
-                            [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'">
+                            [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
-                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
-                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
-                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
-                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
-                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'">
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
                         </app-fancy-card>
                         <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
-                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'">
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
                         </app-fancy-card>
-                        
                     </ion-row>
+
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Artă</h2>
+                    <ion-row justify-content-center>
+                        <app-fancy-card
+                            [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+                            [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+                            [title]="'Președinte Centrul Pentru Pace Unesco'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+                            [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
+                            [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                    </ion-row>                    
     
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Cultură</h2>
-    
+                    <ion-row justify-content-center>
+                        <app-fancy-card
+                            [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+                            [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+                            [title]="'Președinte Centrul Pentru Pace Unesco'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+                            [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
+                            [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                    </ion-row>    
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Sport</h2>
+                    <ion-row justify-content-center>
+                        <app-fancy-card
+                            [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+                            [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Guy-Djoken.jpg'" [name]="'Guy Djoken'"
+                            [title]="'Președinte Centrul Pentru Pace Unesco'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Heather-e1561802488420.jpg'"
+                            [name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
+                            [name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/Erisa-Hines-e1436522193301.png'"
+                            [name]="'Erisa Hines'" [title]="'Om de Știință NASA Jet Propulsion Laboratory'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                        <app-fancy-card [image]="'../../assets/images/Invitations/maxresdefault.jpg'"
+                            [name]="'Dr. Cristian Presură'" [title]="'Autor &quot;Fizica Povestită&quot;'"
+                            class='central-cards'>
+                        </app-fancy-card>
+                    </ion-row>                    
                 </ion-col>
         </ion-row>
     </ion-grid>
