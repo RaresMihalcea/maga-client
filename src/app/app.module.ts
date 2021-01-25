@@ -8,11 +8,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { ApiLocationService } from './services/api-location.service';
 import { BreakpointsService } from './services/breakpoints.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Globalization } from '@ionic-native/globalization/ngx';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, "./assets/localization/", ".json");
+}
 
 @NgModule({
     declarations: [
@@ -24,6 +32,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpClientModule,
         IonicModule.forRoot(),
         AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+              provide: TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]
+            }
+        }),
         BrowserAnimationsModule
     ],
     providers: [
@@ -33,6 +48,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ApiLocationService,
         BreakpointsService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent, Globalization]
 })
 export class AppModule { }
