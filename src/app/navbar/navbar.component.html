@@ -97,6 +97,22 @@
                     [ngClass]='{"active": router.url == "/login"}'>
                     Login
                 </ion-button>
+                <ion-button
+                    fill='clear' 
+                    *ngIf='!mobile' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    class='navbar-button'>
+                    <ion-select [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+                        <ion-select-option value="ro">
+                            <img alt='Romanian Flag' src='../../assets/icon/ro_flag.png'/>
+                            RO
+                        </ion-select-option>
+                        <ion-select-option value="en">EN</ion-select-option>
+                    </ion-select>
+                </ion-button>
+        
+            <!-- {{callToAction}} -->
             </ion-row>
         </ion-grid >
     </ion-toolbar>

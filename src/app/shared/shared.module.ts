@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CardPopoverComponent } from '../card-popover/card-popover.component';
 import { FancyCardComponent } from '../fancy-card/fancy-card.component';
 import { FooterComponent } from '../footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { FooterComponent } from '../footer/footer.component';
     ],
     imports: [
         CommonModule,
-        IonicModule
+        IonicModule,
+        FormsModule
     ],
     exports: [
         NavbarComponent,
