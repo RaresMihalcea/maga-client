@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-hero',
@@ -13,7 +14,8 @@ export class HeroComponent implements OnInit {
     public tablet = true;
 
     constructor(public breakpointObserver: BreakpointObserver,
-        public breakpoints: BreakpointsService) { }
+        public breakpoints: BreakpointsService,
+        public translate: TranslateService) { }
 
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {

@@ -4,7 +4,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-// import { Globalization } from '@ionic-native/globalization/ngx';
+import { LocalizationService } from '../services/localization.service';
 
 @Component({
     selector: 'app-navbar',
@@ -17,22 +17,29 @@ export class NavbarComponent implements OnInit {
     public scrollDownNavbarFlag = false;
 
     public callToAction: string;
-    public language = "ro";
+    public language: string = this.translate.getDefaultLang();
 
     constructor(public platform: Platform,
                 public breakpointObserver: BreakpointObserver,
                 public breakpoints: BreakpointsService,
                 public router: Router,
                 public navCtrl: NavController,
-                // private globalization: Globalization,
-                private _translate: TranslateService) {}
-
+                public translate: TranslateService,
+                public localization: LocalizationService) {}
+                
     ngOnInit(): void {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
         });
+        this.localization.languageChange.subscribe(value => {this.language = value});
     }
 
+    changeLanguage() {
+        // this.translate.use(this.language);
+        this.localization.changeLang(this.language);
+        console.log(this.translate.currentLang);
+    }
+    
     navigateToHome(): void {
         // this.router.navigate(['/home']);
         this.navCtrl.navigateForward('/home', {animated: false});
@@ -72,55 +79,5 @@ export class NavbarComponent implements OnInit {
         // this.router.navigate(['./login']);
         this.navCtrl.navigateForward('/login', {animated: false});
     }
-
-    ionViewDidEnter(): void {
-        // this.getDeviceLanguage();
-        this._initTranslate(this.language);
-        // this._initialiseTranslation();
-    }
-    
-    _initialiseTranslation(): void {
-        this._translate.get('callToAction').subscribe((res: string) => {
-            this.callToAction = res;
-            console.log(this.callToAction);
-            // console.log(res);
-        });
-    }
-    
-    public changeLanguage(): void {
-        console.log(this.language)
-        this._translateLanguage();
-    }
-    
-    _translateLanguage(): void {
-        this._translate.use(this.language);
-        this._initialiseTranslation();
-    }
-    
-    _initTranslate(language) {
-        // Set the default language for translation strings, and the current language.
-        this._translate.setDefaultLang('ro');
-        if (language) {
-            this.language = language;
-        }
-        else {
-            // Set your language here
-            this.language = 'en';
-        }
-        this._translateLanguage();
-    }
-    
-    // getDeviceLanguage() {
-    //     if (window.Intl && typeof window.Intl === 'object') {
-    //         this._initTranslate(navigator.language)
-    //     }
-    //     else {
-    //         this.globalization.getPreferredLanguage()
-    //         .then(res => {
-    //             this._initTranslate(res.value)
-    //         })
-    //         .catch(e => { console.log(e); });
-    //     }
-    // }
 
 }

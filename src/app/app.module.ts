@@ -17,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
-// import { Globalization } from '@ionic-native/globalization/ngx';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./assets/localization/", ".json");
@@ -25,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent,
+        AppComponent
     ],
     entryComponents: [],
     imports: [
@@ -35,9 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppRoutingModule,
         TranslateModule.forRoot({
             loader: {
-              provide: TranslateLoader,
-              useFactory: HttpLoaderFactory,
-              deps: [HttpClient]
+                provide: TranslateLoader,
+                useFactory: (HttpLoaderFactory),
+                deps: [HttpClient]
             }
         }),
         BrowserAnimationsModule,
@@ -51,6 +50,5 @@ export function HttpLoaderFactory(http: HttpClient) {
         BreakpointsService
     ],
     bootstrap: [AppComponent]
-        // , Globalization]
 })
 export class AppModule { }

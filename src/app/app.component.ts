@@ -7,7 +7,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from './services/breakpoints.service';
 
 import { TranslateService } from '@ngx-translate/core';
-// import { Globalization } from '@ionic-native/globalization/ngx';
+import { LocalizationService } from './services/localization.service';
 
 @Component({
     selector: 'app-root',
@@ -16,10 +16,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
-    public callToAction: string;
-    public language = "ro";
+    public language: string = this.translate.getDefaultLang();
 
-    
     public appPages = [
         {
             title: 'Acasă',
@@ -71,18 +69,20 @@ export class AppComponent implements OnInit {
         private menu: MenuController,
         public breakpointObserver: BreakpointObserver,
         public breakpoints: BreakpointsService,
-        // private globalization: Globalization,
-        private _translate: TranslateService
+        public translate: TranslateService,
+        public localization: LocalizationService
     ) {
         this.initializeApp();
+        this.localization.languageChange.subscribe(value => {this.language = value});
     }
-
+    
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
             console.log(this.mobile);
             this.menu.enable(this.mobile, 'main-menu');
         });
+        this.localization.init("ro");   
     }
 
     initializeApp() {
@@ -92,54 +92,7 @@ export class AppComponent implements OnInit {
         });
     }
 
-    ionViewDidEnter(): void {
-        // this.getDeviceLanguage();
-        this._initTranslate(this.language);
-        // this._initialiseTranslation();
+    changeLanguage() {
+        this.localization.changeLang(this.language);
     }
-    
-    _initialiseTranslation(): void {
-        this._translate.get('callToAction').subscribe((res: string) => {
-            this.callToAction = res;
-            console.log(this.callToAction);
-            // console.log(res);
-        });
-    }
-    
-    public changeLanguage(): void {
-        console.log(this.language)
-        this._translateLanguage();
-    }
-    
-    _translateLanguage(): void {
-        this._translate.use(this.language);
-        this._initialiseTranslation();
-    }
-    
-    _initTranslate(language) {
-        // Set the default language for translation strings, and the current language.
-        this._translate.setDefaultLang('ro');
-        if (language) {
-            this.language = language;
-        }
-        else {
-            // Set your language here
-            this.language = 'en';
-        }
-        this._translateLanguage();
-    }
-    
-    // getDeviceLanguage() {
-    //     if (window.Intl && typeof window.Intl === 'object') {
-    //         this._initTranslate(navigator.language)
-    //     }
-    //     else {
-    //         this.globalization.getPreferredLanguage()
-    //         .then(res => {
-    //             this._initTranslate(res.value)
-    //         })
-    //         .catch(e => { console.log(e); });
-    //     }
-    // }
-
 }
