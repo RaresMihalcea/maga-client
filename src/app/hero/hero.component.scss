@@ -39,14 +39,22 @@
     font-weight: bolder;
 }
 
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 500px;
+    justify-content: center;
+}
+
 .overlay-navbar {
     margin-top: -90px;
     padding-top: 90px;
 }
 
-.space-hero-btn {
-    margin-top: 30px;
-}
+// .space-hero-btn {
+//     margin-top: 30px;
+// }
 
 .space-hero-subt {
     margin-top: 4%;
