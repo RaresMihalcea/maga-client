@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
     selector: 'app-home',
@@ -9,15 +11,18 @@ import { BreakpointsService } from '../services/breakpoints.service';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+    
     // corsHeaders = new HttpHeaders({
     //     'Content-Type': 'application/json'
     // });
 
     public mobile = true;
+    private language: string = this.translate.currentLang;
 
     constructor(public platform: Platform,
-                public breakpointObserver: BreakpointObserver,
-                public breakpoints: BreakpointsService) { }
+        public breakpointObserver: BreakpointObserver,
+        public breakpoints: BreakpointsService,
+        public translate: TranslateService) { }
 
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -42,5 +47,4 @@ export class HomePage implements OnInit {
     //         this.http.get(this.apiLocationService.apiLocation + '/hello').subscribe(res => { console.log(res) });
     //     }
     // }
-
 }

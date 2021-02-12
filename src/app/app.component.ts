@@ -6,12 +6,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from './services/breakpoints.service';
 
+import { TranslateService } from '@ngx-translate/core';
+import { LocalizationService } from './services/localization.service';
+
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+    public language: string = this.translate.getDefaultLang();
+
     public appPages = [
         {
             title: 'Acasă',
@@ -62,17 +68,21 @@ export class AppComponent implements OnInit {
         private statusBar: StatusBar,
         private menu: MenuController,
         public breakpointObserver: BreakpointObserver,
-        public breakpoints: BreakpointsService
+        public breakpoints: BreakpointsService,
+        public translate: TranslateService,
+        public localization: LocalizationService
     ) {
         this.initializeApp();
+        this.localization.languageChange.subscribe(value => {this.language = value});
     }
-
+    
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
             console.log(this.mobile);
             this.menu.enable(this.mobile, 'main-menu');
         });
+        this.localization.init("ro");   
     }
 
     initializeApp() {
@@ -80,5 +90,9 @@ export class AppComponent implements OnInit {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
+    }
+
+    changeLanguage() {
+        this.localization.changeLang(this.language);
     }
 }

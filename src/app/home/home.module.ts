@@ -16,6 +16,7 @@ import { CarouselComponent } from '../carousel/carousel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { MapComponent } from '../map/map.component';
 import { SponsorsShowcaseComponent } from '../sponsors-showcase/sponsors-showcase.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { SponsorsShowcaseComponent } from '../sponsors-showcase/sponsors-showcas
         IonicModule,
         HttpClientModule,
         SharedModule,
+        TranslateModule.forChild(),
         RouterModule.forChild([
             {
                 path: '',
