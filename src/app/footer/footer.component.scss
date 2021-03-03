@@ -20,7 +20,9 @@
 	border-radius: 10px;
     box-shadow: 380px;
     color: black;
+    display: flex;
     font-size: 20px;
+    justify-content: center;
     left: 0;
     margin: 30px;
 	margin-left: auto;
@@ -28,7 +30,7 @@
     padding: 30px;
     text-decoration: none;
 	right: 0;
-	width: 90%;
+    width: 90%;
 }
 
 .section-title { 

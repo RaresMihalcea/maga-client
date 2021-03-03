@@ -7,6 +7,11 @@
     border-bottom: 3px solid white;
 }
 
+ion-select::part(icon) {
+    color: white;
+    opacity: 100%;
+}
+
 .ion-header-padding {
     padding-top: 30px;
 }

@@ -12,7 +12,7 @@
 			</ion-button>
 		</ion-col>
 		<ion-col size='8' size-lg *ngIf='!mobile' [ngClass]="{'blob-background': !mobile && !tablet}">
-			<ion-row justify-content-center>
+			<ion-row justify-content-center class='mobile-images'>
 				<app-fancy-card
 					[image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
 					[name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'">
@@ -24,7 +24,7 @@
 					[name]="'Heather Caton'" [title]="'Fondatoare World Genesis Foundation'">
 				</app-fancy-card>
 			</ion-row>
-			<ion-row *ngIf='!tablet && !mobile' justify-content-center>
+			<ion-row *ngIf='!tablet && !mobile' class='mobile-images' justify-content-center>
 				<app-fancy-card [image]="'../../assets/images/Invitations/florin-munteanu2-e1495287157899.jpg'"
 					[name]="'Dr. Florin Munteanu'" [title]="'Președinte Centrul de Studii Complexe'">
 				</app-fancy-card>

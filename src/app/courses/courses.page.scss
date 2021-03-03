@@ -1,6 +1,11 @@
 .active {
     border-right: 9px solid var(--ion-color-secondary);
     margin-right: -7px;
+    font-weight: bold;
+}
+
+.central-cards {
+    margin: 0 auto !important;
 }
 
 ion-content {

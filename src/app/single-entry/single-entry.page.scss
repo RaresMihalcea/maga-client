@@ -1,0 +1,64 @@
+ion-content {
+    --ion-background-color: #eeeeee;
+}
+
+.single-entry-image {
+	// background: 
+    // linear-gradient(
+    //     rgba(68, 68, 68, 0.1), 
+    //     rgba(17, 17, 17, 0.7)
+    // ),
+	// url('../../assets/images/0ba3d60362c7e6d256cfc1f37156bad9.jpg');
+	// background: rgba(0, 0, 0, 0.8);
+//   box-shadow: 0 0 5rem rgba(0, 0, 0.5);
+	margin: 0 auto;
+	justify-content: center;
+	max-height: 365px;
+	width: 100vw;
+	// margin-top: -10px;
+}
+
+.single-entry-title {
+    position: absolute;
+    /* display: block; */
+    /* margin: 0 auto; */
+    /* width: 80%; */
+    /* max-width: 500px; */
+    /* justify-content: center; */
+    text-align: center;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    margin-top: 5vh;
+	font-size: 42px;
+    color: white;
+}
+
+#material-card {
+    background-color: white;
+	border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+	box-shadow: 380px;
+	left: 0;
+	margin: 0 auto 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	// margin-top: -10px;
+    right: 0;
+    // padding-top: 60px;
+	width: 90%;
+}
+
+#overlay {
+	background: 
+    linear-gradient(
+        rgba(68, 68, 68, 0.1), 
+        rgba(17, 17, 17, 0.7)
+    ),
+	url('../../assets/images/0ba3d60362c7e6d256cfc1f37156bad9.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 340px;
+    width: 100vw;
+}
