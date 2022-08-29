@@ -11,7 +11,7 @@ export class ApiLocationService {
     private _apiLocation = '';
 
     constructor() {
-        this._apiLocation = 'http://' + this._ip + ':8080';
+        this._apiLocation = 'http://maga-server/w';
     }
 
     get apiLocation(): string {
