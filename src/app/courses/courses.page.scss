@@ -4,6 +4,14 @@
     font-weight: bold;
 }
 
+.card-grid {
+    width: 95%;
+    display: grid;
+    justify-items: center;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
 .central-cards {
     margin: 0 auto !important;
 }

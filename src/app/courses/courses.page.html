@@ -13,7 +13,7 @@
                         <p class='year-selection'>Toate Cursurile</p>
                     </div>
                 </ion-col>
-                <ion-col justify-content-center>
+                <ion-col justify-content-start float-left>
                     <ion-row *ngIf="mobile || tablet">
                         <ion-item class="select-year central-cards">
                             <ion-label>Selectati anul</ion-label>
@@ -25,7 +25,7 @@
                         </ion-item>
                     </ion-row>
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Știință</h2>
-                    <ion-row justify-content-center>
+                    <ion-row class="card-grid" >
                         <app-fancy-card
                             [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
                             [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
@@ -70,7 +70,7 @@
                     </ion-row>
 
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Artă</h2>
-                    <ion-row justify-content-center>
+                    <ion-row class="card-grid" >
                         <app-fancy-card
                             [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
                             [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
@@ -115,7 +115,7 @@
                     </ion-row>                    
     
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Cultură</h2>
-                    <ion-row justify-content-center>
+                    <ion-row class="card-grid" >
                         <app-fancy-card
                             [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
                             [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
@@ -159,7 +159,7 @@
                         </app-fancy-card>
                     </ion-row>    
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Sport</h2>
-                    <ion-row justify-content-center>
+                    <ion-row class="card-grid" >
                         <app-fancy-card
                             [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
                             [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
