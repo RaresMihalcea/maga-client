@@ -1,8 +1,36 @@
 <app-navbar></app-navbar>
 
 <ion-content>
+
+  <div id='hero-container'  class='overlay-navbar'>
+    <h1 class="single-entry-title">{{title}}</h1>
+
+  </div>
+
+
   <ion-grid id='material-card'>
     <ion-row class='main-col'>
+      <p>{{description}}</p>
+
+
+    </ion-row>
+
+    <ion-row justify-content-center>
+      <app-fancy-card
+        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+        >
+      </app-fancy-card>
+      <app-fancy-card
+        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+        >
+      </app-fancy-card>
+      <app-fancy-card
+        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
+        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
+        >
+      </app-fancy-card>
     </ion-row>
   </ion-grid>
 

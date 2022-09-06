@@ -5,14 +5,32 @@ ion-content {
 #material-card {
     background-color: white;
 	border-radius: 10px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
 	box-shadow: 380px;
 	left: 0;
-	margin: 0 auto 0 auto;
+	margin: -70px auto 0 auto;
 	margin-left: auto;
 	margin-right: auto;
     right: 0;
     padding-top: 60px;
 	width: 90%;
+}
+
+#hero-container {
+    background: 
+    linear-gradient(
+        rgba(68, 68, 68, 0.1), 
+        rgba(17, 17, 17, 0.7)
+    ),
+    url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 35%;
+    width: 100%;
+}
+
+.single-entry-title {
+	color: white;
+	text-align: center;
+    margin-top: 0;
+    padding: 104px;
 }
