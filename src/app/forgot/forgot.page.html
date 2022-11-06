@@ -3,12 +3,14 @@
 <ion-content>
     <ion-grid id='material-card'>
         <ion-row>
-            <ion-col id='form-col'>
+            <ion-col (keydown.enter)="forgotEmail()" id='form-col'>
                 <ion-item class='form-item'>
-                    <ion-label position='floating'>E-mail</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position='floating'>*E-mail</ion-label>
+                    <ion-input [(ngModel)]="email" ngModel email required></ion-input>
+                    <ion-note slot="error"></ion-note>
                 </ion-item>
-                <ion-button fill='outline' class='login-button'>Trimite</ion-button>
+                <ion-button fill='outline' class='login-button' (click)="forgotEmail()">Trimite</ion-button>
+                <p *ngIf="displayError" class="error-msg">Adresa email sau parola este greșită</p>
                 <p>Ai deja un cont?</p>
                 <ion-button fill='outline' class='login-button' (click)='navLogin()'>Logare</ion-button>
             </ion-col>

@@ -2,6 +2,12 @@
     color: var(--ion-color-secondary);
 }
 
+.comp-logo {
+    max-width: 20px;
+    max-height: 20px;
+    margin-right: 10px;
+}
+
 #forgot {
     cursor: pointer;
 }
@@ -13,6 +19,10 @@
 .form-item {
     margin: 30px auto 30px auto;
     max-width: 400px;
+}
+
+.error-msg {
+    color: red;
 }
 
 ion-content {
@@ -35,6 +45,11 @@ ion-content {
     --padding-left: 25px;
     --padding-right: 25px;
     --padding-top: 20px;
+}
+
+.registration-btn {
+    width: 100%;
+    justify-content: center;
 }
 
 #material-card {

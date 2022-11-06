@@ -18,6 +18,13 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './services/auth.service';
+
+
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./assets/localization/", ".json");
 }
@@ -40,14 +47,18 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         }),
         BrowserAnimationsModule,
-        FormsModule
+        FormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule
     ],
     providers: [
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         ApiLocationService,
-        BreakpointsService
+        BreakpointsService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })

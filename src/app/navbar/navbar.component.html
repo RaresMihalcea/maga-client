@@ -91,7 +91,16 @@
                     fill='clear' 
                     expand='full' 
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
-                    *ngIf='!mobile' 
+                    *ngIf='!mobile && isLoggedIn' 
+                    class='navbar-button'
+                    (click)="logout()">
+                    Logout
+                </ion-button>      
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile && !isLoggedIn' 
                     class='navbar-button'
                     (click)="navigateToLogin()"
                     [ngClass]='{"active": router.url == "/login"}'>

@@ -3,6 +3,8 @@ import { BreakpointsService } from '../services/breakpoints.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
+import firebase from 'firebase/app';
 
 @Component({
     selector: 'app-hero',
@@ -17,7 +19,8 @@ export class HeroComponent implements OnInit {
     constructor(public breakpointObserver: BreakpointObserver,
         public breakpoints: BreakpointsService,
         public translate: TranslateService,
-        public http: HttpClient) { }
+        public http: HttpClient,
+        public auth: AuthService) { }
 
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -27,8 +30,15 @@ export class HeroComponent implements OnInit {
             this.tablet = (result.matches) ? true : false;
         });
 
+        setTimeout(() => this.makeReqTest(), 3000)
+    }
 
-        let req = this.http.get('http://localhost:8080/hello').subscribe(res => console.log(res))
+    async makeReqTest() {
+        const usertoken = await firebase.auth().currentUser.getIdToken()
+        let apiRoute = `http://localhost:8080/hello?token=${usertoken}`;
+        console.log(apiRoute)
+        console.log(usertoken)
+        let req = this.http.get(apiRoute).subscribe(res => console.log(res))
     }
 
 }

@@ -22,6 +22,10 @@ const routes: Routes = [
     { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },  {
     path: 'single-entry',
     loadChildren: () => import('./single-entry/single-entry.module').then( m => m.SingleEntryPageModule)
+  },
+  {
+    path: 'verify-email-address',
+    loadChildren: () => import('./verify-email-address/verify-email-address.module').then( m => m.VerifyEmailAddressPageModule)
   }
 
 

@@ -2,6 +2,12 @@
     color: var(--ion-color-secondary);
 }
 
+.comp-logo {
+    max-width: 20px;
+    max-height: 20px;
+    margin-right: 10px;
+}
+
 #forgot {
     cursor: pointer;
 }
@@ -15,6 +21,10 @@
     max-width: 400px;
 }
 
+.error-msg {
+    color: red;
+}
+
 ion-content {
     --ion-background-color: #eeeeee;
 }
@@ -22,21 +32,6 @@ ion-content {
 #login-blob {
     margin-left: -280px;
     z-index: 0;
-}
-
-.comp-logo {
-    max-width: 20px;
-    max-height: 20px;
-    margin-right: 10px;
-}
-
-.error-msg {
-    color: red;
-}
-
-.login-row-btn {
-    width: 100%;
-    justify-content: center;
 }
 
 .login-button {
@@ -50,6 +45,16 @@ ion-content {
     --padding-left: 25px;
     --padding-right: 25px;
     --padding-top: 20px;
+}
+
+.registration-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.email-verification-message{
+    text-align: left;
+    margin: 40px;
 }
 
 #material-card {
