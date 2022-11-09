@@ -4,16 +4,20 @@
     <ion-grid id='material-card'>
         <ion-row>
             <ion-col id='form-col'>
-                <ion-item class='form-item'>
-                    <ion-label position='floating'>Adresa ta E-mail</ion-label>
-                    <ion-input></ion-input>
+                <ion-item class='form-item' (keyup.enter)="sendEmail()">
+                    <ion-label position='floating'>*Adresa ta E-mail</ion-label>
+                    <ion-input [(ngModel)]="emailAddress" ngModel email required></ion-input>
                 </ion-item>
                 <ion-item id='message' class='form-item'>
-                    <ion-label position='floating'>Mesajul</ion-label>
-                    <ion-textarea auto-grow minlength=50 maxlength=1000></ion-textarea>
+                    <ion-label position='floating'>*Mesajul</ion-label>
+                    <ion-textarea auto-grow minlength=50 maxlength=1000 [(ngModel)]="emailBody" required></ion-textarea>
                 </ion-item>
-                <ion-button fill='outline' class='login-button'>Trimitere</ion-button>
+                <p *ngIf="displaySuccess" class="success-msg">Email trimis cu succes!</p>
                 
+                <p *ngIf="displayFailedApiReq" class="error-msg">Ne pare rau, mesajul nu a putut fi trimis</p>
+
+                <p *ngIf="displayError" class="error-msg">Adresa email este greșită sau mesajul este gol</p>
+                <ion-button fill='outline' class='login-button' (click)="sendEmail()">Trimitere</ion-button>
             </ion-col>
 
             <ion-row *ngIf='!mobile'>
