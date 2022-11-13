@@ -19,7 +19,8 @@ const routes: Routes = [
     { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' },
-    { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },  {
+    { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },
+  {
     path: 'single-entry',
     loadChildren: () => import('./single-entry/single-entry.module').then( m => m.SingleEntryPageModule)
   },

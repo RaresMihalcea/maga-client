@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy, NavParams } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -23,7 +23,6 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services/auth.service';
-
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./assets/localization/", ".json");
@@ -58,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         ApiLocationService,
         BreakpointsService,
-        AuthService
+        AuthService,
+        NavParams
     ],
     bootstrap: [AppComponent]
 })
