@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CardPopoverComponent } from '../card-popover/card-popover.component';
-import { PopoverController } from '@ionic/angular';
-import { InvitatiService } from '../services/invitati.service';
+import { NavController } from '@ionic/angular';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointsService } from '../services/breakpoints.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ActiveYearService } from '../services/active-year.service';
+import { Invited } from '../models/invited';
 
 @Component({
     selector: 'app-invitations',
@@ -10,21 +13,69 @@ import { InvitatiService } from '../services/invitati.service';
 })
 export class InvitationsPage implements OnInit {
 
-    public invitations = [];
+    public mobile = true;
+	public tablet = true;
 
-    constructor(public popoverController: PopoverController,  private invitatiService: InvitatiService) {
-    }
+	invited: Invited[] = [];
+	activeYear: number;
+	defaultYear: number;
+    alreadyFetchedYears: number[] = [];
+
+    constructor(public breakpointObserver: BreakpointObserver,
+		public breakpoints: BreakpointsService,
+		public firestore: AngularFirestore,
+		public activeYearService: ActiveYearService,
+		public navCtrl: NavController) { }
+
     ngOnInit() {
-        this.invitations = this.invitatiService.getInvitati();
+        this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+			this.mobile = (result.matches) ? true : false;
+		});
+		this.breakpointObserver.observe(this.breakpoints.tablet).subscribe(result => {
+			this.tablet = (result.matches) ? true : false;
+		});
+
+		this.defaultYear = this.activeYearService.getDefaultActiveYear();
+		this.activeYear = this.defaultYear;
+		this.fetchData()
     }
 
-    async presentPopover(ev: Event) {
-        const popover = await this.popoverController.create({
-            component: CardPopoverComponent,
-            event: ev,
-            translucent: true
-        });
-        return await popover.present();
-    }
+    async fetchData() {
+		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			const invitedQuery = this.firestore.collection('invitations').ref.where("year", "==", this.activeYear)
+
+			await invitedQuery.get().then(data => { 
+				data.forEach(doc => {
+					const fetchedInvited: Invited = doc.data() as Invited;
+					fetchedInvited.id = doc.id
+					this.invited.push(fetchedInvited)
+				})
+			})
+
+			this.alreadyFetchedYears.push(this.activeYear)
+		}
+	} 
+
+    changeActiveYear(activeYear: number) {
+		this.activeYear = activeYear
+		this.fetchData();
+		console.log(this.activeYear)
+	}
+
+	filter(invited: Invited[]): Invited[] {
+		let result: Invited[] = []
+
+		invited.forEach(el => {
+			if(el.year == this.activeYear) {
+				result.push(el)
+			}
+		})
+
+		return result
+	}
+
+	navToSingleEntry(invited) {
+		this.navCtrl.navigateForward(`/single-entry?type=invitations&id=${invited.id}`, {animated: false});
+	}
 
 }

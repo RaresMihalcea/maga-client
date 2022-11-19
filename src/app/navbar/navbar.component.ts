@@ -67,8 +67,8 @@ export class NavbarComponent implements OnInit {
         this.navCtrl.navigateForward('/instructors', {animated: false});
     }
 
-    navigateToSponsors(): void {
-        this.navCtrl.navigateForward('/sponsors', {animated: false});
+    navigateToPartners(): void {
+        this.navCtrl.navigateForward('/partners', {animated: false});
     }
 
     navigateToContact(): void {

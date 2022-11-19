@@ -46,8 +46,8 @@ export class AppComponent implements OnInit {
             icon: 'medal'
         },
         {
-            title: 'Sponsori',
-            url: '/sponsors',
+            title: 'Parteneri',
+            url: '/partners',
             icon: 'star'
         },
         {

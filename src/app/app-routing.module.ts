@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'courses', loadChildren: './courses/courses.module#CoursesPageModule' },
     { path: 'conferences', loadChildren: './conferences/conferences.module#ConferencesPageModule' },
     { path: 'instructors', loadChildren: './instructors/instructors.module#InstructorsPageModule' },
-    { path: 'sponsors', loadChildren: './sponsors/sponsors.module#SponsorsPageModule' },
+    { path: 'partners', loadChildren: './sponsors/sponsors.module#SponsorsPageModule' },
     { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
     { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
     { path: 'forgot', loadChildren: './forgot/forgot.module#ForgotPageModule' },

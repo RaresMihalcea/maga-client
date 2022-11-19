@@ -3,7 +3,6 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { Course } from '../models/course';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { ActiveYearService } from '../services/active-year.service';
 import { NavController } from '@ionic/angular';
 
@@ -20,6 +19,7 @@ export class CoursesPage implements OnInit {
 	courses: Course[] = [];
 	activeYear: number;
 	defaultYear: number;
+	alreadyFetchedYears: number[] = []
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -41,14 +41,24 @@ export class CoursesPage implements OnInit {
 	}
 
 	async fetchData() {
-		const courseQuery = await this.firestore.collection('courses').valueChanges({idField: 'id'})
-		courseQuery.subscribe(data => { 
-			data.map(el => this.courses.push(el as Course)) 
-		})
+		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			const courseQuery = this.firestore.collection('courses').ref.where("year", "==", this.activeYear)
+
+			await courseQuery.get().then(data => { 
+				data.forEach(doc => {
+					const fetchedCourse: Course = doc.data() as Course;
+					fetchedCourse.id = doc.id
+					this.courses.push(fetchedCourse)
+				})
+			})
+
+			this.alreadyFetchedYears.push(this.activeYear)
+		}
 	} 
 
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
+		this.fetchData();
 		console.log(this.activeYear)
 	}
 
@@ -65,7 +75,6 @@ export class CoursesPage implements OnInit {
 	}
 
 	navToSingleEntry(course) {
-		console.log(course)
 		this.navCtrl.navigateForward(`/single-entry?type=courses&id=${course.id}`, {animated: false});
 	}
 
