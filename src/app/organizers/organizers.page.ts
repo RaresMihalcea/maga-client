@@ -37,7 +37,6 @@ export class OrganizersPage implements OnInit {
     const organizersQuery = this.firestore.collection('organizers').ref
 
     await organizersQuery.get().then(data => { 
-      console.log('here')
       data.forEach(doc => {
         const fetchedorganizers: Organizer = doc.data() as Organizer;
         fetchedorganizers.id = doc.id

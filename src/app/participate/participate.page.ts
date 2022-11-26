@@ -1,4 +1,7 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
   selector: 'app-participate',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParticipatePage implements OnInit {
 
-  constructor() { }
+  public menuBreakpoint = true;
+  public isLoggedIn: boolean;
+  public step: string;
+  public stepDisplay = {
+    'login': 'Logare',
+    'guide': 'Ghidul Participantului',
+    'rules': 'Condiții de Participare',
+    'enrollForm': 'Formular înscrieri',
+    'otherParticipants': 'Vezi Participanții'
+  }
+
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+		public breakpoints: BreakpointsService,
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
+    this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+			this.menuBreakpoint = (result.matches) ? true : false;
+		});
+
+    this.isLoggedIn = this.auth.isLoggedInStatus;
+    this.step = this.isLoggedIn ? 'guide' : 'login'
+  }
+
+  segmentChanged(value: string): void {
+    console.log(value)
+    this.step = value
   }
 
 }

@@ -136,14 +136,7 @@ export class AuthService {
   }
 
   async getToken(): Promise<string> {
-    // let userToken: any;
-    // try {
-    //   userToken = await firebase.auth().currentUser.getIdToken();
-    // } catch(error) {
-    //   userToken = "empty";
-    // }
     const userToken = await firebase.auth().currentUser.getIdToken()
-    console.log(userToken)
 
     return userToken
   }
