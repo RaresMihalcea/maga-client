@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<ion-content>
+    <ion-grid id='material-card'>
+        <ion-row class='main-col'>
+            <ion-col justify-content-start float-left>
+                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Organizatori</h2>
+                <p class='section' [ngClass]='{"section-center": mobile || tablet}'>Echipa de organizare isi oferta timpul si efortul in mod voluntar pentru a-ti asigura o experienta cat mai placuta in cadrul Academiei.                    </p>
+                <ion-row class="card-grid" >
+                    <app-fancy-card 
+                        *ngFor="let organizer of organizers"
+                        class='central-cards'
+                        [image]="organizer.pictureLink"
+                        [title]="organizer.roTitle"   
+                        [name]="organizer.name"
+                    ></app-fancy-card>
+                </ion-row>               
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <app-footer></app-footer>
+</ion-content>

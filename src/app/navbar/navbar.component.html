@@ -7,15 +7,6 @@
         </ion-buttons>
         <ion-grid>
             <ion-row class="ion-justify-content-center">
-                <!-- <ion-button 
-                    fill='clear' 
-                    expand='full' 
-                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
-                    *ngIf='!mobile && router.url != "/home"' 
-                    class='navbar-button'
-                    (click)="navigateToHome()">
-                    Logo
-                </ion-button> -->
                 <ion-button 
                     fill='clear' 
                     expand='full' 
@@ -91,6 +82,26 @@
                     fill='clear' 
                     expand='full' 
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToOrganizers()"
+                    [ngClass]='{"active": router.url == "/organizers"}'>
+                    Organizatori
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToParticipate()"
+                    [ngClass]='{"active": router.url == "/participate"}'>
+                    Participă
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile && isLoggedIn' 
                     class='navbar-button'
                     (click)="logout()">
@@ -119,8 +130,6 @@
                         <ion-select-option value="en">EN</ion-select-option>
                     </ion-select>
                 </ion-button>
-        
-            <!-- {{callToAction}} -->
             </ion-row>
         </ion-grid >
     </ion-toolbar>

@@ -30,8 +30,8 @@
                             *ngFor="let conference of filter(conferences)"
                             class='central-cards'
                             [image]="conference.pictureLink"
-                            [title]="conference.instructors"
-                            [name]="conference.dateAndTime"   
+                            [name]="conference.roTitle"
+                            [title]="conference.instructors"   
                             (click)="navToSingleEntry(conference)"
                         ></app-fancy-card>
                     </ion-row>

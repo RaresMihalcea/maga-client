@@ -27,8 +27,14 @@ const routes: Routes = [
   {
     path: 'verify-email-address',
     loadChildren: () => import('./verify-email-address/verify-email-address.module').then( m => m.VerifyEmailAddressPageModule)
+  },
+  {
+    path: 'organizers',
+    loadChildren: () => import('./organizers/organizers.module').then( m => m.OrganizersPageModule)
+  },  {
+    path: 'participate',
+    loadChildren: () => import('./participate/participate.module').then( m => m.ParticipatePageModule)
   }
-
 
 ];
 

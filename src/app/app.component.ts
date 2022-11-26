@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
         {
             title: 'Conferințe',
             url: '/conferences',
-            icon: 'bonfire'
+            icon: 'chatbubbles'
         },
         {
             title: 'Instructori',
@@ -49,6 +49,16 @@ export class AppComponent implements OnInit {
             title: 'Parteneri',
             url: '/partners',
             icon: 'star'
+        },
+        {
+            title: 'Organizatori',
+            url: '/organizers',
+            icon: 'extension-puzzle'
+        },
+        {
+            title: 'Particiă',
+            url: '/participate',
+            icon: 'bonfire'
         },
         {
             title: 'Contact',

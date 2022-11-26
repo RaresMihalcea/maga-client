@@ -24,6 +24,16 @@
                             </ion-select>
                         </ion-item>
                     </ion-row>
+                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>ONG-uri Organizatoare</h2>
+                    <ion-row class="card-grid" >
+                        <app-fancy-card 
+                            *ngFor="let partner of filter(partners, 'ONG-uri Organizatoare')"
+                            class='central-cards'
+                            [image]="partner.pictureLink"
+                            [name]="partner.roTitle"   
+                            (click)="navToSingleEntry(partner)"
+                        ></app-fancy-card>
+                    </ion-row>
                     <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Agenții Guvernamentale</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 

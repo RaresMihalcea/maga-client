@@ -42,7 +42,6 @@ export class NavbarComponent implements OnInit {
     }
 
     changeLanguage() {
-        // this.translate.use(this.language);
         this.localization.changeLang(this.language);
         console.log(this.translate.currentLang);
     }
@@ -69,6 +68,14 @@ export class NavbarComponent implements OnInit {
 
     navigateToPartners(): void {
         this.navCtrl.navigateForward('/partners', {animated: false});
+    }
+
+    navigateToOrganizers(): void {
+        this.navCtrl.navigateForward('/organizers', {animated: false});
+    }
+
+    navigateToParticipate(): void {
+        this.navCtrl.navigateForward('/participate', {animated: false});
     }
 
     navigateToContact(): void {
