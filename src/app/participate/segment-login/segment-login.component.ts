@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-segment-login',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SegmentLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {}
+
+  navigateToLogin(): void {
+    this.navCtrl.navigateForward('/login', {animated: false});
+  }
 
 }
