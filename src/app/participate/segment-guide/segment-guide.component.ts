@@ -1,4 +1,6 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { BreakpointsService } from 'src/app/services/breakpoints.service';
 
 @Component({
   selector: 'app-segment-guide',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SegmentGuideComponent implements OnInit {
 
-  constructor() { }
+  public menuBreakpoint = true;
 
-  ngOnInit() {}
+  constructor(public breakpointObserver: BreakpointObserver, public breakpoints: BreakpointsService,) { }
+
+  ngOnInit() {
+    this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+			this.menuBreakpoint = (result.matches) ? true : false;
+		});
+  }
 
 }
