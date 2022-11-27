@@ -8,6 +8,11 @@ import { ParticipatePageRoutingModule } from './participate-routing.module';
 
 import { ParticipatePage } from './participate.page';
 import { SharedModule } from '../shared/shared.module';
+import { SegmentFormComponent } from './segment-form/segment-form.component';
+import { SegmentGuideComponent } from './segment-guide/segment-guide.component';
+import { SegmentLoginComponent } from './segment-login/segment-login.component';
+import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
+import { SegmentParticipantsComponent } from './segment-participants/segment-participants.component';
 
 @NgModule({
   imports: [
@@ -17,6 +22,13 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     ParticipatePageRoutingModule
   ],
-  declarations: [ParticipatePage]
+  declarations: [
+    ParticipatePage,
+    SegmentLoginComponent,
+    SegmentGuideComponent,
+    SegmentRulesComponent,
+    SegmentFormComponent,
+    SegmentParticipantsComponent
+  ]
 })
 export class ParticipatePageModule {}

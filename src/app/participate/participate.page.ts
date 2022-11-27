@@ -37,7 +37,6 @@ export class ParticipatePage implements OnInit {
   }
 
   segmentChanged(value: string): void {
-    console.log(value)
     this.step = value
   }
 

@@ -5,7 +5,7 @@
         <ion-row class='main-col'>
             <ion-col justify-content-start float-left> 
                 <ion-row *ngIf="menuBreakpoint">
-                    <ion-item class="select-year central-cards">
+                    <ion-item class="select-step central-cards">
                         <ion-label>Selectați Pasul</ion-label>
                         <ion-select (ionChange)="segmentChanged($event.target.value)" [(ngModel)]="step">
                             <ion-select-option *ngFor="let stepOption of ['login', 'guide', 'rules', 'enrollForm', 'otherParticipants']"
@@ -30,7 +30,14 @@
                         <ion-label>{{stepDisplay.otherParticipants}}</ion-label>
                       </ion-segment-button>
                 </ion-segment>
-
+                
+                <ion-col>
+                  <app-segment-login *ngIf="step == 'login'"></app-segment-login>
+                  <app-segment-guide *ngIf="step == 'guide'"></app-segment-guide>
+                  <app-segment-rules *ngIf="step == 'rules'"></app-segment-rules>
+                  <app-segment-form *ngIf="step == 'enrollForm'"></app-segment-form>
+                  <app-segment-participants *ngIf="step == 'otherParticipants'"></app-segment-participants>
+                </ion-col>
 
             </ion-col>
         </ion-row>
