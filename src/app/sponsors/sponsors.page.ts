@@ -20,6 +20,7 @@ export class SponsorsPage implements OnInit {
 	activeYear: number;
 	defaultYear: number;
 	alreadyFetchedYears: number[] = []
+	alreadyFetchedPartners: Set<string> = new Set();
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -42,13 +43,16 @@ export class SponsorsPage implements OnInit {
 
 	async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
-			const partnerQuery = this.firestore.collection('partners').ref.where("year", "==", this.activeYear)
+			const partnerQuery = this.firestore.collection('partners').ref.where("years", 'array-contains', this.activeYear)
 
 			await partnerQuery.get().then(data => { 
 				data.forEach(doc => {
 					const fetchedpartner: Partner = doc.data() as Partner;
 					fetchedpartner.id = doc.id
-					this.partners.push(fetchedpartner)
+					if(!this.alreadyFetchedPartners.has(fetchedpartner.id)) {
+						this.partners.push(fetchedpartner)
+						this.alreadyFetchedPartners.add(fetchedpartner.id)
+					}
 				})
 			})
 
@@ -59,14 +63,13 @@ export class SponsorsPage implements OnInit {
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
 		this.fetchData();
-		console.log(this.activeYear)
 	}
 
 	filter(partners: Partner[], category: string): Partner[] {
 		let result: Partner[] = []
 
 		partners.forEach(partner => {
-			if(partner.year == this.activeYear && partner.category == category) {
+			if(partner.years.includes(this.activeYear) && partner.category == category) {
 				result.push(partner)
 			}
 		})

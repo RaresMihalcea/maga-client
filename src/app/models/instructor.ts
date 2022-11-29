@@ -2,7 +2,7 @@ export interface Instructor {
 
     id: string;
     name: string;
-    year: number;
+    years: number[];
     participationYears: number[];
     roTitle: string;
     enTitle: string;

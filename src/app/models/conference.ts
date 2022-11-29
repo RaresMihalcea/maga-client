@@ -1,7 +1,7 @@
 export interface Conference {
 
     id: string;
-    year: number;
+    years: number[];
     roTitle: string;
     enTitle: string;
     pictureLink: string;

@@ -20,6 +20,7 @@ export class InvitationsPage implements OnInit {
 	activeYear: number;
 	defaultYear: number;
     alreadyFetchedYears: number[] = [];
+	alreadyFetchedInvitations: Set<string> = new Set();
 
     constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -42,13 +43,16 @@ export class InvitationsPage implements OnInit {
 
     async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
-			const invitedQuery = this.firestore.collection('invitations').ref.where("year", "==", this.activeYear)
+			const invitedQuery = this.firestore.collection('invitations').ref.where("years", 'array-contains', this.activeYear)
 
 			await invitedQuery.get().then(data => { 
 				data.forEach(doc => {
 					const fetchedInvited: Invited = doc.data() as Invited;
 					fetchedInvited.id = doc.id
-					this.invited.push(fetchedInvited)
+					if(!this.alreadyFetchedInvitations.has(fetchedInvited.id)) {
+						this.invited.push(fetchedInvited)
+						this.alreadyFetchedInvitations.add(fetchedInvited.id)
+					}
 				})
 			})
 
@@ -66,7 +70,7 @@ export class InvitationsPage implements OnInit {
 		let result: Invited[] = []
 
 		invited.forEach(el => {
-			if(el.year == this.activeYear) {
+			if(el.years.includes(this.activeYear)) {
 				result.push(el)
 			}
 		})

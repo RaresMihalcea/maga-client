@@ -20,6 +20,7 @@ export class InstructorsPage implements OnInit {
 	activeYear: number;
 	defaultYear: number;
     alreadyFetchedYears: number[] = [];
+	alreadyFetchedInstructors: Set<string> = new Set();
 
     constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -42,14 +43,17 @@ export class InstructorsPage implements OnInit {
 
     async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
-			const instructorQuery = this.firestore.collection('instructors').ref.where("year", "==", this.activeYear)
+			const instructorQuery = this.firestore.collection('instructors').ref.where("years", 'array-contains', this.activeYear)
 
 			await instructorQuery.get().then(data => { 
 				data.forEach(doc => {
                     console.log(doc.data())
 					const fetchedInstructor: Instructor = doc.data() as Instructor;
 					fetchedInstructor.id = doc.id
-					this.instructors.push(fetchedInstructor)
+					if(!this.alreadyFetchedInstructors.has(fetchedInstructor.id)) {
+						this.instructors.push(fetchedInstructor)
+						this.alreadyFetchedInstructors.add(fetchedInstructor.id)
+					}
 				})
 			})
 
@@ -67,7 +71,7 @@ export class InstructorsPage implements OnInit {
 		let result: Instructor[] = []
 
 		instructors.forEach(instructor => {
-			if(instructor.year == this.activeYear) {
+			if(instructor.years.includes(this.activeYear)) {
 				result.push(instructor)
 			}
 		})

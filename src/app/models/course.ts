@@ -1,7 +1,7 @@
 export interface Course {
 
     id: string;
-    year: number;
+    years: number[];
     roTitle: string;
     enTitle: string;
     pictureLink: string;

@@ -20,6 +20,7 @@ export class ConferencesPage implements OnInit {
 	activeYear: number;
 	defaultYear: number;
 	alreadyFetchedYears: number[] = []
+	alreadyFetchedConferences: Set<string> = new Set();
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -42,13 +43,16 @@ export class ConferencesPage implements OnInit {
 
 	async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
-			const conferenceQuery = this.firestore.collection('conferences').ref.where("year", "==", this.activeYear)
+			const conferenceQuery = this.firestore.collection('conferences').ref.where("years", 'array-contains', this.activeYear)
 
 			await conferenceQuery.get().then(data => { 
 				data.forEach(doc => {
 					const fetchedConference: Conference = doc.data() as Conference;
 					fetchedConference.id = doc.id
-					this.conferences.push(fetchedConference)
+					if(!this.alreadyFetchedConferences.has(fetchedConference.id)) {
+						this.conferences.push(fetchedConference)
+						this.alreadyFetchedConferences.add(fetchedConference.id)
+					}
 				})
 			})
 
@@ -59,14 +63,13 @@ export class ConferencesPage implements OnInit {
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
 		this.fetchData();
-		console.log(this.activeYear)
 	}
 
 	filter(conferences: Conference[]): Conference[] {
 		let result: Conference[] = []
 
 		conferences.forEach(conference => {
-			if(conference.year == this.activeYear) {
+			if(conference.years.includes(this.activeYear)) {
 				result.push(conference)
 			}
 		})
