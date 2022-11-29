@@ -1,4 +1,6 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
   selector: 'app-verify-email-address',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerifyEmailAddressPage implements OnInit {
 
-  constructor() { }
+  public mobile = true;
+
+  constructor(public breakpointObserver: BreakpointObserver, public breakpoints: BreakpointsService) { }
 
   ngOnInit() {
   }

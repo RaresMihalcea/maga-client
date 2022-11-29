@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "atlantykron-5c3aa"
   }
 }

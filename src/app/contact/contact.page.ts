@@ -13,11 +13,11 @@ export class ContactPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
-	private emailBody: string;
-	private emailAddress: string;
-	private displayError: boolean = false;
-	private displayFailedApiReq = false;
-	private displaySuccess: boolean = false;
+	public emailBody: string;
+	public emailAddress: string;
+	public displayError: boolean = false;
+	public displayFailedApiReq = false;
+	public displaySuccess: boolean = false;
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,

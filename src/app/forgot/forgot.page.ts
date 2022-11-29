@@ -14,8 +14,8 @@ export class ForgotPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
-	private email: string;
-	private displayError: boolean = false;
+	public email: string;
+	public displayError: boolean = false;
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,

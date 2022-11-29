@@ -16,10 +16,10 @@ export class RegistrationPage implements OnInit {
 	public mobile = true;
 	public tablet = true;
 
-	private email: string;
-	private password: string;
-	private confirmPassword: string;
-	private displayError: boolean = false;
+	public email: string;
+	public password: string;
+	public confirmPassword: string;
+	public displayError: boolean = false;
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
