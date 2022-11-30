@@ -26,4 +26,8 @@ export class GuideComponent implements OnInit {
 		});
 	}
 
+	navigateToParticipate(): void {
+        this.navCtrl.navigateForward('/participate', {animated: false});
+    }
+
 }

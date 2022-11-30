@@ -7,7 +7,7 @@ export class BreakpointsService {
 
     constructor() { }
 
-    menuBreakpoint = '(max-width: 1277px)';
+    menuBreakpoint = '(max-width: 1301px)';
     tablet = '(max-width: 1185px)';
     smallerBreakpoint = '(min-width: 700px)';
 }
