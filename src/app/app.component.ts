@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
             icon: 'extension-puzzle'
         },
         {
-            title: 'Particiă',
+            title: 'Participă',
             url: '/participate',
             icon: 'bonfire'
         },

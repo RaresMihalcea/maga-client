@@ -4,8 +4,13 @@
     <ion-grid id='material-card'>
         <ion-row class='main-col'>
             <ion-col justify-content-start float-left>
-                <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Organizatori</h2>
-                <p class='section' [ngClass]='{"section-center": mobile || tablet}'>Echipa de organizare isi oferta timpul si efortul in mod voluntar pentru a-ti asigura o experienta cat mai placuta in cadrul Academiei.                    </p>
+
+                <div *ngIf="isLoading" justify-content-center class="spinner">
+                    <ion-spinner name="circular"></ion-spinner>
+                </div>
+
+                <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Organizatori</h2>
+                <p *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Echipa de organizare isi oferta timpul si efortul in mod voluntar pentru a-ti asigura o experienta cat mai placuta in cadrul Academiei.</p>
                 <ion-row class="card-grid" >
                     <app-fancy-card 
                         *ngFor="let organizer of organizers"

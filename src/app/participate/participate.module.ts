@@ -12,7 +12,6 @@ import { SegmentFormComponent } from './segment-form/segment-form.component';
 import { SegmentGuideComponent } from './segment-guide/segment-guide.component';
 import { SegmentLoginComponent } from './segment-login/segment-login.component';
 import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
-import { SegmentParticipantsComponent } from './segment-participants/segment-participants.component';
 
 @NgModule({
   imports: [
@@ -27,8 +26,7 @@ import { SegmentParticipantsComponent } from './segment-participants/segment-par
     SegmentLoginComponent,
     SegmentGuideComponent,
     SegmentRulesComponent,
-    SegmentFormComponent,
-    SegmentParticipantsComponent
+    SegmentFormComponent
   ]
 })
 export class ParticipatePageModule {}

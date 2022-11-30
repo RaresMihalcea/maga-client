@@ -16,6 +16,8 @@ export class ConferencesPage implements OnInit {
 	public mobile = true;
 	public tablet = true;
 
+	isLoading: boolean = true;
+
 	conferences: Conference[] = [];
 	activeYear: number;
 	defaultYear: number;
@@ -43,6 +45,7 @@ export class ConferencesPage implements OnInit {
 
 	async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			this.isLoading = true;
 			const conferenceQuery = this.firestore.collection('conferences').ref.where("years", 'array-contains', this.activeYear)
 
 			await conferenceQuery.get().then(data => { 
@@ -54,6 +57,7 @@ export class ConferencesPage implements OnInit {
 						this.alreadyFetchedConferences.add(fetchedConference.id)
 					}
 				})
+				this.isLoading = false;
 			})
 
 			this.alreadyFetchedYears.push(this.activeYear)

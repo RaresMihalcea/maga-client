@@ -18,7 +18,6 @@ export class ParticipatePage implements OnInit {
     'guide': 'Ghidul Participantului',
     'rules': 'Condiții de Participare',
     'enrollForm': 'Formular înscrieri',
-    'otherParticipants': 'Vezi Participanții'
   }
 
   constructor(

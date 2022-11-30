@@ -123,7 +123,7 @@
                     expand='full' 
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     class='navbar-button'>
-                    <ion-select [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+                    <ion-select interface="popover" [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
                         <ion-select-option value="ro">
                             🇷🇴 RO
                         </ion-select-option>

@@ -16,6 +16,8 @@ export class InstructorsPage implements OnInit {
     public mobile = true;
 	public tablet = true;
 
+	isLoading: boolean = true;
+
 	instructors: Instructor[] = [];
 	activeYear: number;
 	defaultYear: number;
@@ -43,6 +45,7 @@ export class InstructorsPage implements OnInit {
 
     async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			this.isLoading = true;
 			const instructorQuery = this.firestore.collection('instructors').ref.where("years", 'array-contains', this.activeYear)
 
 			await instructorQuery.get().then(data => { 
@@ -55,6 +58,7 @@ export class InstructorsPage implements OnInit {
 						this.alreadyFetchedInstructors.add(fetchedInstructor.id)
 					}
 				})
+				this.isLoading = false;
 			})
 
 			this.alreadyFetchedYears.push(this.activeYear)

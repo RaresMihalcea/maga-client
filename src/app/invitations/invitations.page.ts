@@ -16,6 +16,8 @@ export class InvitationsPage implements OnInit {
     public mobile = true;
 	public tablet = true;
 
+	isLoading: boolean = true;
+
 	invited: Invited[] = [];
 	activeYear: number;
 	defaultYear: number;
@@ -43,6 +45,7 @@ export class InvitationsPage implements OnInit {
 
     async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			this.isLoading = true;
 			const invitedQuery = this.firestore.collection('invitations').ref.where("years", 'array-contains', this.activeYear)
 
 			await invitedQuery.get().then(data => { 
@@ -54,6 +57,7 @@ export class InvitationsPage implements OnInit {
 						this.alreadyFetchedInvitations.add(fetchedInvited.id)
 					}
 				})
+				this.isLoading = false;
 			})
 
 			this.alreadyFetchedYears.push(this.activeYear)

@@ -16,6 +16,8 @@ export class SponsorsPage implements OnInit {
 	public mobile = true;
 	public tablet = true;
 
+	isLoading: boolean = true;
+
 	partners: Partner[] = [];
 	activeYear: number;
 	defaultYear: number;
@@ -43,6 +45,7 @@ export class SponsorsPage implements OnInit {
 
 	async fetchData() {
 		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+			this.isLoading = true;
 			const partnerQuery = this.firestore.collection('partners').ref.where("years", 'array-contains', this.activeYear)
 
 			await partnerQuery.get().then(data => { 
@@ -54,6 +57,7 @@ export class SponsorsPage implements OnInit {
 						this.alreadyFetchedPartners.add(fetchedpartner.id)
 					}
 				})
+				this.isLoading = false;
 			})
 
 			this.alreadyFetchedYears.push(this.activeYear)

@@ -18,13 +18,18 @@
                     <ion-row *ngIf="mobile || tablet">
                         <ion-item class="select-year central-cards">
                             <ion-label>Selectati anul</ion-label>
-                            <ion-select (ionChange)="changeActiveYear($event.target.value)">
+                            <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
                                 <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
                                  value="{{year}}">{{year}}</ion-select-option>
                             </ion-select>
                         </ion-item>
                     </ion-row>
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>ONG-uri Organizatoare</h2>
+
+                    <div *ngIf="isLoading" justify-content-center class="spinner">
+                        <ion-spinner name="circular"></ion-spinner>
+                    </div>
+
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>ONG-uri Organizatoare</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let partner of filter(partners, 'ONG-uri Organizatoare')"
@@ -34,7 +39,8 @@
                             (click)="navToSingleEntry(partner)"
                         ></app-fancy-card>
                     </ion-row>
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Agenții Guvernamentale</h2>
+
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Agenții Guvernamentale</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let partner of filter(partners, 'Agenții Guvernamentale')"
@@ -45,7 +51,7 @@
                         ></app-fancy-card>
                     </ion-row>
 
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Oficiali</h2>
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Oficiali</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let partner of filter(partners, 'Parteneri Oficiali')"
@@ -55,7 +61,7 @@
                         ></app-fancy-card>
                     </ion-row>                    
     
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Susținători</h2>
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Susținători</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let partner of filter(partners, 'Susținători')"
@@ -65,7 +71,7 @@
                         ></app-fancy-card>
                     </ion-row>    
 
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Media</h2>
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Media</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let partner of filter(partners, 'Parteneri Media')"

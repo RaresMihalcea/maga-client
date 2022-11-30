@@ -15,6 +15,8 @@ export class OrganizersPage implements OnInit {
   public mobile = true;
 	public tablet = true;
 
+  isLoading: boolean = true;
+
 	organizers: Organizer[] = [];
 
 	constructor(
@@ -34,6 +36,7 @@ export class OrganizersPage implements OnInit {
   }
 
 	async fetchData() {
+    this.isLoading = true;
     const organizersQuery = this.firestore.collection('organizers').ref
 
     await organizersQuery.get().then(data => { 
@@ -42,6 +45,7 @@ export class OrganizersPage implements OnInit {
         fetchedorganizers.id = doc.id
         this.organizers.push(fetchedorganizers)
       })
+      this.isLoading = false;
     })
 	}
 }

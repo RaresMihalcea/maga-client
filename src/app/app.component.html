@@ -16,9 +16,9 @@
                     </ion-item>
                 </ion-menu-toggle>
                 <ion-item>
-                    <ion-select [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
-                        <ion-select-option value="ro">Română</ion-select-option>
-                        <ion-select-option value="en">English</ion-select-option>
+                    <ion-select interface="popover" [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+                        <ion-select-option value="ro">🇷🇴 Română</ion-select-option>
+                        <ion-select-option value="en">🇺🇸 English</ion-select-option>
                     </ion-select>
                 </ion-item>
             </ion-list>

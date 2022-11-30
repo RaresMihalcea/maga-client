@@ -18,13 +18,18 @@
                     <ion-row *ngIf="mobile || tablet">
                         <ion-item class="select-year central-cards">
                             <ion-label>Selectati anul</ion-label>
-                            <ion-select (ionChange)="changeActiveYear($event.target.value)">
+                            <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
                                 <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
                                  value="{{year}}">{{year}}</ion-select-option>
                             </ion-select>
                         </ion-item>
                     </ion-row>
-                    <h2 class='section' [ngClass]='{"section-center": mobile || tablet}'>Invitați</h2>
+
+                    <div *ngIf="isLoading" justify-content-center class="spinner">
+                        <ion-spinner name="circular"></ion-spinner>
+                    </div>
+
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Invitați</h2>
                     <ion-row class="card-grid" >
                         <app-fancy-card 
                             *ngFor="let inv of filter(invited)"
