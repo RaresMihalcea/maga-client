@@ -18,6 +18,7 @@ export class FooterComponent implements OnInit {
 		this.navCtrl.navigateForward('/contact', {animated: false});
 	}
 
-
-
+	navPrivacyPolicy(): void {
+		this.navCtrl.navigateForward('/privacy-policy', {animated: false});
+	}
 }

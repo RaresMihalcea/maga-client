@@ -44,6 +44,10 @@ export class RegistrationPage implements OnInit {
 		this.navCtrl.navigateForward('/forgot', { animated: false });
 	}
 
+	navPrivacyPolicy(): void {
+		this.navCtrl.navigateForward('/privacy-policy', {animated: false});
+	}
+
 	emailRegistrationHandler(): void {
 		if(this.authService.validateRegistrationInput(this.email, this.password, this.confirmPassword)) {
 			this.authService.registerWithEmailAndPassword(this.email, this.password);

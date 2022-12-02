@@ -18,6 +18,7 @@
                     <ion-input type='password' [(ngModel)]="confirmPassword" required></ion-input>
                 </ion-item>
                 <p>*Parola trebuie să conțină mai mult de 6 caractere</p>
+                <p>*Înregistratea pe acest site înseamnă ca sunteți implicit de acord cu <span class="link" (click)="navPrivacyPolicy()">politica de protecție a datelor.</span></p>
                 <ion-row class='registration-btn'>
                     <ion-button fill='outline' class='login-button' (click)="emailRegistrationHandler()">Înregistrare</ion-button>
                 </ion-row>
@@ -25,12 +26,12 @@
                 <p>Sau</p>
                 <ion-row class='registration-btn'>
                     <ion-button name="star" fill='outline' class='login-button' (click)='googleRegistrationHandler()'>
-                        <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Înregistrare
+                        <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Continuă cu Google
                     </ion-button>
                 </ion-row>
                 <ion-row class='registration-btn'>
                     <ion-button name="star" fill='outline' class='login-button' (click)='facebookRegistrationHandler()'>
-                        <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Înregistrare
+                        <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Continuă cu Facebook
                     </ion-button>
                 </ion-row>
                 <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
