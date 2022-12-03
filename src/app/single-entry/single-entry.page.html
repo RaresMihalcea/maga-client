@@ -3,7 +3,7 @@
 <ion-content>
 
   <div id='hero-container'  class='overlay-navbar'>
-    <h1 *ngIf="!isLoading && type != 'invitations' && type == 'instructors'" class="single-entry-title">{{data.roTitle}}</h1>
+    <h1 *ngIf="!isLoading && type != 'invitations' && type != 'instructors'" class="single-entry-title">{{data.roTitle}}</h1>
     <h1 *ngIf="!isLoading && (type == 'invitations' || type == 'instructors')" class="single-entry-title">{{data.name}}</h1>
   </div>
 
