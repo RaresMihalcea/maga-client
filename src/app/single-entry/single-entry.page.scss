@@ -34,3 +34,38 @@ ion-content {
     margin-top: 0;
     padding: 104px;
 }
+
+.spinner {
+    width: 100%;
+    align-items: center;
+    margin: 50px auto;
+    justify-content: center;
+    display: flex;
+}
+
+.main-col {
+    padding: 0px 50px 50px 50px;
+    text-align: justify;
+}
+
+.presenceYears {
+    text-align: center;
+}
+
+.space {
+    padding-bottom: 30px;
+}
+
+.instructor-cards {
+    cursor: pointer;
+}
+
+.pseudo-fancy-card {
+    width: 230px !important;
+    height: 250px !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 10px;
+    margin: 0 0 60px 30px;
+    margin-top: inherit;
+}

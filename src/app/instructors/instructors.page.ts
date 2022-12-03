@@ -50,7 +50,6 @@ export class InstructorsPage implements OnInit {
 
 			await instructorQuery.get().then(data => { 
 				data.forEach(doc => {
-                    console.log(doc.data())
 					const fetchedInstructor: Instructor = doc.data() as Instructor;
 					fetchedInstructor.id = doc.id
 					if(!this.alreadyFetchedInstructors.has(fetchedInstructor.id)) {

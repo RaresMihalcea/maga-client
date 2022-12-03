@@ -14,7 +14,6 @@ export class ParticipatePage implements OnInit {
   public isLoggedIn: boolean;
   public step: string;
   public stepDisplay = {
-    'login': 'Logare',
     'guide': 'Ghidul Participantului',
     'rules': 'Condiții de Participare',
     'enrollForm': 'Formular înscrieri',
@@ -32,7 +31,7 @@ export class ParticipatePage implements OnInit {
 		});
 
     this.isLoggedIn = this.auth.isLoggedInStatus;
-    this.step = this.isLoggedIn ? 'guide' : 'login'
+    this.step = 'guide'
   }
 
   segmentChanged(value: string): void {

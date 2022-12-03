@@ -10,7 +10,6 @@ import { ParticipatePage } from './participate.page';
 import { SharedModule } from '../shared/shared.module';
 import { SegmentFormComponent } from './segment-form/segment-form.component';
 import { SegmentGuideComponent } from './segment-guide/segment-guide.component';
-import { SegmentLoginComponent } from './segment-login/segment-login.component';
 import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
   ],
   declarations: [
     ParticipatePage,
-    SegmentLoginComponent,
     SegmentGuideComponent,
     SegmentRulesComponent,
     SegmentFormComponent

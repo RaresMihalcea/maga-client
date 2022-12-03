@@ -4,10 +4,11 @@ export interface Conference {
     years: number[];
     roTitle: string;
     enTitle: string;
+    isLive: boolean;
     pictureLink: string;
     roDescription: string;
     enDescription: string;
-    instructors: string[];
+    instructors: string;
     dateAndTime: string;
     
 }

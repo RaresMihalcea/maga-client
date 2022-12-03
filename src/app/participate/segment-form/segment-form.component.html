@@ -1,3 +1,37 @@
-<p>
-  segment-form works!
-</p>
+<div class="participate-content">
+
+  <div *ngIf="!isLoggedIn"> 
+    <p>Asigură-te că ai un cont și ești logat pe site pentru a completa formularul.</p>
+    <p>Te poți loga/înregistra <span class="link" (click)="navigateToLogin()">aici.</span></p>
+  </div>
+
+  <ion-col *ngIf="isLoggedIn" id='form-col' >
+    <!-- <ion-item class='form-item' >
+        <ion-label position='floating'>*E-mail</ion-label>
+        <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
+        <ion-note slot="error"></ion-note>
+    </ion-item>
+    <ion-item class='form-item'>
+        <ion-label position='floating'>*Parolă</ion-label>
+        <ion-input type='password' [(ngModel)]="password" required></ion-input>
+    </ion-item>
+    <ion-button fill='outline' class='login-button' (click)='emailAndPasswordLoginHandler()'>Logare</ion-button>
+    <p *ngIf="displayError" class="error-msg">Adresa email sau parola este greșită</p>
+    <p>Sau</p>
+    <ion-row class='login-row-btn'>
+        <ion-button name="star" fill='outline' class='login-button' (click)='googleLoginHandler()'>
+            <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Continuă cu Google
+        </ion-button>
+    </ion-row>
+    <ion-row class='login-row-btn'>
+        <ion-button name="star" fill='outline' class='login-button' (click)='facebookLoginHandler()'>
+            <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Continuă cu Facebook
+        </ion-button>
+    </ion-row>     
+    <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
+    <p>Sau</p>
+    <ion-button fill='outline' class='login-button' (click)='navRegistration()'>Înregistrare</ion-button> -->
+  </ion-col>
+
+  
+</div>

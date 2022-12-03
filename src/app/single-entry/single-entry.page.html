@@ -3,30 +3,43 @@
 <ion-content>
 
   <div id='hero-container'  class='overlay-navbar'>
-    <h1 class="single-entry-title">{{data.roTitle}}</h1>
+    <h1 *ngIf="!isLoading && type != 'invitations' && type == 'instructors'" class="single-entry-title">{{data.roTitle}}</h1>
+    <h1 *ngIf="!isLoading && (type == 'invitations' || type == 'instructors')" class="single-entry-title">{{data.name}}</h1>
   </div>
 
-  <ion-grid id='material-card'>
-    <ion-row class='main-col'>
-      <!-- <p>{{data.description}}</p> -->
-    </ion-row>
+  <ion-grid id='material-card' justify-content-center>
 
-    <ion-row justify-content-center>
-      <!-- <app-fancy-card
-        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
-        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
-        >
-      </app-fancy-card>
-      <app-fancy-card
-        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
-        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
-        >
-      </app-fancy-card>
-      <app-fancy-card
-        [image]="'../../assets/images/Invitations/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'"
-        [name]="'Dr. Dumitru Prunariu'" [title]="'Primul Cosmonaut Român'"
-        >
-      </app-fancy-card> -->
+    <div *ngIf="isLoading" justify-content-center class="spinner">
+      <ion-spinner name="circular"></ion-spinner>
+    </div>
+
+    <ion-row *ngIf="!isLoading" justify-content-center class='main-col'>
+      <ion-col size="auto">
+        <img class="pseudo-fancy-card" src={{data.pictureLink}}/>
+        <p class="presenceYears">
+          <span *ngIf="data.years.length > 1">Ani</span>
+          <span *ngIf="data.years.length === 1">An</span>
+          pe insulă: {{formatYears(data.years)}}
+        </p>
+      </ion-col>
+      <ion-col class='main-col'>
+        <h3 class="space" *ngIf="type == 'invitations' || type == 'instructors'">Titlu: <span>{{data.roTitle}}</span></h3>
+
+        <h3>Descriere</h3>
+        <p class="description space">{{data.roDescription}}</p>
+
+        <h3 class="space" *ngIf="type == 'conferences'">Data: {{data.dateAndTime}}</h3>
+
+        <h3 class="space" *ngIf="type == 'courses' || type == 'partners'">Categorie: {{data.category}}</h3>
+
+        <h3 class="space" *ngIf="type == 'conferences'">
+          Tip Conferință: 
+          <span *ngIf="data.isLive">Live</span>
+          <span *ngIf="!data.isLive">Virtuală</span>
+        </h3>
+
+        <h3 class="space" *ngIf="type == 'conferences' || type == 'courses'">Instructori: {{data.instructors}}</h3>
+      </ion-col>
     </ion-row>
   </ion-grid>
 
