@@ -1,9 +1,9 @@
-import { AfterViewChecked, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { NavController, ViewDidEnter, ViewWillEnter, ViewWillLeave } from '@ionic/angular';
-import { Instructor } from '../models/instructor';
-import { Invited } from '../models/invited';
+import { NavController } from '@ionic/angular';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
   selector: 'app-single-entry',
@@ -14,12 +14,17 @@ export class SingleEntryPage implements OnInit {
 
   isLoading: boolean = true;
 
+  public mobile = true;
+	public tablet = true;
+
   public type: string;
   public id: string;
   public data: any;
   public years: string = '';
 
   constructor(
+    public breakpointObserver: BreakpointObserver,
+		public breakpoints: BreakpointsService,
     public route: ActivatedRoute,
     public firestore: AngularFirestore,
     public navCtrl: NavController) { 
