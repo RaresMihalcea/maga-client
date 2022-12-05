@@ -31,7 +31,7 @@ export class ParticipatePage implements OnInit {
 		});
 
     this.isLoggedIn = this.auth.isLoggedInStatus;
-    this.step = 'guide'
+    this.step = 'enrollForm'
   }
 
   segmentChanged(value: string): void {

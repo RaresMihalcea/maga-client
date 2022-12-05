@@ -31,6 +31,12 @@ export class SingleEntryPage implements OnInit {
   }
 
   ngOnInit() {
+    this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+			this.mobile = (result.matches) ? true : false;
+		});
+		this.breakpointObserver.observe(this.breakpoints.tablet).subscribe(result => {
+			this.tablet = (result.matches) ? true : false;
+		});
     this.data = {}
     this.route.queryParams.subscribe(params => {
       this.type = params['type']

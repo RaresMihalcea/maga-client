@@ -13,7 +13,7 @@
       <ion-spinner name="circular"></ion-spinner>
     </div>
 
-    <ion-row *ngIf="!isLoading" justify-content-center class='main-col' [ngClass]='{"center-on-mobile": mobile || tablet}'>
+    <ion-row *ngIf="!isLoading" justify-content-center [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'>
       <ion-col size="auto">
         <img [ngClass]='{"center-on-mobile": mobile || tablet}' class="pseudo-fancy-card" src={{data.pictureLink}}/>
         <p class="presenceYears">
