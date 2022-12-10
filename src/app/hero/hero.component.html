@@ -3,13 +3,12 @@
         <div id='hero-content-position' class='ion-text-center ion-justify-content-center' fxLayout="column" fxLayoutAlign="center center">
             <!-- <h1 id='hero-title' [ngClass]='{"space-hero-title": !mobile}'>Academia Atlantykron</h1> -->
             <img src='../../assets/logo/logo_white_atlantykron.svg' alt='Atlantykron Logo' id='logo'/>
-            <ion-button shape='round' class='call-to-action' [ngClass]='{"space-hero-btn": !mobile}'>
+            <ion-button shape='round' class='call-to-action' [ngClass]='{"space-hero-btn": !mobile}' (click)="navigateToParticipate()">
                 {{ 'callToAction' | translate }}
-                <!-- Înscrie-te în Aventură -->
             </ion-button>
             <div id='scrim'>
-                <h2 class='hero-subheader' *ngIf='!mobile' [ngClass]='{"space-hero-subt": !mobile}'>Ediția 31</h2>
-                <h2 class='hero-subheader' *ngIf='!mobile'>02 August - 11 August 2020</h2>
+                <h2 class='hero-subheader' *ngIf='!mobile' [ngClass]='{"space-hero-subt": !mobile}'>Ediția 35</h2>
+                <!-- <h2 class='hero-subheader' *ngIf='!mobile'>02 August - 11 August 2020</h2> -->
             </div>
         </div>
     </div>

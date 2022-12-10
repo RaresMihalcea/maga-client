@@ -1,0 +1,215 @@
+<div class="participate-content">
+
+  <div *ngIf="!isLoggedIn"> 
+    <p class="isLoggedIn">Asigură-te că ai un cont și ești logat pe site pentru a completa formularul.</p>
+    <p class="isLoggedIn">Te poți loga/înregistra <span class="link" (click)="navigateToLogin()">aici.</span></p>
+  </div>
+
+  <div *ngIf="isLoading" justify-content-center class="spinner">
+    <ion-spinner name="circular"></ion-spinner>
+  </div>
+
+  <ion-col *ngIf="isLoggedIn && !isLoading" id="form-col" >
+
+    <p>Toate câmpurile sunt obligatorii</p>
+
+    <ion-item class='form-item' >
+      <ion-label position='floating'>*E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-item class='form-item' >
+      <ion-label position='floating'>*Nume</ion-label>
+      <ion-input [(ngModel)]="surname" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-item class='form-item' >
+      <ion-label position='floating'>*Prenume</ion-label>
+      <ion-input [(ngModel)]="firstName" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-item class='form-item' (ionChange)="onAgeChange($event)">
+      <ion-label position='floating'>*Vârstă</ion-label>
+      <ion-input type="number" [(ngModel)]="age" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-list *ngIf="age >= 18">
+      <ion-radio-group (ionChange)="onIsCaretakerChange($event)" required>
+        <ion-list-header>
+          <ion-label class="ion-text-wrap">*Sunteţi însoţitor pentru un participant/paticipanţi cu vâsta sub 16 ani?</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Da</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Nu</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item *ngIf="age >= 18 && isCaretaker" class='form-item' >
+      <ion-label class="ion-text-wrap" position='floating'>*Paticipanţi pe care îi însoţiţi</ion-label>
+      <ion-input [(ngModel)]="dependant" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-item *ngIf="age < 18" class='form-item' >
+      <ion-label class="ion-text-wrap" position='floating'>*Numele persoanei care vă însoţeşte</ion-label>
+      <ion-input [(ngModel)]="caretaker" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="occupation" required>
+        <ion-list-header>
+          <ion-label>*Ocupație</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let occupation of occupations">
+          <ion-label class="ion-text-wrap">{{occupation}}</ion-label>
+          <ion-radio value="{{occupation}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item class='form-item' >
+      <ion-label class="ion-text-wrap" position='floating'>*Localitatea de reşedinţă</ion-label>
+      <ion-input [(ngModel)]="cityOfResidence" required></ion-input>
+      <ion-note slot="error"></ion-note>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="participatedBefore" required>
+        <ion-list-header>
+          <ion-label class="ion-text-wrap">*Aţi mai participat la ediţiile anterioare?</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Da</ion-label>
+          <ion-radio value="true"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Nu</ion-label>
+          <ion-radio value="false"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="howDidYouFindOut" required>
+        <ion-list-header>
+          <ion-label class="ion-text-wrap">*Cum aţi aflat de Atlantykron?</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let findOutMethod of findOutMethods">
+          <ion-label>{{findOutMethod}}</ion-label>
+          <ion-radio value="{{findOutMethod}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-list>
+      <!-- <ion-checkbox-group disabled="selectedCourses.length >=5"  required> -->
+        <ion-list-header>
+          <ion-label class="ion-text-wrap">*Alege 5 cursuri la care vei participa</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let course of courses" (ionChange)="onCoursesChanged($event)">
+          <ion-label class="ion-text-wrap">{{course.roTitle}}</ion-label>
+          <ion-checkbox [disabled]="selectedCourses.length >= 5 && !selectedCourses.includes(course.roTitle)" value="{{course.roTitle}}"></ion-checkbox>
+        </ion-item>
+      <!-- </ion-checkbox-group> -->
+    </ion-list>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="package" required>
+        <ion-list-header>
+          <ion-label>*Ce opțiune alegi?</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let package of packages">
+          <ion-label class="ion-text-wrap">{{package}}</ion-label>
+          <ion-radio value="{{package}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <p>În acest preţ este inclusă taxa de participare şi masa (60 de RON pe zi -> prânz + cină). Pentru minori (sub 18 ani) pachetul de masă este obligatoriu. Masa va fi asigurată în perioada 30 Iulie - 4 August.</p>
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="payMethod" required>
+        <ion-list-header>
+          <ion-label class="ion-text-wrap justify">*Cum alegi să plateşti? Transferul bancar beneficiază de o reducere de 20 de lei
+          </ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let payMethod of payMethods">
+          <ion-label>{{payMethod}}</ion-label>
+          <ion-radio value="{{payMethod}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <p>
+      Detalii transfer bancar:
+    </p>
+
+    <p>
+      Cont: RO78RNCB0116172543400001
+    </p>
+    
+    <p>
+      Nume Beneficiar: Asociaţia Atlantykron Topalu
+    </p>
+
+    <p>
+      Detalii Tranzacţie: Nume + Opţiunea aleasă (8/2 zile cu/fară masă)
+    </p>
+
+    <p>
+      * preţuri finale pentru transferul bancar:
+    </p>
+
+    <p>
+      - 580 (8 zile cu masa inclusă) 
+    </p>
+
+    <p>
+      - 270 (2 zile cu masa inclusă)
+    </p>
+
+    <p>
+      - 250 (8 zile fără masa inclusă)
+    </p>
+
+    <p>
+      - 150 (2 zile fără masa inclusă)
+    </p>
+    
+    <ion-list *ngIf="package === packages[0] || package === packages[2]">
+      <ion-radio-group [(ngModel)]="dietaryPreference" required>
+        <ion-list-header>
+          <ion-label>*Preferinţe alimentare</ion-label>
+        </ion-list-header>
+    
+        <ion-item *ngFor="let dietaryPreference of dietaryPreferences">
+          <ion-label class="ion-text-wrap">{{dietaryPreference}}</ion-label>
+          <ion-radio value="{{dietaryPreference}}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <p class='errors' *ngFor="let error of errors">{{error}}</p>
+
+    <ion-button fill='outline' class='login-button' (click)='submitForm()'>Finalizare</ion-button>
+
+  </ion-col>
+</div>

@@ -1,39 +1,64 @@
-ion-content{
-    --background: url(../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg) no-repeat center center / cover !important ;
- 
+.active {
+    border-right: 9px solid var(--ion-color-secondary);
+    margin-right: -7px;
+    font-weight: bold;
 }
-ion-list{
-    background:transparent;
-}
-.invitate{
-    --background: rgb(148, 150, 255);
-    --background-activated:rgb(44, 44, 61);
-    --background-hover:rgb(92, 87, 161);
-    //--border-width:10px;
-    //--border-color	:rgb(61, 61, 150);
 
-    //opacity: 0.8;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    border-right: 10px;
-    --border-radius: 45px;
-    padding-bottom: 25px;
+.card-grid {
+    width: 95%;
+    display: grid;
+    justify-items: center;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }
-.name-label{
-    font-size: 25px;
+
+.central-cards {
+    margin: 0 auto !important;
+    cursor: pointer;
 }
-.avatar{
-    width: 70px;
-    height: 70px;
+
+ion-content {
+    --ion-background-color: #eeeeee;
 }
-.select-year{
-    --background:rgb(86, 40, 124);
-    --background-hover:rgb(105, 60, 141);
-    --backgroud-activated:rgb(58, 36, 77);
-    --border-radius: 35px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+
+#material-card {
+    background-color: white;
+	border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+	box-shadow: 380px;
+	left: 0;
+	margin: 0 auto 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+    right: 0;
+    padding-top: 60px;
+	width: 90%;
+}
+
+.section {
     margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.section-center {
+    text-align: center;
+    margin-left: 0px;
+}
+
+.year-selection {
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.year-selection-div {
+    border-right: 5px solid #707070;
+}
+
+.spinner {
+    width: 100%;
+    align-items: center;
+    margin: 50px auto;
+    justify-content: center;
+    display: flex;
 }

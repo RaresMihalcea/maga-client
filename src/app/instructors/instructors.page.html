@@ -1,5 +1,49 @@
 <app-navbar></app-navbar>
 
 <ion-content>
+    <ion-grid id='material-card'>
+        <ion-row class='main-col'>
+            <ion-col size=2 *ngIf="!mobile && !tablet">
+                <div class='year-selection-div'>
+                    <p *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+                        class='year-selection' 
+                        (click)="changeActiveYear(year)"
+                        [ngClass]="{active: activeYear==year}"
+                        >
+                        Instructori {{year}}
+                    </p>
+                </div>
+            </ion-col>
+            <ion-col justify-content-start float-left>
+                <ion-row *ngIf="mobile || tablet">
+                    <ion-item class="select-year central-cards">
+                        <ion-label>Selectati anul</ion-label>
+                        <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
+                            <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+                                value="{{year}}">{{year}}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-row>
 
+                <div *ngIf="isLoading" justify-content-center class="spinner">
+                    <ion-spinner name="circular"></ion-spinner>
+                </div>
+
+                <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Instructori</h2>
+                <ion-row class="card-grid" >
+                    <app-fancy-card 
+                        *ngFor="let instructor of filter(instructors)"
+                        class='central-cards'
+                        [image]="instructor.pictureLink"
+                        [title]="instructor.roTitle"
+                        [name]="instructor.name"   
+                        (click)="navToSingleEntry(instructor)"
+                    ></app-fancy-card>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <app-footer></app-footer>
 </ion-content>

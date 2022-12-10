@@ -7,15 +7,6 @@
         </ion-buttons>
         <ion-grid>
             <ion-row class="ion-justify-content-center">
-                <!-- <ion-button 
-                    fill='clear' 
-                    expand='full' 
-                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
-                    *ngIf='!mobile && router.url != "/home"' 
-                    class='navbar-button'
-                    (click)="navigateToHome()">
-                    Logo
-                </ion-button> -->
                 <ion-button 
                     fill='clear' 
                     expand='full' 
@@ -73,9 +64,9 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
-                    (click)="navigateToSponsors()"
-                    [ngClass]='{"active": router.url == "/sponsors"}'>
-                    Sponsori
+                    (click)="navigateToPartners()"
+                    [ngClass]='{"active": router.url == "/partners"}'>
+                    Parteneri
                 </ion-button>
                 <ion-button 
                     fill='clear' 
@@ -93,6 +84,35 @@
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     *ngIf='!mobile' 
                     class='navbar-button'
+                    (click)="navigateToOrganizers()"
+                    [ngClass]='{"active": router.url == "/organizers"}'>
+                    Organizatori
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile' 
+                    class='navbar-button'
+                    (click)="navigateToParticipate()"
+                    [ngClass]='{"active": router.url == "/participate"}'>
+                    Înscrieri
+                </ion-button>
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile && isLoggedIn' 
+                    class='navbar-button'
+                    (click)="logout()">
+                    Logout
+                </ion-button>      
+                <ion-button 
+                    fill='clear' 
+                    expand='full' 
+                    [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
+                    *ngIf='!mobile && !isLoggedIn' 
+                    class='navbar-button'
                     (click)="navigateToLogin()"
                     [ngClass]='{"active": router.url == "/login"}'>
                     Login
@@ -103,15 +123,15 @@
                     expand='full' 
                     [attr.color]="router.url == '/home' ? 'light' : 'dark'" 
                     class='navbar-button'>
-                    <ion-select [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+                    <ion-select interface="popover" [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
                         <ion-select-option value="ro">
-                            RO
+                            🇷🇴 RO
                         </ion-select-option>
-                        <ion-select-option value="en">EN</ion-select-option>
+                        <ion-select-option value="en">
+                            🇺🇸 EN
+                        </ion-select-option>
                     </ion-select>
                 </ion-button>
-        
-            <!-- {{callToAction}} -->
             </ion-row>
         </ion-grid >
     </ion-toolbar>

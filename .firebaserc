@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "atlantykron-5c3aa": {
+      "hosting": {
+        "app": [
+          "atlantykron-5c3aa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "atlantykron-5c3aa"
+  }
+}

@@ -3,20 +3,37 @@
 <ion-content>
     <ion-grid id='material-card'>
         <ion-row>
-            <ion-col id='form-col'>
+            <ion-col (keydown.enter)="emailRegistrationHandler()" id='form-col'>
                 <ion-item class='form-item'>
-                    <ion-label position='floating'>E-mail</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position='floating'>*E-mail</ion-label>
+                    <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
+                    <ion-note slot="error"></ion-note>
                 </ion-item>
                 <ion-item class='form-item'>
-                    <ion-label position='floating'>Parolă</ion-label>
-                    <ion-input type='password'></ion-input>
+                    <ion-label position='floating'>*Parolă</ion-label>
+                    <ion-input type='password' [(ngModel)]="password" required></ion-input>
 				</ion-item>
 				<ion-item class='form-item'>
-                    <ion-label position='floating'>Confirmare Parolă</ion-label>
-                    <ion-input type='password'></ion-input>
+                    <ion-label position='floating'>*Confirmare Parolă</ion-label>
+                    <ion-input type='password' [(ngModel)]="confirmPassword" required></ion-input>
                 </ion-item>
-                <ion-button fill='outline' class='login-button'>Înregistrare</ion-button>
+                <p>*Parola trebuie să conțină mai mult de 6 caractere</p>
+                <p>*Înregistratea pe acest site înseamnă ca sunteți implicit de acord cu <span class="link" (click)="navPrivacyPolicy()">politica de protecție a datelor.</span></p>
+                <ion-row class='registration-btn'>
+                    <ion-button fill='outline' class='login-button' (click)="emailRegistrationHandler()">Înregistrare</ion-button>
+                </ion-row>
+                <p *ngIf="displayError" class="error-msg">Adresa email este greșită sau parola nu respectă regulile</p>
+                <p>Sau</p>
+                <ion-row class='registration-btn'>
+                    <ion-button name="star" fill='outline' class='login-button' (click)='googleRegistrationHandler()'>
+                        <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Continuă cu Google
+                    </ion-button>
+                </ion-row>
+                <ion-row class='registration-btn'>
+                    <ion-button name="star" fill='outline' class='login-button' (click)='facebookRegistrationHandler()'>
+                        <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Continuă cu Facebook
+                    </ion-button>
+                </ion-row>
                 <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
                 <p>Sau</p>
                 <ion-button fill='outline' class='login-button' (click)='navLogin()'>Logare</ion-button>

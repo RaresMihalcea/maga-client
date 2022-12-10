@@ -19,6 +19,10 @@ ion-content {
     --ion-background-color: #eeeeee;
 }
 
+.error-msg {
+    color: red;
+}
+
 #login-blob {
     margin-left: -280px;
     z-index: 0;

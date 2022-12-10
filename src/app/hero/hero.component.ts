@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-hero',
@@ -15,6 +18,7 @@ export class HeroComponent implements OnInit {
 
     constructor(public breakpointObserver: BreakpointObserver,
         public breakpoints: BreakpointsService,
+        public navCtrl: NavController,
         public translate: TranslateService) { }
 
     ngOnInit() {
@@ -24,6 +28,10 @@ export class HeroComponent implements OnInit {
         this.breakpointObserver.observe(this.breakpoints.smallerBreakpoint).subscribe(result => {
             this.tablet = (result.matches) ? true : false;
         });
+    }
+
+    navigateToParticipate(): void {
+        this.navCtrl.navigateForward('/participate', {animated: false});
     }
 
 }

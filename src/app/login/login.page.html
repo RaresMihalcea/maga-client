@@ -3,16 +3,29 @@
 <ion-content>
     <ion-grid id='material-card'>
         <ion-row>
-            <ion-col id='form-col'>
-                <ion-item class='form-item'>
-                    <ion-label position='floating'>E-mail</ion-label>
-                    <ion-input></ion-input>
+            <ion-col (keydown.enter)="emailAndPasswordLoginHandler()" id='form-col' >
+                <ion-item class='form-item' >
+                    <ion-label position='floating'>*E-mail</ion-label>
+                    <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
+                    <ion-note slot="error"></ion-note>
                 </ion-item>
                 <ion-item class='form-item'>
-                    <ion-label position='floating'>Parolă</ion-label>
-                    <ion-input type='password'></ion-input>
+                    <ion-label position='floating'>*Parolă</ion-label>
+                    <ion-input type='password' [(ngModel)]="password" required></ion-input>
                 </ion-item>
-                <ion-button fill='outline' class='login-button'>Logare</ion-button>
+                <ion-button fill='outline' class='login-button' (click)='emailAndPasswordLoginHandler()'>Logare</ion-button>
+                <p *ngIf="displayError" class="error-msg">Adresa email sau parola este greșită</p>
+                <p>Sau</p>
+                <ion-row class='login-row-btn'>
+                    <ion-button name="star" fill='outline' class='login-button' (click)='googleLoginHandler()'>
+                        <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Continuă cu Google
+                    </ion-button>
+                </ion-row>
+                <ion-row class='login-row-btn'>
+                    <ion-button name="star" fill='outline' class='login-button' (click)='facebookLoginHandler()'>
+                        <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Continuă cu Facebook
+                    </ion-button>
+                </ion-row>     
                 <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
                 <p>Sau</p>
                 <ion-button fill='outline' class='login-button' (click)='navRegistration()'>Înregistrare</ion-button>
@@ -22,6 +35,7 @@
                 <img class='svg-login' id='login-blob' src='../../assets/illustrations/blob-shape-login.svg'
                     alt='login blob'>
             </ion-row>
+
         </ion-row>
     </ion-grid>
 

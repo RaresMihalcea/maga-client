@@ -1,39 +1,49 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-	<ion-grid>
-		<ion-row>
-			<ion-col>
+    <ion-grid id='material-card'>
+        <ion-row class='main-col'>
+                <ion-col size=2 *ngIf="!mobile && !tablet">
+                    <div class='year-selection-div'>
+                        <p *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+                            class='year-selection' 
+                            (click)="changeActiveYear(year)"
+                            [ngClass]="{active: activeYear==year}"
+                            >
+                            Invitați {{year}}
+                        </p>
+                    </div>
+                </ion-col>
+                <ion-col justify-content-start float-left>
+                    <ion-row *ngIf="mobile || tablet">
+                        <ion-item class="select-year central-cards">
+                            <ion-label>Selectati anul</ion-label>
+                            <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
+                                <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+                                 value="{{year}}">{{year}}</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-row>
 
-			</ion-col>
-			<ion-col>
-				<ion-item class="select-year">
-					<ion-label>Selectati anul</ion-label>
-					<ion-select>
-						<ion-select-option value="all">Toti anii</ion-select-option>
-						<ion-select-option value="2019">2019</ion-select-option>
-						<ion-select-option value="2018">2018</ion-select-option>
-					</ion-select>
-				</ion-item>
-				<ion-list>  
-                    <ion-item button class="invitate" *ngFor="let invitate of invitations" (click)="presentPopover($event)">
-                        <ion-avatar class="avatar" slot="start">
-                          <img src="../../assets/images/avatar.png">
-                        </ion-avatar>
-                        <ion-label>
-                          <h2 class="name-label">{{invitate.name+' '+invitate.surname}}</h2>
-                        </ion-label>
-                        
-                      </ion-item>
-                                 
-                  </ion-list>
+                    <div *ngIf="isLoading" justify-content-center class="spinner">
+                        <ion-spinner name="circular"></ion-spinner>
+                    </div>
 
-			</ion-col>
-			<ion-col>
-
-			</ion-col>
-		</ion-row>
-	</ion-grid>
+                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Invitați</h2>
+                    <ion-row class="card-grid" >
+                        <app-fancy-card 
+                            *ngFor="let inv of filter(invited)"
+                            class='central-cards'
+                            [image]="inv.pictureLink"
+                            [title]="inv.roTitle"
+                            [name]="inv.name"   
+                            (click)="navToSingleEntry(inv)"
+                        ></app-fancy-card>
+                    </ion-row>
+                </ion-col>
+        </ion-row>
+    </ion-grid>
 
 
+    <app-footer></app-footer>
 </ion-content>

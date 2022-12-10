@@ -24,6 +24,21 @@ ion-content {
     z-index: 0;
 }
 
+.comp-logo {
+    max-width: 20px;
+    max-height: 20px;
+    margin-right: 10px;
+}
+
+.error-msg {
+    color: red;
+}
+
+.login-row-btn {
+    width: 100%;
+    justify-content: center;
+}
+
 .login-button {
     --border-color: var(--ion-color-secondary);
     --border-radius: 30px;

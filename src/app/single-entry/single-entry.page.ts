@@ -1,4 +1,9 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
 	selector: 'app-single-entry',
@@ -7,9 +12,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleEntryPage implements OnInit {
 
-	constructor() { }
+  isLoading: boolean = true;
 
-	ngOnInit() {
-	}
+  public mobile = true;
+	public tablet = true;
+
+  public type: string;
+  public id: string;
+  public data: any;
+  public years: string = '';
+
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+		public breakpoints: BreakpointsService,
+    public route: ActivatedRoute,
+    public firestore: AngularFirestore,
+    public navCtrl: NavController) { 
+  }
+
+  ngOnInit() {
+    this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+			this.mobile = (result.matches) ? true : false;
+		});
+		this.breakpointObserver.observe(this.breakpoints.tablet).subscribe(result => {
+			this.tablet = (result.matches) ? true : false;
+		});
+    this.data = {}
+    this.route.queryParams.subscribe(params => {
+      this.type = params['type']
+      this.id = params['id']
+
+      this.fetchSingleEntryData()
+    });
+  }
+
+	async fetchSingleEntryData() {
+    this.isLoading = true
+		await this.firestore.collection(this.type).doc(this.id).valueChanges().subscribe(data => {
+      this.data = data
+      this.isLoading = false
+    })
+	} 
+
+  formatYears(years: number[]): string {
+    return years.length === 1 ? years[0].toString() : years[0].toString() + ' - ' + years[years.length - 1]
+  }
 
 }

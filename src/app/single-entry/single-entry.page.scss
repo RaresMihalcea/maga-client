@@ -37,11 +37,9 @@ ion-content {
 #material-card {
     background-color: white;
 	border-radius: 10px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
 	box-shadow: 380px;
 	left: 0;
-	margin: 0 auto 0 auto;
+	margin: -70px auto 0 auto;
 	margin-left: auto;
 	margin-right: auto;
 	// margin-top: -10px;
@@ -50,15 +48,64 @@ ion-content {
 	width: 90%;
 }
 
-#overlay {
-	background: 
+#hero-container {
+    background: 
     linear-gradient(
         rgba(68, 68, 68, 0.1), 
         rgba(17, 17, 17, 0.7)
     ),
-	url('../../assets/images/0ba3d60362c7e6d256cfc1f37156bad9.jpg');
+    url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 340px;
-    width: 100vw;
+    height: 35%;
+    width: 100%;
+}
+
+.single-entry-title {
+	color: white;
+	text-align: center;
+    margin-top: 0;
+    padding: 104px;
+}
+
+.spinner {
+    width: 100%;
+    align-items: center;
+    margin: 50px auto;
+    justify-content: center;
+    display: flex;
+}
+
+.main-col {
+    padding: 0px 50px 50px 50px;
+    text-align: justify;
+}
+
+.presenceYears {
+    text-align: center;
+}
+
+.space {
+    padding-bottom: 30px;
+}
+
+.instructor-cards {
+    cursor: pointer;
+}
+
+.pseudo-fancy-card {
+    width: 230px !important;
+    height: 250px !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 10px;
+    margin: 0 0 60px 30px;
+    margin-top: inherit;
+}
+
+.center-on-mobile {
+    padding: 0px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
 }

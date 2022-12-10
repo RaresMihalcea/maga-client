@@ -8,6 +8,7 @@ import { BreakpointsService } from './services/breakpoints.service';
 
 import { TranslateService } from '@ngx-translate/core';
 import { LocalizationService } from './services/localization.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
         {
             title: 'Conferințe',
             url: '/conferences',
-            icon: 'bonfire'
+            icon: 'chatbubbles'
         },
         {
             title: 'Instructori',
@@ -45,9 +46,19 @@ export class AppComponent implements OnInit {
             icon: 'medal'
         },
         {
-            title: 'Sponsori',
-            url: '/sponsors',
+            title: 'Parteneri',
+            url: '/partners',
             icon: 'star'
+        },
+        {
+            title: 'Organizatori',
+            url: '/organizers',
+            icon: 'extension-puzzle'
+        },
+        {
+            title: 'Participă',
+            url: '/participate',
+            icon: 'bonfire'
         },
         {
             title: 'Contact',
@@ -57,7 +68,8 @@ export class AppComponent implements OnInit {
         {
             title: 'Login',
             url: '/login',
-            icon: 'key'
+            icon: 'key',
+            enabled: false
         }
     ];
     public mobile: boolean;
@@ -70,7 +82,8 @@ export class AppComponent implements OnInit {
         public breakpointObserver: BreakpointObserver,
         public breakpoints: BreakpointsService,
         public translate: TranslateService,
-        public localization: LocalizationService
+        public localization: LocalizationService,
+        public auth: AuthService
     ) {
         this.initializeApp();
         this.localization.languageChange.subscribe(value => {this.language = value});
@@ -79,10 +92,20 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
-            console.log(this.mobile);
             this.menu.enable(this.mobile, 'main-menu');
         });
-        this.localization.init("ro");   
+        this.localization.init("ro"); 
+        
+        const logoutItem = this.appPages[this.appPages.length - 1]
+        this.auth.isLoggedIn.subscribe(value => {
+            if(value) {
+                logoutItem.enabled = true
+                logoutItem.title = 'Logout'
+            } else {
+                logoutItem.enabled = false
+                logoutItem.title = 'Login'
+            }
+        })
     }
 
     initializeApp() {
@@ -94,5 +117,11 @@ export class AppComponent implements OnInit {
 
     changeLanguage() {
         this.localization.changeLang(this.language);
+    }
+
+    logout(event) {
+        if(event.target.id === 'Logout') {
+            this.auth.logout()
+        }
     }
 }
