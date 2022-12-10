@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { ApiLocationService } from './services/api-location.service';
 import { BreakpointsService } from './services/breakpoints.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -55,7 +54,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        ApiLocationService,
         BreakpointsService,
         AuthService,
         NavParams

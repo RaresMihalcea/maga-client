@@ -9,12 +9,12 @@
 }
 
 #form-col {
-    max-width: 500px;
+    max-width: 600px;
 }
 
 ion-item, ion-list, p {
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 600px;
     margin-bottom: 20px;
 }
 
@@ -33,4 +33,16 @@ p {
     --padding-left: 25px;
     --padding-right: 25px;
     --padding-top: 20px;
+}
+
+ion-label {
+    font-size: 14px;
+}
+
+.isLoggedIn {
+    text-align: center !important;
+}
+
+.errors {
+    color: red;
 }

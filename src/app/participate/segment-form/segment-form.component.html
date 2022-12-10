@@ -1,15 +1,15 @@
 <div class="participate-content">
 
   <div *ngIf="!isLoggedIn"> 
-    <p>Asigură-te că ai un cont și ești logat pe site pentru a completa formularul.</p>
-    <p>Te poți loga/înregistra <span class="link" (click)="navigateToLogin()">aici.</span></p>
+    <p class="isLoggedIn">Asigură-te că ai un cont și ești logat pe site pentru a completa formularul.</p>
+    <p class="isLoggedIn">Te poți loga/înregistra <span class="link" (click)="navigateToLogin()">aici.</span></p>
   </div>
 
   <div *ngIf="isLoading" justify-content-center class="spinner">
     <ion-spinner name="circular"></ion-spinner>
   </div>
 
-  <ion-col *ngIf="isLoggedIn && !isLoading" id='form-col' >
+  <ion-col *ngIf="isLoggedIn && !isLoading" id="form-col" >
 
     <p>Toate câmpurile sunt obligatorii</p>
 
@@ -31,14 +31,14 @@
       <ion-note slot="error"></ion-note>
     </ion-item>
 
-    <ion-item class='form-item' >
+    <ion-item class='form-item' (ionChange)="onAgeChange($event)">
       <ion-label position='floating'>*Vârstă</ion-label>
-      <ion-input type="number" [(ngModel)]="age" ngModel number required></ion-input>
+      <ion-input type="number" [(ngModel)]="age" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
-    <ion-list>
-      <ion-radio-group [(ngModel)]="isCaretaker" required>
+    <ion-list *ngIf="age >= 18">
+      <ion-radio-group (ionChange)="onIsCaretakerChange($event)" required>
         <ion-list-header>
           <ion-label class="ion-text-wrap">*Sunteţi însoţitor pentru un participant/paticipanţi cu vâsta sub 16 ani?</ion-label>
         </ion-list-header>
@@ -55,13 +55,13 @@
       </ion-radio-group>
     </ion-list>
 
-    <ion-item class='form-item' >
-      <ion-label class="ion-text-wrap" position='floating'>*Numele participantului/paticipanţilor pe care îi însoţiţi</ion-label>
+    <ion-item *ngIf="age >= 18 && isCaretaker" class='form-item' >
+      <ion-label class="ion-text-wrap" position='floating'>*Paticipanţi pe care îi însoţiţi</ion-label>
       <ion-input [(ngModel)]="dependant" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
-    <ion-item class='form-item' >
+    <ion-item *ngIf="age < 18" class='form-item' >
       <ion-label class="ion-text-wrap" position='floating'>*Numele persoanei care vă însoţeşte</ion-label>
       <ion-input [(ngModel)]="caretaker" required></ion-input>
       <ion-note slot="error"></ion-note>
@@ -118,16 +118,16 @@
     </ion-list>
 
     <ion-list>
-      <ion-checkbox-group [(ngModel)]="selectedCourses" (ionChange)="onCoursesChanged($event)" required>
+      <!-- <ion-checkbox-group disabled="selectedCourses.length >=5"  required> -->
         <ion-list-header>
           <ion-label class="ion-text-wrap">*Alege 5 cursuri la care vei participa</ion-label>
         </ion-list-header>
     
-        <ion-item *ngFor="let course of courses">
-          <ion-label>{{course.roTitle}}</ion-label>
-          <ion-checkbox value="{{course.roTitle}}"></ion-checkbox>
+        <ion-item *ngFor="let course of courses" (ionChange)="onCoursesChanged($event)">
+          <ion-label class="ion-text-wrap">{{course.roTitle}}</ion-label>
+          <ion-checkbox [disabled]="selectedCourses.length >= 5 && !selectedCourses.includes(course.roTitle)" value="{{course.roTitle}}"></ion-checkbox>
         </ion-item>
-      </ion-checkbox-group>
+      <!-- </ion-checkbox-group> -->
     </ion-list>
 
     <ion-list>
@@ -137,7 +137,7 @@
         </ion-list-header>
     
         <ion-item *ngFor="let package of packages">
-          <ion-label>{{package}}</ion-label>
+          <ion-label class="ion-text-wrap">{{package}}</ion-label>
           <ion-radio value="{{package}}"></ion-radio>
         </ion-item>
       </ion-radio-group>
@@ -194,20 +194,22 @@
       - 150 (2 zile fără masa inclusă)
     </p>
     
-    <ion-list>
+    <ion-list *ngIf="package === packages[0] || package === packages[2]">
       <ion-radio-group [(ngModel)]="dietaryPreference" required>
         <ion-list-header>
           <ion-label>*Preferinţe alimentare</ion-label>
         </ion-list-header>
     
         <ion-item *ngFor="let dietaryPreference of dietaryPreferences">
-          <ion-label>{{dietaryPreference}}</ion-label>
+          <ion-label class="ion-text-wrap">{{dietaryPreference}}</ion-label>
           <ion-radio value="{{dietaryPreference}}"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
 
-    <ion-button fill='outline' class='login-button' (click)='navRegistration()'>Finalizare</ion-button>
+    <p class='errors' *ngFor="let error of errors">{{error}}</p>
+
+    <ion-button fill='outline' class='login-button' (click)='submitForm()'>Finalizare</ion-button>
 
   </ion-col>
 </div>

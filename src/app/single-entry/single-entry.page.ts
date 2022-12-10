@@ -47,6 +47,7 @@ export class SingleEntryPage implements OnInit {
   }
 
 	async fetchSingleEntryData() {
+    this.isLoading = true
 		await this.firestore.collection(this.type).doc(this.id).valueChanges().subscribe(data => {
       this.data = data
       this.isLoading = false
