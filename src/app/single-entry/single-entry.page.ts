@@ -6,9 +6,9 @@ import { NavController } from '@ionic/angular';
 import { BreakpointsService } from '../services/breakpoints.service';
 
 @Component({
-  selector: 'app-single-entry',
-  templateUrl: './single-entry.page.html',
-  styleUrls: ['./single-entry.page.scss'],
+	selector: 'app-single-entry',
+	templateUrl: './single-entry.page.html',
+	styleUrls: ['./single-entry.page.scss'],
 })
 export class SingleEntryPage implements OnInit {
 

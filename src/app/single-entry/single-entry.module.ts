@@ -10,13 +10,13 @@ import { SingleEntryPage } from './single-entry.page';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    SingleEntryPageRoutingModule,
-    SharedModule
-  ],
-  declarations: [SingleEntryPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		SingleEntryPageRoutingModule,
+		SharedModule
+	],
+	declarations: [SingleEntryPage]
 })
-export class SingleEntryPageModule {}
+export class SingleEntryPageModule { }
