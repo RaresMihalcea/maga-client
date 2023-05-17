@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvitedShowcaseComponent } from './invited-showcase.component';
+import { GuestsShowcaseComponent } from './guests-showcase.component';
 
-describe('InvitedShowcaseComponent', () => {
-	let component: InvitedShowcaseComponent;
-	let fixture: ComponentFixture<InvitedShowcaseComponent>;
+describe('GuestsShowcaseComponent', () => {
+	let component: GuestsShowcaseComponent;
+	let fixture: ComponentFixture<GuestsShowcaseComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [InvitedShowcaseComponent],
+			declarations: [GuestsShowcaseComponent],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
 		})
 			.compileComponents();
 	}));
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(InvitedShowcaseComponent);
+		fixture = TestBed.createComponent(GuestsShowcaseComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

@@ -1,89 +1,125 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-    <ion-grid id='material-card'>
-        <ion-row class='main-col'>
-                <ion-col size=2 *ngIf="!mobile && !tablet">
-                    <div class='year-selection-div'>
-                        <p *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
-                            class='year-selection' 
-                            (click)="changeActiveYear(year)"
-                            [ngClass]="{active: activeYear==year}"
-                            >
-                            Parteneri {{year}}
-                        </p>
-                    </div>
-                </ion-col>
-                <ion-col justify-content-start float-left>
-                    <ion-row *ngIf="mobile || tablet">
-                        <ion-item class="select-year central-cards">
-                            <ion-label>Selectati anul</ion-label>
-                            <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
-                                <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
-                                 value="{{year}}">{{year}}</ion-select-option>
-                            </ion-select>
-                        </ion-item>
-                    </ion-row>
-
-                    <div *ngIf="isLoading" justify-content-center class="spinner">
-                        <ion-spinner name="circular"></ion-spinner>
-                    </div>
-
-                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>ONG-uri Organizatoare</h2>
-                    <ion-row class="card-grid" >
-                        <app-fancy-card 
-                            *ngFor="let partner of filter(partners, 'ONG-uri Organizatoare')"
-                            class='central-cards'
-                            [image]="partner.pictureLink"
-                            [name]="partner.roTitle"   
-                            (click)="navToSingleEntry(partner)"
-                        ></app-fancy-card>
-                    </ion-row>
-
-                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Agenții Guvernamentale</h2>
-                    <ion-row class="card-grid" >
-                        <app-fancy-card 
-                            *ngFor="let partner of filter(partners, 'Agenții Guvernamentale')"
-                            class='central-cards'
-                            [image]="partner.pictureLink"
-                            [name]="partner.roTitle"   
-                            (click)="navToSingleEntry(partner)"
-                        ></app-fancy-card>
-                    </ion-row>
-
-                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Oficiali</h2>
-                    <ion-row class="card-grid" >
-                        <app-fancy-card 
-                            *ngFor="let partner of filter(partners, 'Parteneri Oficiali')"
-                            class='central-cards'
-                            [image]="partner.pictureLink"
-                            [name]="partner.roTitle"   
-                        ></app-fancy-card>
-                    </ion-row>                    
-    
-                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Susținători</h2>
-                    <ion-row class="card-grid" >
-                        <app-fancy-card 
-                            *ngFor="let partner of filter(partners, 'Susținători')"
-                            class='central-cards'
-                            [image]="partner.pictureLink"
-                            [name]="partner.roTitle"   
-                        ></app-fancy-card>
-                    </ion-row>    
-
-                    <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Parteneri Media</h2>
-                    <ion-row class="card-grid" >
-                        <app-fancy-card 
-                            *ngFor="let partner of filter(partners, 'Parteneri Media')"
-                            class='central-cards'
-                            [image]="partner.pictureLink"
-                            [name]="partner.roTitle"   
-                        ></app-fancy-card>
-                    </ion-row>                    
-                </ion-col>
+  <ion-grid id="material-card">
+    <ion-row class="main-col">
+      <ion-col size="2" *ngIf="!mobile && !tablet">
+        <div class="year-selection-div">
+          <p
+            *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+            class="year-selection"
+            (click)="changeActiveYear(year)"
+            [ngClass]="{active: activeYear==year}"
+          >
+            {{ 'sponsors' | translate }} {{year}}
+          </p>
+        </div>
+      </ion-col>
+      <ion-col justify-content-start float-left>
+        <ion-row *ngIf="mobile || tablet">
+          <ion-item class="select-year central-cards">
+            <ion-label>Selectati anul</ion-label>
+            <ion-select
+              interface="popover"
+              (ionChange)="changeActiveYear($event.target.value)"
+            >
+              <ion-select-option
+                *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
+                value="{{year}}"
+                >{{year}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
         </ion-row>
-    </ion-grid>
 
+        <div *ngIf="isLoading" justify-content-center class="spinner">
+          <ion-spinner name="circular"></ion-spinner>
+        </div>
 
-    <app-footer></app-footer>
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'organizingNGOs' | translate }}
+        </h2>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let partner of filter(partners, 'ONG-uri Organizatoare')"
+            class="central-cards"
+            [image]="partner.pictureLink"
+            [name]="language == 'ro' ? partner.roTitle : partner.enTitle"
+            (click)="navToSingleEntry(partner)"
+          ></app-fancy-card>
+        </ion-row>
+
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'governmentAgencies' | translate }}
+        </h2>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let partner of filter(partners, 'Agenții Guvernamentale')"
+            class="central-cards"
+            [image]="partner.pictureLink"
+            [name]="language == 'ro' ? partner.roTitle : partner.enTitle"
+            (click)="navToSingleEntry(partner)"
+          ></app-fancy-card>
+        </ion-row>
+
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'officialPartners' | translate }}
+        </h2>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let partner of filter(partners, 'Parteneri Oficiali')"
+            class="central-cards"
+            [image]="partner.pictureLink"
+            [name]="language == 'ro' ? partner.roTitle : partner.enTitle"
+          ></app-fancy-card>
+        </ion-row>
+
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'sponsors' | translate }}
+        </h2>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let partner of filter(partners, 'Susținători')"
+            class="central-cards"
+            [image]="partner.pictureLink"
+            [name]="language == 'ro' ? partner.roTitle : partner.enTitle"
+          ></app-fancy-card>
+        </ion-row>
+
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'mediaPartners' | translate }}
+        </h2>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let partner of filter(partners, 'Parteneri Media')"
+            class="central-cards"
+            [image]="partner.pictureLink"
+            [name]="language == 'ro' ? partner.roTitle : partner.enTitle"
+          ></app-fancy-card>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <app-footer></app-footer>
 </ion-content>

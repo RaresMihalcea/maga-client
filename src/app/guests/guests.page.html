@@ -11,11 +11,10 @@
             (click)="changeActiveYear(year)"
             [ngClass]="{active: activeYear==year}"
           >
-            {{ 'conferences' | translate }} {{year}}
+            {{ 'guests' | translate }} {{year}}
           </p>
         </div>
       </ion-col>
-
       <ion-col justify-content-start float-left>
         <ion-row *ngIf="mobile || tablet">
           <ion-item class="select-year central-cards">
@@ -42,16 +41,16 @@
           class="section"
           [ngClass]='{"section-center": mobile || tablet}'
         >
-          {{ 'conferences' | translate }}
+          {{ 'guests' | translate }}
         </h2>
         <ion-row class="card-grid">
           <app-fancy-card
-            *ngFor="let conference of filter(conferences)"
+            *ngFor="let guest of filter(guests)"
             class="central-cards"
-            [image]="conference.pictureLink"
-            [name]="language == 'ro' ? conference.roTitle : conference.enTitle"
-            [title]="conference.instructors"
-            (click)="navToSingleEntry(conference)"
+            [image]="guest.pictureLink"
+            [title]="language == 'ro' ? guest.roTitle : guest.enTitle"
+            [name]="guest.name"
+            (click)="navToSingleEntry(guest)"
           ></app-fancy-card>
         </ion-row>
       </ion-col>

@@ -1,48 +1,74 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-
-  <div id='hero-container'  class='overlay-navbar'>
-    <h1 *ngIf="!isLoading && type != 'invitations' && type != 'instructors'" class="single-entry-title">{{data.roTitle}}</h1>
-    <h1 *ngIf="!isLoading && (type == 'invitations' || type == 'instructors')" class="single-entry-title">{{data.name}}</h1>
+  <div id="hero-container" class="overlay-navbar">
+    <h1
+      *ngIf="!isLoading && type != 'guests' && type != 'instructors'"
+      class="single-entry-title"
+    >
+      {{language === 'ro' ? data.roTitle : data.enTitle}}
+    </h1>
+    <h1
+      *ngIf="!isLoading && (type == 'guests' || type == 'instructors')"
+      class="single-entry-title"
+    >
+      {{data.name}}
+    </h1>
   </div>
 
-  <ion-grid id='material-card' justify-content-center>
-
+  <ion-grid id="material-card" justify-content-center>
     <div *ngIf="isLoading" justify-content-center class="spinner">
       <ion-spinner name="circular"></ion-spinner>
     </div>
 
-    <ion-row *ngIf="!isLoading" justify-content-center [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'>
+    <ion-row
+      *ngIf="!isLoading"
+      justify-content-center
+      [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'
+    >
       <ion-col size="auto">
-        <img [ngClass]='{"center-on-mobile": mobile || tablet}' class="pseudo-fancy-card" src={{data.pictureLink}}/>
+        <img
+          [ngClass]='{"center-on-mobile": mobile || tablet}'
+          class="pseudo-fancy-card"
+          src="{{data.pictureLink}}"
+        />
         <p class="presenceYears">
-          <span *ngIf="data.years.length > 1">Ani</span>
-          <span *ngIf="data.years.length === 1">An</span>
-          pe insulă: {{formatYears(data.years)}}
+          <span *ngIf="data.years.length > 1">{{ 'years' | translate }}</span>
+          <span *ngIf="data.years.length === 1">{{ 'year' | translate }}</span>
+          {{ 'onTheIsland' | translate }} {{formatYears(data.years)}}
         </p>
       </ion-col>
-      <ion-col class='main-col'>
-        <h3 class="space" *ngIf="type == 'invitations' || type == 'instructors'">Titlu: <span>{{data.roTitle}}</span></h3>
-
-        <h3>Descriere</h3>
-        <p class="description space">{{data.roDescription}}</p>
-
-        <h3 class="space" *ngIf="type == 'conferences'">Data: {{data.dateAndTime}}</h3>
-
-        <h3 class="space" *ngIf="type == 'courses' || type == 'partners'">Categorie: {{data.category}}</h3>
-
-        <h3 class="space" *ngIf="type == 'conferences'">
-          Tip Conferință: 
-          <span *ngIf="data.isLive">Live</span>
-          <span *ngIf="!data.isLive">Virtuală</span>
+      <ion-col class="main-col">
+        <h3 class="space" *ngIf="type == 'guests' || type == 'instructors'">
+          {{ 'title' | translate }}
+          <span>{{language === 'ro' ? data.roTitle : data.enTitle}}</span>
         </h3>
 
-        <h3 class="space" *ngIf="type == 'conferences' || type == 'courses'">Instructori: {{data.instructors}}</h3>
+        <h3>{{ 'description' | translate }}</h3>
+        <p class="description space">
+          {{language === 'ro' ? data.roDescription : data.enDescription}}
+        </p>
+
+        <h3 class="space" *ngIf="type == 'conferences'">
+          {{ 'date' | translate }} {{data.dateAndTime}}
+        </h3>
+
+        <h3 class="space" *ngIf="type == 'courses' || type == 'partners'">
+          {{ 'category' | translate }} {{data.category | translate}}
+        </h3>
+
+        <h3 class="space" *ngIf="type == 'conferences'">
+          {{ 'typeOfConference' | translate }}
+          <span *ngIf="data.isLive">Live</span>
+          <span *ngIf="!data.isLive">{{ 'virtual' | translate }}</span>
+        </h3>
+
+        <h3 class="space" *ngIf="type == 'conferences' || type == 'courses'">
+          {{ 'instructors' | translate }}: {{data.instructors}}
+        </h3>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <app-footer></app-footer>
-
 </ion-content>

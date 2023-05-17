@@ -11,10 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-    
-    // corsHeaders = new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    // });
 
     public mobile = true;
     private language: string = this.translate.currentLang;
@@ -29,22 +25,4 @@ export class HomePage implements OnInit {
             this.mobile = (result.matches) ? true : false;
         });
     }
-
-    // async testApi() {
-    //     if (this.platform.is('cordova') === true) {
-    //         const loading = await this.loadingCtrl.create();
-    //         await loading.present();
-    //         const nativeCall = this.nativeHttp.get(this.apiLocationService.apiLocation + '/hello', {}, {
-    //             'Content-Type': 'application/json'
-    //         });
-    //         from(nativeCall).pipe(
-    //             finalize(() => loading.dismiss())
-    //         )
-    //             .subscribe(data => {
-    //                 console.log(data);
-    //             });
-    //     } else {
-    //         this.http.get(this.apiLocationService.apiLocation + '/hello').subscribe(res => { console.log(res) });
-    //     }
-    // }
 }

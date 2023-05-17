@@ -8,6 +8,7 @@ import { VerifyEmailAddressPageRoutingModule } from './verify-email-address-rout
 
 import { VerifyEmailAddressPage } from './verify-email-address.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
-    VerifyEmailAddressPageRoutingModule
+    VerifyEmailAddressPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [VerifyEmailAddressPage]
 })
-export class VerifyEmailAddressPageModule {}
+export class VerifyEmailAddressPageModule { }

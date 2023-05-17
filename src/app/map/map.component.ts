@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-map',
@@ -112,7 +113,7 @@ export class MapComponent implements OnInit {
 		console.log('hello')
 	}
 
-	constructor() { }
+	constructor(public translate: TranslateService) { }
 
 	ngOnInit() { }
 

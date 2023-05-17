@@ -1,58 +1,68 @@
-<h2 class="section-title">Ce este Atlantykron?</h2>
+<h2 class="section-title">{{ 'whatIsAtlantykron' | translate }}</h2>
 <p class="section-subtitle">
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+  {{ 'shortDescription' | translate }}
 </p>
 <ion-grid>
-	<ion-row class='presentation-illustration-container'>
-		<ion-col class='illustration-column'>
-			<img src="../../assets/illustrations/Science_Illustration.svg" 
-				class='presentation-illustration'
-				alt="Science Illustration"/>
-			<div class='illustration-content-container'>
-				<h3 class='illustration-subtitle'>Știință</h3>
-				<p class='illustration-description'>
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-				</p>
-				<hr class='illustration-divider divider-thicker'>
-			</div>
-		</ion-col>
-		<ion-col class='illustration-column'>
-			<img src="../../assets/illustrations/Art_Illustration.svg" 
-				class='presentation-illustration illustration-bump-down'
-				alt="Art Illustration"/>
-				<div class='illustration-content-container'>
-					<h3 class='illustration-subtitle'>Artă</h3>
-					<p class='illustration-description'>
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-					</p>
-					<hr class='illustration-divider divider-thicker'>
-				</div>
-		</ion-col>
-		<ion-col class='illustration-column'>
-			<img src="../../assets/illustrations/Culture_Illustration.svg" 
-				class='presentation-illustration'
-				alt="Culture Illustration"/>
-				<div class='illustration-content-container'>
-					<h3 class='illustration-subtitle'>Cultură</h3>
-					<p class='illustration-description'>
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-					</p>
-					<hr class='illustration-divider divider-thicker'>
-				</div>
-		</ion-col>
-		<ion-col class='illustration-column'>
-			<img src="../../assets/illustrations/Sport_Illustration.svg" 
-				class='presentation-illustration illustration-bump-down'
-				alt="Sport Illustration"/>
-				<div class='illustration-content-container'>
-					<h3 class='illustration-subtitle'>Sport</h3>
-					<p class='illustration-description last'>
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor 
-					</p>
-					<hr class='illustration-divider divider-thicker'>
-				</div>
-		</ion-col>
-	</ion-row>
+  <ion-row class="presentation-illustration-container">
+    <ion-col class="illustration-column">
+      <img
+        src="../../assets/illustrations/Science_Illustration.svg"
+        class="presentation-illustration"
+        alt="Science Illustration"
+      />
+      <div class="illustration-content-container">
+        <h3 class="illustration-subtitle">{{ 'science' | translate }}</h3>
+        <p class="illustration-description">
+          {{ 'scienceDescription' | translate }}
+        </p>
+        <hr class="illustration-divider divider-thicker" />
+      </div>
+    </ion-col>
+    <ion-col class="illustration-column">
+      <img
+        src="../../assets/illustrations/Art_Illustration.svg"
+        class="presentation-illustration illustration-bump-down"
+        alt="Art Illustration"
+      />
+      <div class="illustration-content-container">
+        <h3 class="illustration-subtitle">{{ 'art' | translate }}</h3>
+        <p class="illustration-description">
+          {{ 'artDescription' | translate }}
+        </p>
+        <hr class="illustration-divider divider-thicker" />
+      </div>
+    </ion-col>
+    <ion-col class="illustration-column">
+      <img
+        src="../../assets/illustrations/Culture_Illustration.svg"
+        class="presentation-illustration"
+        alt="Culture Illustration"
+      />
+      <div class="illustration-content-container">
+        <h3 class="illustration-subtitle">{{ 'culture' | translate }}</h3>
+        <p class="illustration-description">
+          {{ 'cultureDescription' | translate }}
+        </p>
+        <hr class="illustration-divider divider-thicker" />
+      </div>
+    </ion-col>
+    <ion-col class="illustration-column">
+      <img
+        src="../../assets/illustrations/Sport_Illustration.svg"
+        class="presentation-illustration illustration-bump-down"
+        alt="Sport Illustration"
+      />
+      <div class="illustration-content-container">
+        <h3 class="illustration-subtitle">{{ 'sport' | translate }}</h3>
+        <p class="illustration-description last">
+          {{ 'sportDescription' | translate }}
+        </p>
+        <hr class="illustration-divider divider-thicker" />
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-grid>
 
-<ion-button fill='outline' class='presentation-button' (click)='navCourses()'>Vezi Toate Cursurile</ion-button>
+<ion-button fill="outline" class="presentation-button" (click)="navCourses()">{{
+  'seeAllCourses' | translate
+}}</ion-button>

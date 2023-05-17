@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ForgotPage } from './forgot.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
 	{
@@ -21,7 +22,8 @@ const routes: Routes = [
 		FormsModule,
 		IonicModule,
 		SharedModule,
-		RouterModule.forChild(routes)
+		RouterModule.forChild(routes),
+		TranslateModule.forChild()
 	],
 	declarations: [ForgotPage]
 })

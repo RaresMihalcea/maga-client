@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import 'firebase/auth';
 import { AuthService } from '../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-registration',
@@ -25,7 +26,8 @@ export class RegistrationPage implements OnInit {
 		public breakpoints: BreakpointsService,
 		public router: Router,
 		public navCtrl: NavController,
-		public authService: AuthService) { }
+		public authService: AuthService,
+		public translate: TranslateService) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -45,11 +47,11 @@ export class RegistrationPage implements OnInit {
 	}
 
 	navPrivacyPolicy(): void {
-		this.navCtrl.navigateForward('/privacy-policy', {animated: false});
+		this.navCtrl.navigateForward('/privacy-policy', { animated: false });
 	}
 
 	emailRegistrationHandler(): void {
-		if(this.authService.validateRegistrationInput(this.email, this.password, this.confirmPassword)) {
+		if (this.authService.validateRegistrationInput(this.email, this.password, this.confirmPassword)) {
 			this.authService.registerWithEmailAndPassword(this.email, this.password);
 		} else {
 			this.displayError = true;

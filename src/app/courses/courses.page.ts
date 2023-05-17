@@ -5,19 +5,22 @@ import { Course } from '../models/course';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActiveYearService } from '../services/active-year.service';
 import { NavController } from '@ionic/angular';
+import { LocalizationService } from '../services/localization.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-courses',
-    templateUrl: './courses.page.html',
-    styleUrls: ['./courses.page.scss'],
+	selector: 'app-courses',
+	templateUrl: './courses.page.html',
+	styleUrls: ['./courses.page.scss'],
 })
 export class CoursesPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
+	public language: string = this.translate.getDefaultLang();
 
 	isLoading: boolean = true;
-	
+
 	courses: Course[] = [];
 	activeYear: number;
 	defaultYear: number;
@@ -28,7 +31,10 @@ export class CoursesPage implements OnInit {
 		public breakpoints: BreakpointsService,
 		public firestore: AngularFirestore,
 		public activeYearService: ActiveYearService,
-		public navCtrl: NavController) {}
+		public navCtrl: NavController,
+		public localization: LocalizationService,
+		public translate: TranslateService
+	) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -41,18 +47,20 @@ export class CoursesPage implements OnInit {
 		this.defaultYear = this.activeYearService.getDefaultActiveYear();
 		this.activeYear = this.defaultYear;
 		this.fetchData()
+
+		this.localization.languageChange.subscribe(value => { this.language = value })
 	}
 
 	async fetchData() {
-		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+		if (!this.alreadyFetchedYears.includes(this.activeYear)) {
 			this.isLoading = true;
 			const courseQuery = this.firestore.collection('courses').ref.where("years", 'array-contains', this.activeYear)
 
-			await courseQuery.get().then(data => { 
+			await courseQuery.get().then(data => {
 				data.forEach(doc => {
 					const fetchedCourse: Course = doc.data() as Course;
 					fetchedCourse.id = doc.id
-					if(!this.alreadyFetchedCourses.has(fetchedCourse.id)) {
+					if (!this.alreadyFetchedCourses.has(fetchedCourse.id)) {
 						this.courses.push(fetchedCourse)
 						this.alreadyFetchedCourses.add(fetchedCourse.id)
 					}
@@ -62,7 +70,7 @@ export class CoursesPage implements OnInit {
 
 			this.alreadyFetchedYears.push(this.activeYear)
 		}
-	} 
+	}
 
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
@@ -74,7 +82,7 @@ export class CoursesPage implements OnInit {
 		let result: Course[] = []
 
 		courses.forEach(course => {
-			if(course.years.includes(this.activeYear) && course.category == category) {
+			if (course.years.includes(this.activeYear) && course.category == category) {
 				result.push(course)
 			}
 		})
@@ -83,7 +91,7 @@ export class CoursesPage implements OnInit {
 	}
 
 	navToSingleEntry(course) {
-		this.navCtrl.navigateForward(`/single-entry?type=courses&id=${course.id}`, {animated: false});
+		this.navCtrl.navigateForward(`/single-entry?type=courses&id=${course.id}`, { animated: false });
 	}
 
 }

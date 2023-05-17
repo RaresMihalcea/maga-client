@@ -5,14 +5,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InvitationsPage } from './invitations.page';
+import { GuestsPage } from './guests.page';
 import { SharedModule } from '../shared/shared.module';
 import { CardPopoverComponent } from '../card-popover/card-popover.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
     {
         path: '',
-        component: InvitationsPage
+        component: GuestsPage
     }
 ];
 
@@ -22,11 +23,12 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         SharedModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        TranslateModule.forChild()
     ],
     declarations: [
-        InvitationsPage,
+        GuestsPage,
     ],
     entryComponents: [CardPopoverComponent]
 })
-export class InvitationsPageModule { }
+export class GuestsPageModule { }

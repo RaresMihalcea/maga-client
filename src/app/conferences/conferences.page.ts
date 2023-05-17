@@ -2,19 +2,22 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { Conference } from '../models/conference';
 import { ActiveYearService } from '../services/active-year.service';
 import { BreakpointsService } from '../services/breakpoints.service';
+import { LocalizationService } from '../services/localization.service';
 
 @Component({
-    selector: 'app-conferences',
-    templateUrl: './conferences.page.html',
-    styleUrls: ['./conferences.page.scss'],
+	selector: 'app-conferences',
+	templateUrl: './conferences.page.html',
+	styleUrls: ['./conferences.page.scss'],
 })
 export class ConferencesPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
+	public language: string = this.translate.getDefaultLang();
 
 	isLoading: boolean = true;
 
@@ -28,7 +31,10 @@ export class ConferencesPage implements OnInit {
 		public breakpoints: BreakpointsService,
 		public firestore: AngularFirestore,
 		public activeYearService: ActiveYearService,
-		public navCtrl: NavController) {}
+		public navCtrl: NavController,
+		public localization: LocalizationService,
+		public translate: TranslateService
+	) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -41,18 +47,20 @@ export class ConferencesPage implements OnInit {
 		this.defaultYear = this.activeYearService.getDefaultActiveYear();
 		this.activeYear = this.defaultYear;
 		this.fetchData()
+
+		this.localization.languageChange.subscribe(value => { this.language = value })
 	}
 
 	async fetchData() {
-		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+		if (!this.alreadyFetchedYears.includes(this.activeYear)) {
 			this.isLoading = true;
 			const conferenceQuery = this.firestore.collection('conferences').ref.where("years", 'array-contains', this.activeYear)
 
-			await conferenceQuery.get().then(data => { 
+			await conferenceQuery.get().then(data => {
 				data.forEach(doc => {
 					const fetchedConference: Conference = doc.data() as Conference;
 					fetchedConference.id = doc.id
-					if(!this.alreadyFetchedConferences.has(fetchedConference.id)) {
+					if (!this.alreadyFetchedConferences.has(fetchedConference.id)) {
 						this.conferences.push(fetchedConference)
 						this.alreadyFetchedConferences.add(fetchedConference.id)
 					}
@@ -62,7 +70,7 @@ export class ConferencesPage implements OnInit {
 
 			this.alreadyFetchedYears.push(this.activeYear)
 		}
-	} 
+	}
 
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
@@ -73,7 +81,7 @@ export class ConferencesPage implements OnInit {
 		let result: Conference[] = []
 
 		conferences.forEach(conference => {
-			if(conference.years.includes(this.activeYear)) {
+			if (conference.years.includes(this.activeYear)) {
 				result.push(conference)
 			}
 		})
@@ -82,7 +90,7 @@ export class ConferencesPage implements OnInit {
 	}
 
 	navToSingleEntry(conference) {
-		this.navCtrl.navigateForward(`/single-entry?type=conferences&id=${conference.id}`, {animated: false});
+		this.navCtrl.navigateForward(`/single-entry?type=conferences&id=${conference.id}`, { animated: false });
 	}
 
 }

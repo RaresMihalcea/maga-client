@@ -19,59 +19,7 @@ export class AppComponent implements OnInit {
 
     public language: string = this.translate.getDefaultLang();
 
-    public appPages = [
-        {
-            title: 'Acasă',
-            url: '/home',
-            icon: 'home'
-        },
-        {
-            title: 'Invitați',
-            url: '/invitations',
-            icon: 'globe'
-        },
-        {
-            title: 'Cursuri',
-            url: '/courses',
-            icon: 'school'
-        },
-        {
-            title: 'Conferințe',
-            url: '/conferences',
-            icon: 'chatbubbles'
-        },
-        {
-            title: 'Instructori',
-            url: '/instructors',
-            icon: 'medal'
-        },
-        {
-            title: 'Parteneri',
-            url: '/partners',
-            icon: 'star'
-        },
-        {
-            title: 'Organizatori',
-            url: '/organizers',
-            icon: 'extension-puzzle'
-        },
-        {
-            title: 'Participă',
-            url: '/participate',
-            icon: 'bonfire'
-        },
-        {
-            title: 'Contact',
-            url: '/contact',
-            icon: 'mail'
-        },
-        {
-            title: 'Login',
-            url: '/login',
-            icon: 'key',
-            enabled: false
-        }
-    ];
+    public appPages = []
     public mobile: boolean;
 
     constructor(
@@ -86,19 +34,74 @@ export class AppComponent implements OnInit {
         public auth: AuthService
     ) {
         this.initializeApp();
-        this.localization.languageChange.subscribe(value => {this.language = value});
+        this.localization.languageChange.subscribe(value => {
+            this.language = value
+            this.appPages = [
+                {
+                    title: this.language === 'ro' ? 'Acasă' : 'Home',
+                    url: '/home',
+                    icon: 'home'
+                },
+                {
+                    title: this.language === 'ro' ? 'Invitați' : 'Guests',
+                    url: '/guests',
+                    icon: 'globe'
+                },
+                {
+                    title: this.language === 'ro' ? 'Cursuri' : 'Courses',
+                    url: '/courses',
+                    icon: 'school'
+                },
+                {
+                    title: this.language === 'ro' ? 'Conferințe' : 'Conferences',
+                    url: '/conferences',
+                    icon: 'chatbubbles'
+                },
+                {
+                    title: this.language === 'ro' ? 'Instructori' : 'Instructors',
+                    url: '/instructors',
+                    icon: 'medal'
+                },
+                {
+                    title: this.language === 'ro' ? 'Parteneri' : 'Partners',
+                    url: '/partners',
+                    icon: 'star'
+                },
+                {
+                    title: this.language === 'ro' ? 'Organizatori' : 'Organizers',
+                    url: '/organizers',
+                    icon: 'extension-puzzle'
+                },
+                {
+                    title: this.language === 'ro' ? 'Înscrieri' : 'Sign up',
+                    url: '/participate',
+                    icon: 'bonfire'
+                },
+                {
+                    title: 'Contact',
+                    url: '/contact',
+                    icon: 'mail'
+                },
+                {
+                    title: 'Login',
+                    url: '/login',
+                    icon: 'key',
+                    enabled: false
+                }
+            ];
+        });
     }
-    
+
     ngOnInit() {
         this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
             this.mobile = (result.matches) ? true : false;
             this.menu.enable(this.mobile, 'main-menu');
         });
-        this.localization.init("ro"); 
-        
+        this.localization.init("ro");
+
         const logoutItem = this.appPages[this.appPages.length - 1]
         this.auth.isLoggedIn.subscribe(value => {
-            if(value) {
+            if (value) {
                 logoutItem.enabled = true
                 logoutItem.title = 'Logout'
             } else {
@@ -120,7 +123,7 @@ export class AppComponent implements OnInit {
     }
 
     logout(event) {
-        if(event.target.id === 'Logout') {
+        if (event.target.id === 'Logout') {
             this.auth.logout()
         }
     }

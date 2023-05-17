@@ -1,4 +1,4 @@
-export interface Invited {
+export interface Guest {
 
     id: string;
     name: string;

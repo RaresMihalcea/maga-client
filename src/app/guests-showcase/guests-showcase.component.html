@@ -1,0 +1,110 @@
+<ion-grid class="showcase-grid">
+  <ion-row>
+    <ion-col
+      class="first-section"
+      justify-content-center
+      size="4"
+      *ngIf="!mobile"
+    >
+      <h2 class="section-title">{{ 'guests' | translate }}</h2>
+      <p>
+        {{ 'guestsShowcase' | translate }}
+      </p>
+      <ion-button fill="outline" class="section-button" (click)="navGuests()"
+        >{{ 'seeAllGuests' | translate }}
+      </ion-button>
+    </ion-col>
+    <ion-col
+      size="8"
+      size-lg
+      *ngIf="!mobile"
+      [ngClass]="{ 'blob-background': !mobile && !tablet }"
+    >
+      <ion-row justify-content-center class="mobile-images">
+        <app-fancy-card
+          [image]="
+            '../../assets/images/Guests/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'
+          "
+          [name]="'Dr. Dumitru Prunariu'"
+          title="{{ 'firstRomanianCosmonaut' | translate }}"
+        >
+        </app-fancy-card>
+        <app-fancy-card
+          [image]="'../../assets/images/Guests/Guy-Djoken.jpg'"
+          [name]="'Guy Djoken'"
+          title="{{ 'presidentOfTheCenterForPeace' | translate }}"
+        >
+        </app-fancy-card>
+        <app-fancy-card
+          [image]="'../../assets/images/Guests/Heather-e1561802488420.jpg'"
+          [name]="'Heather Caton'"
+          title="{{ 'worldGenesisFoundationFounder' | translate }}"
+        >
+        </app-fancy-card>
+      </ion-row>
+      <ion-row
+        *ngIf="!tablet && !mobile"
+        class="mobile-images"
+        justify-content-center
+      >
+        <app-fancy-card
+          [image]="
+            '../../assets/images/Guests/florin-munteanu2-e1495287157899.jpg'
+          "
+          [name]="'Dr. Florin Munteanu'"
+          title="{{ 'presidentOfTheCenterForComplexStudies' | translate }}"
+        >
+        </app-fancy-card>
+        <app-fancy-card
+          [image]="'../../assets/images/Guests/Erisa-Hines-e1436522193301.png'"
+          [name]="'Erisa Hines'"
+          title="{{ 'scienctistAtNASA' | translate }}"
+        >
+        </app-fancy-card>
+        <app-fancy-card
+          [image]="'../../assets/images/Guests/maxresdefault.jpg'"
+          [name]="'Dr. Cristian Presură'"
+          title="{{ 'authorOfFizicaPovestita' | translate }}"
+        >
+        </app-fancy-card>
+      </ion-row>
+    </ion-col>
+    <ion-row *ngIf="mobile">
+      <ion-col class="section-mobile">
+        <h2 class="section-title">{{ 'guests' | translate }}</h2>
+        <p class="section-mobile-subtitle">
+          {{ 'guestsShowcase' | translate }}
+        </p>
+        <ion-button fill="outline" class="section-button" (click)="navGuests()"
+          >{{ 'seeAllGuests' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row
+      justify-content-center
+      class="justify-content-center mobile-images"
+      *ngIf="mobile"
+    >
+      <app-fancy-card
+        [image]="
+          '../../assets/images/Guests/10_Dumitru-Dorin_Prunariu__Nov-2016_space-overall-1024x534.jpg'
+        "
+        [name]="'Dr. Dumitru Prunariu'"
+        title="{{ 'firstRomanianCosmonaut' | translate }}"
+      >
+      </app-fancy-card>
+      <app-fancy-card
+        [image]="'../../assets/images/Guests/Guy-Djoken.jpg'"
+        [name]="'Guy Djoken'"
+        title="{{ 'presidentOfTheCenterForPeace' | translate }}"
+      >
+      </app-fancy-card>
+      <app-fancy-card
+        [image]="'../../assets/images/Guests/Heather-e1561802488420.jpg'"
+        [name]="'Heather Caton'"
+        title="{{ 'worldGenesisFoundationFounder' | translate }}"
+      >
+      </app-fancy-card>
+    </ion-row>
+  </ion-row>
+</ion-grid>

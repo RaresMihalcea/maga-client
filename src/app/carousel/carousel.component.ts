@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-carousel',
@@ -11,7 +12,7 @@ export class CarouselComponent implements OnInit {
 		image: 'assets/gallery/Atlantykron-48.jpg',
 		thumbImage: 'assets/gallery/Atlantykron-48.jpg',
 		alt: 'alt of image',
-	}, 
+	},
 	{
 		image: 'assets/gallery/Atlantykron-63.jpg',
 		thumbImage: 'assets/gallery/Atlantykron-63.jpg',
@@ -39,7 +40,7 @@ export class CarouselComponent implements OnInit {
 	},
 	];
 
-	constructor() { }
+	constructor(public translate: TranslateService) { }
 
 	ngOnInit() { }
 

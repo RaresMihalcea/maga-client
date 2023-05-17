@@ -8,6 +8,7 @@ import { OrganizersPageRoutingModule } from './organizers-routing.module';
 
 import { OrganizersPage } from './organizers.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,8 +16,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
-    OrganizersPageRoutingModule
+    OrganizersPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [OrganizersPage]
 })
-export class OrganizersPageModule {}
+export class OrganizersPageModule { }

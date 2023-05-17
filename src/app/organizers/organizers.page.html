@@ -1,28 +1,39 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-    <ion-grid id='material-card'>
-        <ion-row class='main-col'>
-            <ion-col justify-content-start float-left>
+  <ion-grid id="material-card">
+    <ion-row class="main-col">
+      <ion-col justify-content-start float-left>
+        <div *ngIf="isLoading" justify-content-center class="spinner">
+          <ion-spinner name="circular"></ion-spinner>
+        </div>
 
-                <div *ngIf="isLoading" justify-content-center class="spinner">
-                    <ion-spinner name="circular"></ion-spinner>
-                </div>
-
-                <h2 *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Organizatori</h2>
-                <p *ngIf="!isLoading" class='section' [ngClass]='{"section-center": mobile || tablet}'>Echipa de organizare isi oferta timpul si efortul in mod voluntar pentru a-ti asigura o experienta cat mai placuta in cadrul Academiei.</p>
-                <ion-row class="card-grid" >
-                    <app-fancy-card 
-                        *ngFor="let organizer of organizers"
-                        class='central-cards'
-                        [image]="organizer.pictureLink"
-                        [title]="organizer.roTitle"   
-                        [name]="organizer.name"
-                    ></app-fancy-card>
-                </ion-row>               
-            </ion-col>
+        <h2
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'organizers' | translate }}
+        </h2>
+        <p
+          *ngIf="!isLoading"
+          class="section"
+          [ngClass]='{"section-center": mobile || tablet}'
+        >
+          {{ 'organizigTeam' | translate }}
+        </p>
+        <ion-row class="card-grid">
+          <app-fancy-card
+            *ngFor="let organizer of organizers"
+            class="central-cards"
+            [image]="organizer.pictureLink"
+            [title]="language == 'ro' ? organizer.roTitle : organizer.enTitle"
+            [name]="organizer.name"
+          ></app-fancy-card>
         </ion-row>
-    </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 </ion-content>

@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SegmentFormComponent } from './segment-form/segment-form.component';
 import { SegmentGuideComponent } from './segment-guide/segment-guide.component';
 import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
     FormsModule,
     IonicModule,
     SharedModule,
-    ParticipatePageRoutingModule
+    ParticipatePageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ParticipatePage,
@@ -27,4 +29,4 @@ import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
     SegmentFormComponent
   ]
 })
-export class ParticipatePageModule {}
+export class ParticipatePageModule { }

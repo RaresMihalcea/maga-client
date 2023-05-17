@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-presentation',
@@ -16,7 +17,8 @@ export class PresentationComponent implements OnInit {
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
-		public navCtrl: NavController) { }
+		public navCtrl: NavController,
+		public translate: TranslateService) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {

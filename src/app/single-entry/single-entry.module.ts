@@ -8,6 +8,7 @@ import { SingleEntryPageRoutingModule } from './single-entry-routing.module';
 
 import { SingleEntryPage } from './single-entry.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
 	imports: [
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
 		FormsModule,
 		IonicModule,
 		SingleEntryPageRoutingModule,
-		SharedModule
+		SharedModule,
+		TranslateModule.forChild()
 	],
 	declarations: [SingleEntryPage]
 })

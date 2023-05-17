@@ -1,50 +1,115 @@
 <app-navbar></app-navbar>
 
 <ion-content>
-    <ion-grid id='material-card'>
-        <ion-row>
-            <ion-col (keydown.enter)="emailRegistrationHandler()" id='form-col'>
-                <ion-item class='form-item'>
-                    <ion-label position='floating'>*E-mail</ion-label>
-                    <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
-                    <ion-note slot="error"></ion-note>
-                </ion-item>
-                <ion-item class='form-item'>
-                    <ion-label position='floating'>*Parolă</ion-label>
-                    <ion-input type='password' [(ngModel)]="password" required></ion-input>
-				</ion-item>
-				<ion-item class='form-item'>
-                    <ion-label position='floating'>*Confirmare Parolă</ion-label>
-                    <ion-input type='password' [(ngModel)]="confirmPassword" required></ion-input>
-                </ion-item>
-                <p>*Parola trebuie să conțină mai mult de 6 caractere</p>
-                <p>*Înregistratea pe acest site înseamnă ca sunteți implicit de acord cu <span class="link" (click)="navPrivacyPolicy()">politica de protecție a datelor.</span></p>
-                <ion-row class='registration-btn'>
-                    <ion-button fill='outline' class='login-button' (click)="emailRegistrationHandler()">Înregistrare</ion-button>
-                </ion-row>
-                <p *ngIf="displayError" class="error-msg">Adresa email este greșită sau parola nu respectă regulile</p>
-                <p>Sau</p>
-                <ion-row class='registration-btn'>
-                    <ion-button name="star" fill='outline' class='login-button' (click)='googleRegistrationHandler()'>
-                        <span><img class="comp-logo" src='../../assets/images/google-logo.svg.png' alt='google icon'></span> Continuă cu Google
-                    </ion-button>
-                </ion-row>
-                <ion-row class='registration-btn'>
-                    <ion-button name="star" fill='outline' class='login-button' (click)='facebookRegistrationHandler()'>
-                        <span><img class="comp-logo" src='../../assets/images/fb-logo.svg.png' alt='facebook icon'></span> Continuă cu Facebook
-                    </ion-button>
-                </ion-row>
-                <p id='forgot' (click)='navForgot()'>Ai uitat parola? <span id='click-here'>Click Aici</span></p>
-                <p>Sau</p>
-                <ion-button fill='outline' class='login-button' (click)='navLogin()'>Logare</ion-button>
-            </ion-col>
-            <ion-row *ngIf='!mobile'>
-                <img class='svg-login' src='../../assets/illustrations/Group 2.svg' alt='login illustration'>
-                <img class='svg-login' id='login-blob' src='../../assets/illustrations/blob-shape-login.svg'
-                    alt='login blob'>
-            </ion-row>
+  <ion-grid id="material-card">
+    <ion-row>
+      <ion-col (keydown.enter)="emailRegistrationHandler()" id="form-col">
+        <ion-item class="form-item">
+          <ion-label position="floating">*E-mail</ion-label>
+          <ion-input
+            type="email"
+            [(ngModel)]="email"
+            ngModel
+            email
+            required
+          ></ion-input>
+          <ion-note slot="error"></ion-note>
+        </ion-item>
+        <ion-item class="form-item">
+          <ion-label position="floating"
+            >{{ 'password' | translate }}</ion-label
+          >
+          <ion-input
+            type="password"
+            [(ngModel)]="password"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item class="form-item">
+          <ion-label position="floating"
+            >{{ 'confirmPassword' | translate }}</ion-label
+          >
+          <ion-input
+            type="password"
+            [(ngModel)]="confirmPassword"
+            required
+          ></ion-input>
+        </ion-item>
+        <p>{{ 'passwordMustHave6OrMore' | translate }}</p>
+        <p>
+          {{ 'registrationAgreement' | translate }}
+          <span class="link" (click)="navPrivacyPolicy()"
+            >{{ privacyPolicy | translate }}.</span
+          >
+        </p>
+        <ion-row class="registration-btn">
+          <ion-button
+            fill="outline"
+            class="login-button"
+            (click)="emailRegistrationHandler()"
+            >{{ 'register' | translate }}</ion-button
+          >
         </ion-row>
-    </ion-grid>
+        <p *ngIf="displayError" class="error-msg">
+          {{ 'registerError' | translate }}
+        </p>
+        <p>{{ 'or' | translate }}</p>
+        <ion-row class="registration-btn">
+          <ion-button
+            name="star"
+            fill="outline"
+            class="login-button"
+            (click)="googleRegistrationHandler()"
+          >
+            <span
+              ><img
+                class="comp-logo"
+                src="../../assets/images/google-logo.svg.png"
+                alt="google icon"
+            /></span>
+            {{ 'continueGoogle' | translate }}
+          </ion-button>
+        </ion-row>
+        <ion-row class="registration-btn">
+          <ion-button
+            name="star"
+            fill="outline"
+            class="login-button"
+            (click)="facebookRegistrationHandler()"
+          >
+            <span
+              ><img
+                class="comp-logo"
+                src="../../assets/images/fb-logo.svg.png"
+                alt="facebook icon"
+            /></span>
+            {{ 'continueFacebook' | translate }}
+          </ion-button>
+        </ion-row>
+        <p id="forgot" (click)="navForgot()">
+          {{ 'forgotPassword' | translate }}
+          <span id="click-here">{{ clickHere | translate }}</span>
+        </p>
+        <p>{{ 'or' | translate }}</p>
+        <ion-button fill="outline" class="login-button" (click)="navLogin()"
+          >{{ 'login' | translate }}</ion-button
+        >
+      </ion-col>
+      <ion-row *ngIf="!mobile">
+        <img
+          class="svg-login"
+          src="../../assets/illustrations/Group 2.svg"
+          alt="login illustration"
+        />
+        <img
+          class="svg-login"
+          id="login-blob"
+          src="../../assets/illustrations/blob-shape-login.svg"
+          alt="login blob"
+        />
+      </ion-row>
+    </ion-row>
+  </ion-grid>
 
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 </ion-content>

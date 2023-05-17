@@ -10,7 +10,7 @@ import { HomePage } from './home.page';
 import { HeroComponent } from '../hero/hero.component';
 import { SharedModule } from '../shared/shared.module';
 import { PresentationComponent } from '../presentation/presentation.component';
-import { InvitedShowcaseComponent } from '../invited-showcase/invited-showcase.component';
+import { GuestsShowcaseComponent } from '../guests-showcase/guests-showcase.component';
 import { GuideComponent } from '../guide/guide.component';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
@@ -23,7 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
         HomePage,
         HeroComponent,
         PresentationComponent,
-        InvitedShowcaseComponent,
+        GuestsShowcaseComponent,
         GuideComponent,
         CarouselComponent,
         MapComponent,

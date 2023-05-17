@@ -1,19 +1,19 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
-import { Partner } from '../models/partner';
-import { ActiveYearService } from '../services/active-year.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ActiveYearService } from '../services/active-year.service';
+import { Guest } from '../models/guests';
+import { TranslateService } from '@ngx-translate/core';
 import { LocalizationService } from '../services/localization.service';
 
 @Component({
-	selector: 'app-sponsors',
-	templateUrl: './sponsors.page.html',
-	styleUrls: ['./sponsors.page.scss'],
+	selector: 'app-guests',
+	templateUrl: './guests.page.html',
+	styleUrls: ['./guests.page.scss'],
 })
-export class SponsorsPage implements OnInit {
+export class GuestsPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
@@ -21,19 +21,20 @@ export class SponsorsPage implements OnInit {
 
 	isLoading: boolean = true;
 
-	partners: Partner[] = [];
+	guests: Guest[] = [];
 	activeYear: number;
 	defaultYear: number;
-	alreadyFetchedYears: number[] = []
-	alreadyFetchedPartners: Set<string> = new Set();
+	alreadyFetchedYears: number[] = [];
+	alreadyFetchedGuests: Set<string> = new Set();
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
 		public firestore: AngularFirestore,
 		public activeYearService: ActiveYearService,
 		public navCtrl: NavController,
-		public localization: LocalizationService,
-		public translate: TranslateService) { }
+		public translate: TranslateService,
+		public localization: LocalizationService
+	) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -53,15 +54,15 @@ export class SponsorsPage implements OnInit {
 	async fetchData() {
 		if (!this.alreadyFetchedYears.includes(this.activeYear)) {
 			this.isLoading = true;
-			const partnerQuery = this.firestore.collection('partners').ref.where("years", 'array-contains', this.activeYear)
+			const guestsQuery = this.firestore.collection('guests').ref.where("years", 'array-contains', this.activeYear)
 
-			await partnerQuery.get().then(data => {
+			await guestsQuery.get().then(data => {
 				data.forEach(doc => {
-					const fetchedpartner: Partner = doc.data() as Partner;
-					fetchedpartner.id = doc.id
-					if (!this.alreadyFetchedPartners.has(fetchedpartner.id)) {
-						this.partners.push(fetchedpartner)
-						this.alreadyFetchedPartners.add(fetchedpartner.id)
+					const fetchedGuests: Guest = doc.data() as Guest;
+					fetchedGuests.id = doc.id
+					if (!this.alreadyFetchedGuests.has(fetchedGuests.id)) {
+						this.guests.push(fetchedGuests)
+						this.alreadyFetchedGuests.add(fetchedGuests.id)
 					}
 				})
 				this.isLoading = false;
@@ -74,22 +75,23 @@ export class SponsorsPage implements OnInit {
 	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
 		this.fetchData();
+		console.log(this.activeYear)
 	}
 
-	filter(partners: Partner[], category: string): Partner[] {
-		let result: Partner[] = []
+	filter(guests: Guest[]): Guest[] {
+		let result: Guest[] = []
 
-		partners.forEach(partner => {
-			if (partner.years.includes(this.activeYear) && partner.category == category) {
-				result.push(partner)
+		guests.forEach(el => {
+			if (el.years.includes(this.activeYear)) {
+				result.push(el)
 			}
 		})
 
 		return result
 	}
 
-	navToSingleEntry(partner) {
-		this.navCtrl.navigateForward(`/single-entry?type=partners&id=${partner.id}`, { animated: false });
+	navToSingleEntry(guest) {
+		this.navCtrl.navigateForward(`/single-entry?type=guests&id=${guest.id}`, { animated: false });
 	}
 
 }

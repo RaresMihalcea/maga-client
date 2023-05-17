@@ -2,36 +2,41 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { Instructor } from '../models/instructor';
 import { ActiveYearService } from '../services/active-year.service';
 import { BreakpointsService } from '../services/breakpoints.service';
+import { LocalizationService } from '../services/localization.service';
 
 @Component({
-    selector: 'app-instructors',
-    templateUrl: './instructors.page.html',
-    styleUrls: ['./instructors.page.scss'],
+	selector: 'app-instructors',
+	templateUrl: './instructors.page.html',
+	styleUrls: ['./instructors.page.scss'],
 })
 export class InstructorsPage implements OnInit {
 
-    public mobile = true;
+	public mobile = true;
 	public tablet = true;
+	public language: string = this.translate.getDefaultLang();
 
 	isLoading: boolean = true;
 
 	instructors: Instructor[] = [];
 	activeYear: number;
 	defaultYear: number;
-    alreadyFetchedYears: number[] = [];
+	alreadyFetchedYears: number[] = [];
 	alreadyFetchedInstructors: Set<string> = new Set();
 
-    constructor(public breakpointObserver: BreakpointObserver,
+	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
 		public firestore: AngularFirestore,
 		public activeYearService: ActiveYearService,
-		public navCtrl: NavController) { }
+		public navCtrl: NavController,
+		public localization: LocalizationService,
+		public translate: TranslateService) { }
 
-    ngOnInit() {
-        this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
+	ngOnInit() {
+		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
 			this.mobile = (result.matches) ? true : false;
 		});
 		this.breakpointObserver.observe(this.breakpoints.tablet).subscribe(result => {
@@ -41,18 +46,20 @@ export class InstructorsPage implements OnInit {
 		this.defaultYear = this.activeYearService.getDefaultActiveYear();
 		this.activeYear = this.defaultYear;
 		this.fetchData()
-    }
 
-    async fetchData() {
-		if(!this.alreadyFetchedYears.includes(this.activeYear)) {
+		this.localization.languageChange.subscribe(value => { this.language = value })
+	}
+
+	async fetchData() {
+		if (!this.alreadyFetchedYears.includes(this.activeYear)) {
 			this.isLoading = true;
 			const instructorQuery = this.firestore.collection('instructors').ref.where("years", 'array-contains', this.activeYear)
 
-			await instructorQuery.get().then(data => { 
+			await instructorQuery.get().then(data => {
 				data.forEach(doc => {
 					const fetchedInstructor: Instructor = doc.data() as Instructor;
 					fetchedInstructor.id = doc.id
-					if(!this.alreadyFetchedInstructors.has(fetchedInstructor.id)) {
+					if (!this.alreadyFetchedInstructors.has(fetchedInstructor.id)) {
 						this.instructors.push(fetchedInstructor)
 						this.alreadyFetchedInstructors.add(fetchedInstructor.id)
 					}
@@ -62,9 +69,9 @@ export class InstructorsPage implements OnInit {
 
 			this.alreadyFetchedYears.push(this.activeYear)
 		}
-	} 
+	}
 
-    changeActiveYear(activeYear: number) {
+	changeActiveYear(activeYear: number) {
 		this.activeYear = activeYear
 		this.fetchData();
 		console.log(this.activeYear)
@@ -74,7 +81,7 @@ export class InstructorsPage implements OnInit {
 		let result: Instructor[] = []
 
 		instructors.forEach(instructor => {
-			if(instructor.years.includes(this.activeYear)) {
+			if (instructor.years.includes(this.activeYear)) {
 				result.push(instructor)
 			}
 		})
@@ -83,7 +90,7 @@ export class InstructorsPage implements OnInit {
 	}
 
 	navToSingleEntry(instructor) {
-		this.navCtrl.navigateForward(`/single-entry?type=instructors&id=${instructor.id}`, {animated: false});
+		this.navCtrl.navigateForward(`/single-entry?type=instructors&id=${instructor.id}`, { animated: false });
 	}
 
 }

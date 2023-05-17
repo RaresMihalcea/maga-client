@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { BreakpointsService } from '../services/breakpoints.service';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-guide',
@@ -15,7 +16,8 @@ export class GuideComponent implements OnInit {
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
-		public navCtrl: NavController) { }
+		public navCtrl: NavController,
+		public transate: TranslateService) { }
 
 	ngOnInit() {
 		this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {
@@ -27,7 +29,7 @@ export class GuideComponent implements OnInit {
 	}
 
 	navigateToParticipate(): void {
-        this.navCtrl.navigateForward('/participate', {animated: false});
-    }
+		this.navCtrl.navigateForward('/participate', { animated: false });
+	}
 
 }

@@ -6,7 +6,7 @@ import { CardPopoverComponent } from '../card-popover/card-popover.component';
 import { FancyCardComponent } from '../fancy-card/fancy-card.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
-// import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
         IonicModule,
         FormsModule,
         HttpClientModule,
-        // TranslateModule.forChild()
+        TranslateModule.forChild()
     ],
     exports: [
         NavbarComponent,
