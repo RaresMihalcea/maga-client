@@ -26,7 +26,7 @@
     "presidentOfTheCertainForPeace": "Președinte Centrul Pentru Pace Unesco",
     "worldGenesisFoundationFounder": "Fondatoare World Genesis Foundation",
     "presidentOfTheCenterForComplexStudies": "Președinte Centrul de Studii Complexe",
-    "scienctistAtNASA": "Om de Știință NASA Jet Propulsion Laboratory", 
+    "scienctistAtNASA": "Om de Știință NASA Jet Propulsion Laboratory",
     "authorOfFizicaPovestita": "Autor \"Fizica Povestită\"",
     "typicalDay": "O zi tipică într-o tabără atipică",
     "typicalDayDescription": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor",
@@ -37,7 +37,8 @@
     "location": "Locația",
     "officialPartners": "Parteneri Oficiali",
     "organizedBy": "Un eveniment organizat și sprijinit de către",
-    "privacyPolicy": "Privacy Policy",
+    "privacyPolicy": "Politică de Confidențialitate",
+    "termsAndConditions": "Termenii și Condițiile",
     "copyright": "© Copyright Atlantykron 2023 – Toate drepturile rezervate",
     "selectYear": "Selectați anul",
     "organizingNGOs": "ONG-uri Organizatoare",
@@ -188,4 +189,4 @@
     "rules20link": "scrisoarea de consimțământ",
     "rules20cont": "din partea părinților sau a tutorelui legal (daca nu sunt insotiti de parinte sau tutore). ",
     "rules21": " să achite integral bonurile de masă, pentru întreaga perioadă a evenimentului. "
-}   
+}

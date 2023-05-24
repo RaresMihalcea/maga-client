@@ -46,8 +46,8 @@ export class RegistrationPage implements OnInit {
 		this.navCtrl.navigateForward('/forgot', { animated: false });
 	}
 
-	navPrivacyPolicy(): void {
-		this.navCtrl.navigateForward('/privacy-policy', { animated: false });
+	navTerms(): void {
+		this.navCtrl.navigateForward('/terms', { animated: false });
 	}
 
 	emailRegistrationHandler(): void {
