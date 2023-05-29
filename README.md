@@ -1,9 +1,8 @@
-Pentru a instala si rula va trebuie Node.js. Puteti downloada Node gratuit de aici https://nodejs.org/en/.
+Recomand NVM daca nu ai node instalat 
 
-Dupa ce ati clonat repoul trebuie sa navigati in folderul server "cd server".
+npm - 6.14.17
+node - v14.20.1
 
-Pentru a instala dependentele "npm i".
+npm i 
 
-Pentru a rula "npm start".
-
-Consultati documentatia Ionic https://ionicframework.com/.
+npm start
