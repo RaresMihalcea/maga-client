@@ -62,7 +62,9 @@ export class SingleEntryPage implements OnInit {
   }
 
   formatYears(years: number[]): string {
-    return years.length === 1 ? years[0].toString() : years[0].toString() + ' - ' + years[years.length - 1]
+    const smallest = Math.min(...years)
+    const largest = Math.max(...years)
+    return years.length === 1 ? years[0].toString() : smallest.toString() + ' - ' + largest
   }
 
 }
