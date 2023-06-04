@@ -2,16 +2,10 @@
 
 <ion-content>
   <div id="hero-container" class="overlay-navbar">
-    <h1
-      *ngIf="!isLoading && type != 'guests' && type != 'instructors'"
-      class="single-entry-title"
-    >
+    <h1 *ngIf="!isLoading && type != 'guests' && type != 'instructors'" class="single-entry-title">
       {{language === 'ro' ? data.roTitle : data.enTitle}}
     </h1>
-    <h1
-      *ngIf="!isLoading && (type == 'guests' || type == 'instructors')"
-      class="single-entry-title"
-    >
+    <h1 *ngIf="!isLoading && (type == 'guests' || type == 'instructors')" class="single-entry-title">
       {{data.name}}
     </h1>
   </div>
@@ -21,17 +15,10 @@
       <ion-spinner name="circular"></ion-spinner>
     </div>
 
-    <ion-row
-      *ngIf="!isLoading"
-      justify-content-center
-      [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'
-    >
+    <ion-row *ngIf="!isLoading" justify-content-center
+      [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'>
       <ion-col size="auto">
-        <img
-          [ngClass]='{"center-on-mobile": mobile || tablet}'
-          class="pseudo-fancy-card"
-          src="{{data.pictureLink}}"
-        />
+        <img [ngClass]='{"center-on-mobile": mobile || tablet}' class="pseudo-fancy-card" src="{{data.pictureLink}}" />
         <p class="presenceYears">
           <span *ngIf="data.years.length > 1">{{ 'years' | translate }}</span>
           <span *ngIf="data.years.length === 1">{{ 'year' | translate }}</span>
@@ -39,7 +26,7 @@
         </p>
       </ion-col>
       <ion-col class="main-col">
-        <h3 class="space" *ngIf="type == 'guests' || type == 'instructors'">
+        <h3 class="space" *ngIf="(type == 'guests' || type == 'instructors') &&  data.roTitle.length > 0">
           {{ 'title' | translate }}
           <span>{{language === 'ro' ? data.roTitle : data.enTitle}}</span>
         </h3>

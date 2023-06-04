@@ -15,7 +15,7 @@ import { LocalizationService } from '../services/localization.service';
 export class SingleEntryPage implements OnInit {
 
   isLoading: boolean = true;
-  public language: string = this.translate.getDefaultLang();
+  public language: string = this.localization.getLanguage();
 
   public mobile = true;
   public tablet = true;
@@ -48,6 +48,7 @@ export class SingleEntryPage implements OnInit {
       this.id = params['id']
 
       this.fetchSingleEntryData()
+      console.log(this.type)
     });
 
     this.localization.languageChange.subscribe(value => { this.language = value })

@@ -42,7 +42,8 @@
         <ion-row class="card-grid">
           <app-fancy-card *ngFor="let course of filter(courses, 'Artă')" class="central-cards"
             [image]="course.pictureLink" [title]="course.instructors"
-            [name]="language == 'ro' ? course.roTitle : course.enTitle"></app-fancy-card>
+            [name]="language == 'ro' ? course.roTitle : course.enTitle"
+            (click)="navToSingleEntry(course)"></app-fancy-card>
         </ion-row>
 
         <h2 *ngIf="!isLoading" class="section" [ngClass]='{"section-center": mobile || tablet}'>
@@ -51,7 +52,8 @@
         <ion-row class="card-grid">
           <app-fancy-card *ngFor="let course of filter(courses, 'Cultură')" class="central-cards"
             [image]="course.pictureLink" [title]="course.instructors"
-            [name]="language == 'ro' ? course.roTitle : course.enTitle"></app-fancy-card>
+            [name]="language == 'ro' ? course.roTitle : course.enTitle"
+            (click)="navToSingleEntry(course)"></app-fancy-card>
         </ion-row>
 
         <h2 *ngIf="!isLoading" class="section" [ngClass]='{"section-center": mobile || tablet}'>
@@ -60,7 +62,8 @@
         <ion-row class="card-grid">
           <app-fancy-card *ngFor="let course of filter(courses, 'Sport')" class="central-cards"
             [image]="course.pictureLink" [title]="course.instructors"
-            [name]="language == 'ro' ? course.roTitle : course.enTitle"></app-fancy-card>
+            [name]="language == 'ro' ? course.roTitle : course.enTitle"
+            (click)="navToSingleEntry(course)"></app-fancy-card>
         </ion-row>
       </ion-col>
     </ion-row>
