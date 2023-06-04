@@ -1,154 +1,62 @@
-<ion-header
-  [attr.no-border]="router.url == '/home' ? true : null"
-  [ngClass]="{
+<ion-header [attr.no-border]="router.url == '/home' ? true : null" [ngClass]="{
     'ion-header-padding': !mobile && router.url == '/home',
     'ion-no-border': router.url == '/home'
-  }"
->
-  <ion-toolbar
-    [ngClass]="{ 'navbar-home': !mobile && router.url == '/home' }"
-    scroll="false"
-  >
+  }">
+  <ion-toolbar [ngClass]="{ 'navbar-home': !mobile && router.url == '/home' }" scroll="false">
     <ion-buttons slot="start" *ngIf="mobile">
-      <ion-menu-button
-        [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-      ></ion-menu-button>
+      <ion-menu-button [attr.color]="router.url == '/home' ? 'light' : 'dark'"></ion-menu-button>
     </ion-buttons>
     <ion-grid>
       <ion-row class="ion-justify-content-center">
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          [ngClass]="{ 'active-home': router.url == '/home' }"
-          (click)="navigateToHome()"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" [ngClass]="{ 'active-home': router.url == '/home' }" (click)="navigateToHome()">
           {{ 'home' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToGuests()"
-          [ngClass]="{ active: router.url == '/guests' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToGuests()" [ngClass]="{ active: router.url == '/guests' }">
           {{ 'guests' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToCourses()"
-          [ngClass]="{ active: router.url == '/courses' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToCourses()" [ngClass]="{ active: router.url == '/courses' }">
           {{ 'courses' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToConferences()"
-          [ngClass]="{ active: router.url == '/conferences' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToConferences()" [ngClass]="{ active: router.url == '/conferences' }">
           {{ 'conferences' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToInstructors()"
-          [ngClass]="{ active: router.url == '/instructors' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToInstructors()" [ngClass]="{ active: router.url == '/instructors' }">
           {{ 'instructors' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToPartners()"
-          [ngClass]="{ active: router.url == '/partners' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToPartners()" [ngClass]="{ active: router.url == '/partners' }">
           {{ 'partners' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToContact()"
-          [ngClass]="{ active: router.url == '/contact' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToContact()" [ngClass]="{ active: router.url == '/contact' }">
           Contact
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToOrganizers()"
-          [ngClass]="{ active: router.url == '/organizers' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToOrganizers()" [ngClass]="{ active: router.url == '/organizers' }">
           {{ 'organizers' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile"
-          class="navbar-button"
-          (click)="navigateToParticipate()"
-          [ngClass]="{ active: router.url == '/participate' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'" *ngIf="!mobile"
+          class="navbar-button" (click)="navigateToParticipate()" [ngClass]="{ active: router.url == '/participate' }">
           {{ 'signUp' | translate }}
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile && isLoggedIn"
-          class="navbar-button"
-          (click)="logout()"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'"
+          *ngIf="!mobile && isLoggedIn" class="navbar-button" (click)="logout()">
           Logout
         </ion-button>
-        <ion-button
-          fill="clear"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          *ngIf="!mobile && !isLoggedIn"
-          class="navbar-button"
-          (click)="navigateToLogin()"
-          [ngClass]="{ active: router.url == '/login' }"
-        >
+        <ion-button fill="clear" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'"
+          *ngIf="!mobile && !isLoggedIn" class="navbar-button" (click)="navigateToLogin()"
+          [ngClass]="{ active: router.url == '/login' }">
           Login
         </ion-button>
-        <ion-button
-          fill="clear"
-          *ngIf="!mobile"
-          expand="full"
-          [attr.color]="router.url == '/home' ? 'light' : 'dark'"
-          class="navbar-button"
-        >
-          <ion-select
-            interface="popover"
-            [(ngModel)]="language"
-            [value]="language"
-            (ionChange)="changeLanguage()"
-          >
+        <ion-button fill="clear" *ngIf="!mobile" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'"
+          class="navbar-button">
+          <ion-select okText="OK" [cancelText]="language == 'ro' ? 'Închide' : 'Cancel'" [(ngModel)]="language"
+            [value]="language" (ionChange)="changeLanguage()">
             <ion-select-option value="ro"> 🇷🇴 RO </ion-select-option>
             <ion-select-option value="en"> 🇺🇸 EN </ion-select-option>
           </ion-select>
