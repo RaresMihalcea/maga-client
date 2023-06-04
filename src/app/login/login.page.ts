@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
 	public email: string;
 	public password: string;
 	public displayError: boolean = false;
+	
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -30,6 +31,14 @@ export class LoginPage implements OnInit {
 		});
 		this.breakpointObserver.observe(this.breakpoints.tablet).subscribe(result => {
 			this.tablet = (result.matches) ? true : false;
+		});
+
+		this.authService.getPublishError().subscribe((error) => {
+			if(error) {
+				this.displayError = true;
+			} else {
+				this.displayError = false;
+			}
 		});
 	}
 

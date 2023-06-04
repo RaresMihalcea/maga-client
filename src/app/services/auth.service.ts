@@ -12,6 +12,8 @@ import { NavController } from "@ionic/angular";
 })
 export class AuthService {
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  publishError: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   userData: any;
 
   constructor(
@@ -40,7 +42,7 @@ export class AuthService {
       .then((result) => {
         this.setUserData(result.user);
         this.auth.authState.subscribe((user) => {
-          console.log(result);
+          this.publishError.next(false);
           if (user) {
             this.isLoggedIn.next(true);
             this.navCtrl.navigateForward("/home", { animated: false });
@@ -49,6 +51,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.isLoggedIn.next(false);
+        this.publishError.next(true);
         console.log(error);
       });
   }
@@ -141,6 +144,10 @@ export class AuthService {
     const userToken = await firebase.auth().currentUser.getIdToken();
 
     return userToken;
+  }
+
+  getPublishError() {
+    return this.publishError;
   }
 
   validateEmail(email: string) {
