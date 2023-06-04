@@ -20,11 +20,6 @@ export class CarouselComponent implements OnInit {
 		alt: 'alt of image',
 	},
 	{
-		image: 'assets/gallery/3.jpg',
-		thumbImage: 'assets/gallery/3.jpg',
-		alt: 'alt of image',
-	},
-	{
 		image: 'assets/gallery/4.jpg',
 		thumbImage: 'assets/gallery/4.jpg',
 		alt: 'alt of image',
