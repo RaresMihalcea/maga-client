@@ -4,6 +4,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { AuthService } from "../services/auth.service";
 import { BreakpointsService } from "../services/breakpoints.service";
 import { LocalizationService } from "../services/localization.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-participate",
@@ -32,7 +33,8 @@ export class ParticipatePage implements OnInit {
     public breakpoints: BreakpointsService,
     public auth: AuthService,
     public localization: LocalizationService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -44,6 +46,13 @@ export class ParticipatePage implements OnInit {
 
     this.isLoggedIn = this.auth.isLoggedInStatus;
     this.step = "enrollForm";
+    if(this.router.url.includes("guide")) {
+      this.step = "guide";
+    }
+    if(this.router.url.includes("rules")) {
+      this.step = "rules";
+    }
+
 
     this.localization.languageChange.subscribe((value) => {
       this.stepDisplay = {

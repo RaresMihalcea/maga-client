@@ -12,7 +12,9 @@
     max-width: 600px;
 }
 
-ion-item, ion-list, p {
+ion-item,
+ion-list,
+p {
     margin: 0 auto;
     max-width: 600px;
     margin-bottom: 20px;
@@ -45,4 +47,8 @@ ion-label {
 
 .errors {
     color: red;
+}
+
+.success {
+    color: green;
 }

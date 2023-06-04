@@ -65,6 +65,8 @@ export class SegmentFormComponent implements OnInit {
   defaultYear: number;
   isLoading: boolean;
 
+  success:boolean = false;
+
   constructor(
     public auth: AuthService,
     public navCtrl: NavController,
@@ -166,6 +168,7 @@ export class SegmentFormComponent implements OnInit {
         .collection("participants")
         .add({ ...participant })
         .then(() => {
+          this.success = true;
           console.log("added");
         });
     }
@@ -200,35 +203,35 @@ export class SegmentFormComponent implements OnInit {
   validateForm(): boolean {
     this.errors = [];
     if (!this.auth.validateEmail(this.email)) {
-      this.errors.push("E-mailul trebuie sa fie valid");
+      this.addError("E-mailul trebuie sa fie valid");
     }
     if (this.firstName === undefined || this.firstName.length == 0) {
-      this.errors.push("Prenumele nu poate fi gol");
+      this.addError("Prenumele nu poate fi gol");
     }
     if (this.surname === undefined || this.surname.length == 0) {
-      this.errors.push("Numele nu poate fi gol");
+      this.addError("Numele nu poate fi gol");
     }
     if (this.age === undefined) {
-      this.errors.push("Varsta trebuie specificata");
+      this.addError("Varsta trebuie specificata");
     } else {
       if (this.age < 0) {
-        this.errors.push("Varsta nu poate fi negativa");
+        this.addError("Varsta nu poate fi negativa");
       }
     }
     if (this.occupation === undefined || this.occupation.length == 0) {
-      this.errors.push("Ocupatia trebuie specificata");
+      this.addError("Ocupatia trebuie specificata");
     }
     if (
       this.cityOfResidence === undefined ||
       this.cityOfResidence.length == 0
     ) {
-      this.errors.push("Locatia de resedinta trebuie specificata");
+      this.addError("Locatia de resedinta trebuie specificata");
     }
     if (
       this.age < 18 &&
       (this.occupation === undefined || this.caretaker.length == 0)
     ) {
-      this.errors.push(
+      this.addError(
         "Persoana care te insoteste ca minor trebuie specificata"
       );
     }
@@ -237,37 +240,37 @@ export class SegmentFormComponent implements OnInit {
       this.isCaretaker &&
       (this.dependant === undefined || this.dependant.length == 0)
     ) {
-      this.errors.push(
+      this.addError(
         "Daca sunteti insotitor, personele insotite trebuie specificate"
       );
     }
     if (this.participatedBefore === undefined) {
-      this.errors.push(
+      this.addError(
         "Va rugam sa specificati daca ati mai participat in tabara"
       );
     }
     if (this.findOutMethods === undefined) {
-      this.errors.push(
+      this.addError(
         "Va rugam sa specificati daca ati mai participat in tabara"
       );
     }
     if (this.selectedCourses.length < 5) {
-      this.errors.push(
+      this.addError(
         "Trebuie sa alegeti 5 cursuri la care doriti sa participati, odata inceputa tabara, puteti participa la mai multe"
       );
     }
     if (this.package === undefined) {
-      this.errors.push("Trebuie sa alegeti un pachet durata-masa");
+      this.addError("Trebuie sa alegeti un pachet durata-masa");
     }
     if (this.payMethod === undefined) {
-      this.errors.push("Trebuie sa alegeti o metoda de plata");
+      this.addError("Trebuie sa alegeti o metoda de plata");
     }
     if (
       (this.package === this.packages[0] ||
         this.package === this.packages[2]) &&
       this.dietaryPreference === undefined
     ) {
-      this.errors.push(
+      this.addError(
         "Pentru pachetele care includ masa, trebuie specificate preferintele alimentare"
       );
     }
@@ -298,5 +301,53 @@ export class SegmentFormComponent implements OnInit {
 
   navigateToLogin(): void {
     this.navCtrl.navigateForward("/login", { animated: false });
+  }
+
+  addError(error: string) {
+    if(this.language == "en") { 
+      if(error === "E-mailul trebuie sa fie valid") {
+        error = "E-mail must be valid";
+      }
+      if(error === "Prenumele nu poate fi gol") {
+        error = "First name cannot be empty";
+      }
+      if(error === "Numele nu poate fi gol") {
+        error = "Last name cannot be empty";
+      }
+      if(error === "Varsta trebuie specificata") {
+        error = "Age must be specified";
+      }
+      if(error === "Varsta nu poate fi negativa") {
+        error = "Age cannot be negative";
+      }
+      if(error === "Ocupatia trebuie specificata") {
+        error = "Occupation must be specified";
+      }
+      if(error === "Locatia de resedinta trebuie specificata") {
+        error = "City of residence must be specified";
+      }
+      if(error === "Persoana care te insoteste ca minor trebuie specificata") {
+        error = "The person accompanying you as a minor must be specified";
+      }
+      if(error === "Daca sunteti insotitor, personele insotite trebuie specificate") {
+        error = "If you are an accompanying person, the accompanied persons must be specified";
+      }
+      if(error === "Va rugam sa specificati daca ati mai participat in tabara") {
+        error = "Please specify if you have participated in the camp before";
+      }
+      if(error === "Trebuie sa alegeti 5 cursuri la care doriti sa participati, odata inceputa tabara, puteti participa la mai multe") {
+        error = "You must choose 5 courses you want to attend, once the camp has started, you can attend more";
+      }
+      if(error === "Trebuie sa alegeti un pachet durata-masa") {
+        error = "You must choose a duration-meal package";
+      }
+      if(error === "Trebuie sa alegeti o metoda de plata") {
+        error = "You must choose a payment method";
+      }
+      if(error === "Pentru pachetele care includ masa, trebuie specificate preferintele alimentare") {
+        error = "For packages that include meals, dietary preferences must be specified";
+      }
+    } 
+    this.errors.push(error);
   }
 }

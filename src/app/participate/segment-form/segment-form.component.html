@@ -3,9 +3,7 @@
     <p class="isLoggedIn">{{ 'ensureLogged' | translate }}</p>
     <p class="isLoggedIn">
       {{ 'youCanLogIn' | translate }}
-      <span class="link" (click)="navigateToLogin()"
-        >{{ 'here' | translate }}.</span
-      >
+      <span class="link" (click)="navigateToLogin()">{{ 'here' | translate }}.</span>
     </p>
   </div>
 
@@ -18,13 +16,7 @@
 
     <ion-item class="form-item">
       <ion-label position="floating">*E-mail</ion-label>
-      <ion-input
-        type="email"
-        [(ngModel)]="email"
-        ngModel
-        email
-        required
-      ></ion-input>
+      <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
@@ -49,9 +41,7 @@
     <ion-list *ngIf="age >= 18">
       <ion-radio-group (ionChange)="onIsCaretakerChange($event)" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >{{ 'areYouCaretaker' | translate }}</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'areYouCaretaker' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item>
@@ -67,17 +57,13 @@
     </ion-list>
 
     <ion-item *ngIf="age >= 18 && isCaretaker" class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >{{ 'caretakerOf' | translate }}</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'caretakerOf' | translate }}</ion-label>
       <ion-input [(ngModel)]="dependant" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
     <ion-item *ngIf="age < 18" class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >{{ 'caretaker' | translate }}</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'caretaker' | translate }}</ion-label>
       <ion-input [(ngModel)]="caretaker" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
@@ -96,9 +82,7 @@
     </ion-list>
 
     <ion-item class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >{{ 'residency' | translate }}</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'residency' | translate }}</ion-label>
       <ion-input [(ngModel)]="cityOfResidence" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
@@ -106,9 +90,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="participatedBefore" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >{{ 'participatedBefore' | translate }}</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'participatedBefore' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item>
@@ -126,9 +108,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="howDidYouFindOut" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >{{ 'howDidYouFindOut' | translate }}</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'howDidYouFindOut' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item *ngFor="let findOutMethod of findOutMethods">
@@ -141,24 +121,16 @@
     <ion-list>
       <!-- <ion-checkbox-group disabled="selectedCourses.length >=5"  required> -->
       <ion-list-header>
-        <ion-label class="ion-text-wrap"
-          >{{ 'pick5Courses' | translate }}</ion-label
-        >
+        <ion-label class="ion-text-wrap">{{ 'pick5Courses' | translate }}</ion-label>
       </ion-list-header>
 
-      <ion-item
-        *ngFor="let course of courses"
-        (ionChange)="onCoursesChanged($event)"
-      >
+      <ion-item *ngFor="let course of courses" (ionChange)="onCoursesChanged($event)">
         <ion-label class="ion-text-wrap" *ngIf="language === 'ro'">{{ course.roTitle }}</ion-label>
         <ion-label class="ion-text-wrap" *ngIf="language === 'en'">{{ course.enTitle }}</ion-label>
-        <ion-checkbox
-          [disabled]="
+        <ion-checkbox [disabled]="
             selectedCourses.length >= 5 &&
             !selectedCourses.includes(course.roTitle)
-          "
-          value="{{ course.roTitle }}"
-        ></ion-checkbox>
+          " value="{{ course.roTitle }}"></ion-checkbox>
       </ion-item>
       <!-- </ion-checkbox-group> -->
     </ion-list>
@@ -182,8 +154,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="payMethod" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap justify"
-            >{{ 'howPay' | translate }}
+          <ion-label class="ion-text-wrap justify">{{ 'howPay' | translate }}
           </ion-label>
         </ion-list-header>
 
@@ -227,8 +198,8 @@
 
     <p class="errors" *ngFor="let error of errors">{{ error }}</p>
 
-    <ion-button fill="outline" class="login-button" (click)="submitForm()"
-      >{{ 'finish' | translate }}</ion-button
-    >
+    <ion-button fill="outline" class="login-button" (click)="submitForm()">{{ 'finish' | translate }}</ion-button>
+
+    <p class="success" *ngIf="success">{{ 'successSignUp' | translate }}</p>
   </ion-col>
 </div>
