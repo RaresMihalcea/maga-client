@@ -81,6 +81,7 @@ export class AuthService {
   logout() {
     this.auth.signOut().then(() => {
       localStorage.removeItem("user");
+      this.isLoggedIn.next(false);
       this.navCtrl.navigateForward("/login", { animated: false });
     });
   }
@@ -135,9 +136,9 @@ export class AuthService {
     });
   }
 
-  get isLoggedInStatus(): boolean {
+  isLoggedInStatus(): boolean {
     const user = JSON.parse(localStorage.getItem("user")!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    return  user !== null && user.emailVerified !== false ? true : false;
   }
 
   async getToken(): Promise<string> {

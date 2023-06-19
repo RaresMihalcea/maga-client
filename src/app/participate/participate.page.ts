@@ -35,7 +35,14 @@ export class ParticipatePage implements OnInit {
     public localization: LocalizationService,
     public translate: TranslateService,
     public router: Router
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+  }
+
+  ionViewDidEnter() {
+    this.isLoggedIn = this.auth.isLoggedInStatus();
+  }
 
   ngOnInit() {
     this.breakpointObserver
@@ -44,7 +51,6 @@ export class ParticipatePage implements OnInit {
         this.menuBreakpoint = result.matches ? true : false;
       });
 
-    this.isLoggedIn = this.auth.isLoggedInStatus;
     this.step = "enrollForm";
     if(this.router.url.includes("guide")) {
       this.step = "guide";
@@ -52,7 +58,6 @@ export class ParticipatePage implements OnInit {
     if(this.router.url.includes("rules")) {
       this.step = "rules";
     }
-
 
     this.localization.languageChange.subscribe((value) => {
       this.stepDisplay = {

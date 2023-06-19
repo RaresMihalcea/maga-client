@@ -5,11 +5,13 @@
 }
 
 .card-grid {
-    width: 95%;
-    display: grid;
-    justify-items: center;
-    gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card-grid::after {
+    content: "";
+    flex: auto;
 }
 
 .central-cards {
@@ -23,17 +25,17 @@ ion-content {
 
 #material-card {
     background-color: white;
-	border-radius: 10px;
+    border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
-	box-shadow: 380px;
-	left: 0;
-	margin: 0 auto 0 auto;
-	margin-left: auto;
-	margin-right: auto;
+    box-shadow: 380px;
+    left: 0;
+    margin: 0 auto 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     right: 0;
     padding-top: 60px;
-	width: 90%;
+    width: 90%;
 }
 
 .section {

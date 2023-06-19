@@ -1,6 +1,6 @@
 {
     "callToAction": "Înscrie-te în Aventură",
-    "editionNumber": "Ediția 34",
+    "editionNumber": "Bun venit în academia de vară - Ediția 34",
     "dates": "28 Iulie - 4 August 2023",
     "home": "Acasă",
     "guests": "Invitați",
@@ -11,7 +11,7 @@
     "organizers": "Organizatori",
     "signUp": "Înscrieri",
     "whatIsAtlantykron": "Ce este Atlantykron?",
-    "shortDescription": "Atlantykron este o tabără de vară educațională și neconvențională. Din 1989 insula Inelul de Piatră se transformă într-un loc special și aproape magic timp de câteva zile în fiecare vară. Pe insulă vin sute de tineri și profesori din întreaga lume. În aceste zile, participanții se întâlnesc, interacționează și învață împreună cu oameni de știință, artiști, scriitori și alți profesioniști faimoși. Academia continuă să schimbe viețile participanților.",
+    "shortDescription": "Atlantykron este o tabără de vară educațională și neconvențională adresată tinerilor între 15 și 26 de ani. Din 1989 insula Inelul de Piatră se transformă într-un loc special și aproape magic timp de câteva zile în fiecare vară. Pe insulă vin sute de tineri și profesori din întreaga lume. În aceste zile, participanții se întâlnesc, interacționează și învață împreună cu oameni de știință, artiști, scriitori și alți profesioniști faimoși. Academia continuă să schimbe viețile participanților.",
     "science": "Știință",
     "scienceDescription": "De la discuții față în față cu astronauți până la vânători de comori cu seturi radio, tabăra oferă oportunități unice pentru toate vârstele",
     "art": "Artă",
@@ -199,5 +199,7 @@
     "rules21": " să achite integral bonurile de masă, pentru întreaga perioadă a evenimentului. ",
     "verifyEmailHeader": "Verifică inbox-ul și folder-ul spam pentru emailul de confirmare",
     "verifyEmailSubHeader": "Aproape ai terminat procesul de înregistrare pe site. Suntem entuziasmați de dorința ta de a participa într-o aventură unică. Mai sunt câțiva pași până la terminarea procesului de înscriere. Te rugăm să îți verifici adresa de e-mail pentru a confirma contul tău, apoi te rugăm să completezi formularul de înregistrare.",
-    "successSignUp": "Te-ai înregistrat cu succes, te rugăm să aștepți e-mailul nostru de aprobare."
+    "successSignUp": "Te-ai înregistrat cu succes, te rugăm să aștepți e-mailul nostru de aprobare.",
+    "oldAtlantykron": "Site Vechi",
+    "archiveAtlantykron": "Arhivă"
 }

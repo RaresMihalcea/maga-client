@@ -1,5 +1,5 @@
 import { BreakpointObserver } from "@angular/cdk/layout";
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { NavController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
@@ -16,7 +16,6 @@ import { LocalizationService } from "src/app/services/localization.service";
   styleUrls: ["./segment-form.component.scss"],
 })
 export class SegmentFormComponent implements OnInit {
-  isLoggedIn: boolean = false;
   public language: string = this.localization.getLanguage();
 
   mobile: boolean = true;
@@ -67,6 +66,8 @@ export class SegmentFormComponent implements OnInit {
 
   success:boolean = false;
 
+  @Input() isLoggedIn: boolean;
+
   constructor(
     public auth: AuthService,
     public navCtrl: NavController,
@@ -90,7 +91,6 @@ export class SegmentFormComponent implements OnInit {
         this.tablet = result.matches ? true : false;
       });
 
-    this.isLoggedIn = this.auth.isLoggedInStatus;
     this.defaultYear = this.activeYearService.getDefaultActiveYear();
     this.fetchCourseData();
 
