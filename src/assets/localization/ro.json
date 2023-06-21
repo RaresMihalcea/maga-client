@@ -37,7 +37,7 @@
     "gallery": "Galerie",
     "location": "Locația",
     "typeOfConference": "Tipul Conferinței: ",
-    "officialPartners": "Parteneri Oficiali",
+    "officialPartners": "Sponsori Oficiali",
     "organizedBy": "Un eveniment organizat și sprijinit de către",
     "privacyPolicy": "Politică de Confidențialitate",
     "termsAndConditions": "Termenii și Condițiile",
@@ -201,5 +201,8 @@
     "verifyEmailSubHeader": "Aproape ai terminat procesul de înregistrare pe site. Suntem entuziasmați de dorința ta de a participa într-o aventură unică. Mai sunt câțiva pași până la terminarea procesului de înscriere. Te rugăm să îți verifici adresa de e-mail pentru a confirma contul tău, apoi te rugăm să completezi formularul de înregistrare.",
     "successSignUp": "Te-ai înregistrat cu succes, te rugăm să aștepți e-mailul nostru de aprobare.",
     "oldAtlantykron": "Site Vechi",
-    "archiveAtlantykron": "Arhivă"
+    "archiveAtlantykron": "Arhivă",
+    "mainOrganizer": "Organizator Principal",
+    "inPartnershipWith": "În parteneriat cu",
+    "collaborators": "Colaboratori"
 }

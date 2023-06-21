@@ -41,7 +41,7 @@
     "goToGuide": "Participation Guide",
     "gallery": "Gallery",
     "location": "Location",
-    "officialPartners": "Official Partners",
+    "officialPartners": "Official Sponsors",
     "organizedBy": "An event organized and supported by",
     "privacyPolicy": "Privacy Policy",
     "termsAndConditions": "Terms of Use",
@@ -202,5 +202,8 @@
     "verifyEmailSubHeader": "You've almost finished registering on the site. We are delighted for your willingness to participate in an unique adventure. Please verify your email address by clicking the link in the email we've sent you. Then continue to the registration form on the website.",
     "successSignUp": "You've successfully signed up! Please wait for our e-mail approval.",
     "oldAtlantykron": "Old Site",
-    "archiveAtlantykron": "Archive"
+    "archiveAtlantykron": "Archive",
+    "mainOrganizer": "Main Organizer",
+    "inPartnershipWith": "In Partnership With",
+    "collaborators": "Collaborators"
 }
