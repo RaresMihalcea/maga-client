@@ -46,7 +46,7 @@ export class SegmentFormComponent implements OnInit {
 
   errors: string[] = [];
 
-  // email: string;
+  email: string;
   surname: string;
   firstName: string;
   age: number;
@@ -188,9 +188,9 @@ export class SegmentFormComponent implements OnInit {
     let caretaker = this.caretaker === undefined ? "N/A" : this.caretaker;
     let dietaryPreference =
       this.dietaryPreference === undefined ? "N/A" : this.dietaryPreference;
-
+    
     return {
-      // email: this.email,
+      email: this.auth?.userData?.email,
       surname: this.surname,
       firstName: this.firstName,
       age: this.age,
