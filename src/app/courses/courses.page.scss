@@ -5,16 +5,17 @@
 }
 
 .card-grid {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
 }
 
-.card-grid::after {
-    content: "";
-    flex: auto;
+.selector-central {
+    margin: 0 auto !important
 }
 
 .central-cards {
+    justify-content: space-around;
     cursor: pointer;
 }
 

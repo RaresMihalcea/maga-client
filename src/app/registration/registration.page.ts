@@ -21,6 +21,7 @@ export class RegistrationPage implements OnInit {
 	public password: string;
 	public confirmPassword: string;
 	public displayError: boolean = false;
+	public displayPasswordsDontMatchError: boolean = false;
 
 	constructor(public breakpointObserver: BreakpointObserver,
 		public breakpoints: BreakpointsService,
@@ -51,10 +52,15 @@ export class RegistrationPage implements OnInit {
 	}
 
 	emailRegistrationHandler(): void {
-		if (this.authService.validateRegistrationInput(this.email, this.password, this.confirmPassword)) {
-			this.authService.registerWithEmailAndPassword(this.email, this.password);
+		
+		if(this.password !== this.confirmPassword) {
+			this.displayPasswordsDontMatchError = true; 
 		} else {
-			this.displayError = true;
+			if (this.authService.validateRegistrationInput(this.email, this.password, this.confirmPassword)) {
+				this.authService.registerWithEmailAndPassword(this.email, this.password);
+			} else {
+				this.displayError = true;
+			}
 		}
 	}
 

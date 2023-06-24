@@ -16,7 +16,7 @@ export class OrganizersPage implements OnInit {
 
   public mobile = true;
   public tablet = true;
-  public language: string = this.translate.getDefaultLang();
+  public language: string = this.localization.getLanguage();
 
   isLoading: boolean = true;
 

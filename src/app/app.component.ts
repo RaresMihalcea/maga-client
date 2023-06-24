@@ -9,6 +9,7 @@ import { BreakpointsService } from './services/breakpoints.service';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalizationService } from './services/localization.service';
 import { AuthService } from './services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
     selector: 'app-root',
@@ -31,7 +32,8 @@ export class AppComponent implements OnInit {
         public breakpoints: BreakpointsService,
         public translate: TranslateService,
         public localization: LocalizationService,
-        public auth: AuthService
+        public auth: AuthService,
+        public authFire: AngularFireAuth
     ) {
         this.initializeApp();
         this.localization.languageChange.subscribe(value => {
@@ -100,7 +102,7 @@ export class AppComponent implements OnInit {
         this.localization.init("ro");
 
         const logoutItem = this.appPages[this.appPages.length - 1]
-        this.auth.isLoggedIn.subscribe(value => {
+        this.authFire.authState.subscribe(value => {
             if (value) {
                 logoutItem.enabled = true
                 logoutItem.title = 'Logout'
@@ -123,7 +125,7 @@ export class AppComponent implements OnInit {
     }
 
     logout(event) {
-        if (event.target.id === 'Logout') {
+        if (event.target.innerHTML === ' Logout ') {
             this.auth.logout()
         }
     }

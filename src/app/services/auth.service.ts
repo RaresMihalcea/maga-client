@@ -4,7 +4,7 @@ import { AngularFirestoreDocument } from "@angular/fire/firestore/document/docum
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from "@angular/router";
 import firebase from "firebase/app";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, throwError } from "rxjs";
 import { NavController } from "@ionic/angular";
 
 @Injectable({
@@ -23,7 +23,7 @@ export class AuthService {
     public navCtrl: NavController
   ) {
     this.auth.authState.subscribe((user) => {
-      if (user) {
+      if (user && user.emailVerified) {
         this.userData = user;
         localStorage.setItem("user", JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem("user")!);
@@ -40,16 +40,24 @@ export class AuthService {
     return this.auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.setUserData(result.user);
-        this.auth.authState.subscribe((user) => {
-          this.publishError.next(false);
-          if (user) {
-            this.isLoggedIn.next(true);
-            this.navCtrl.navigateForward("/home", { animated: false });
-          }
-        });
+        if(!result.user.emailVerified) {
+          // this.auth.signOut();
+          window.alert("E-mailul nu a fost verificat. The e-mail has not been verified.")
+        }
+        else {
+          this.setUserData(result.user);
+          this.auth.authState.subscribe((user) => {
+            this.publishError.next(false);
+            if (user) {
+              this.isLoggedIn.next(true);
+              this.navCtrl.navigateForward("/home", { animated: false });
+            }
+          });
+        }
       })
       .catch((error) => {
+        if(error === "E-mailul nu a fost verificat. The e-mail has not been verified.") {
+        }
         this.isLoggedIn.next(false);
         this.publishError.next(true);
         console.log(error);
@@ -93,10 +101,14 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.sendVerificationMail();
+        this.auth.signOut()
         this.setUserData(result.user);
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error);
+        if(error.code === "auth/email-already-in-use") {
+          window.alert("Există deja un cont cu acest e-mail. There is already an account with this e-mail.");
+        }
       });
   }
 
@@ -114,7 +126,7 @@ export class AuthService {
     return this.auth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert("E-mail trimis, verifică inbox-ul și folder-ul spam.");
+        window.alert("E-mail trimis, verifică inbox-ul și folder-ul spam. E-mail sent, check your inbox and spam folder.");
       })
       .catch((error) => {
         console.log(error);
@@ -138,7 +150,7 @@ export class AuthService {
 
   isLoggedInStatus(): boolean {
     const user = JSON.parse(localStorage.getItem("user")!);
-    return  user !== null && user.emailVerified !== false ? true : false;
+    return user !== null && user.emailVerified !== false ? true : false;
   }
 
   async getToken(): Promise<string> {

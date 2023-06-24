@@ -14,7 +14,7 @@
 
       <ion-col justify-content-start float-left>
         <ion-row *ngIf="mobile || tablet">
-          <ion-item class="select-year central-cards">
+          <ion-item class="select-year selector-central">
             <ion-label>{{ 'selectYear' | translate }}</ion-label>
             <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
               <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2]"

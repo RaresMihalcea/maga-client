@@ -5,15 +5,18 @@
     <ion-row class="main-col">
       <ion-col justify-content-start float-left>
         <ion-row *ngIf="menuBreakpoint">
-          <ion-item class="select-step central-cards">
+          <ion-item class="select-step selector-central">
             <ion-label>{{ 'selectStep' | translate }}</ion-label>
             <ion-select interface="popover" (ionChange)="segmentChanged($event.target.value)" [(ngModel)]="step">
-              <ion-select-option *ngFor="let stepOption of ['guide', 'rules', 'enrollForm']"
+              <ion-select-option *ngFor="let stepOption of ['about', 'guide', 'rules', 'enrollForm']"
                 value="{{stepOption}}">{{stepDisplay[stepOption]}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-row>
         <ion-segment (ionChange)="segmentChanged($event.detail.value)" *ngIf="!menuBreakpoint" [(ngModel)]="step">
+          <ion-segment-button value="about">
+            <ion-label>{{stepDisplay.about}}</ion-label>
+          </ion-segment-button>
           <ion-segment-button value="guide">
             <ion-label>{{stepDisplay.guide}}</ion-label>
           </ion-segment-button>
@@ -26,6 +29,7 @@
         </ion-segment>
 
         <ion-col>
+          <app-segment-about *ngIf="step == 'about'"></app-segment-about>
           <app-segment-guide *ngIf="step == 'guide'"></app-segment-guide>
           <app-segment-rules *ngIf="step == 'rules'"></app-segment-rules>
           <app-segment-form *ngIf="step == 'enrollForm'" [isLoggedIn]="isLoggedIn"></app-segment-form>

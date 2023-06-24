@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointsService } from 'src/app/services/breakpoints.service';
 
 @Component({
-  selector: 'app-segment-guide',
-  templateUrl: './segment-guide.component.html',
-  styleUrls: ['./segment-guide.component.scss'],
+  selector: 'app-segment-about',
+  templateUrl: './segment-about.component.html',
+  styleUrls: ['./segment-about.component.scss'],
 })
-export class SegmentGuideComponent implements OnInit {
+export class SegmentAboutComponent implements OnInit {
 
   public menuBreakpoint = true;
 

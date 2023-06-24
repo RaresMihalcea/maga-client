@@ -1,5 +1,6 @@
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { Component, Input, OnInit } from "@angular/core";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { NavController } from "@ionic/angular";
 import { TranslateService } from "@ngx-translate/core";
@@ -76,10 +77,18 @@ export class SegmentFormComponent implements OnInit {
     public breakpointObserver: BreakpointObserver,
     public breakpoints: BreakpointsService,
     public translate: TranslateService,
-    public localization: LocalizationService
+    public localization: LocalizationService,
+    public authFire: AngularFireAuth
   ) {}
 
   ngOnInit() {
+    this.authFire.authState.subscribe((user) => {
+      if(user && !user.emailVerified) {
+        user.reload().then(() => {      
+          this.isLoggedIn = this.auth.isLoggedInStatus();
+        });
+      }
+    });
     this.breakpointObserver
       .observe(this.breakpoints.menuBreakpoint)
       .subscribe((result) => {
@@ -217,6 +226,9 @@ export class SegmentFormComponent implements OnInit {
       if (this.age < 0) {
         this.addError("Varsta nu poate fi negativa");
       }
+      if (this.age > 110) {
+        this.addError("Varsta nu poate fi mai mare de 110 ani");
+      }
     }
     if (this.occupation === undefined || this.occupation.length == 0) {
       this.addError("Ocupatia trebuie specificata");
@@ -346,6 +358,9 @@ export class SegmentFormComponent implements OnInit {
       }
       if(error === "Pentru pachetele care includ masa, trebuie specificate preferintele alimentare") {
         error = "For packages that include meals, dietary preferences must be specified";
+      }
+      if(error === "Varsta nu poate fi mai mare de 110 ani") {
+        error = "Age cannot be greater than 110 years";
       }
     } 
     this.errors.push(error);

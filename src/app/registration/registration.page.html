@@ -29,6 +29,9 @@
         <p *ngIf="displayError" class="error-msg">
           {{ 'registerError' | translate }}
         </p>
+        <p *ngIf="displayPasswordsDontMatchError" class="error-msg">
+          {{ 'passwordsDontMatchError' | translate }}
+        </p>
         <p>{{ 'or' | translate }}</p>
         <ion-row class="registration-btn">
           <ion-button name="star" fill="outline" class="login-button" (click)="googleRegistrationHandler()">

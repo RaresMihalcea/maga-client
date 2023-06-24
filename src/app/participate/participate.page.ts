@@ -5,6 +5,7 @@ import { AuthService } from "../services/auth.service";
 import { BreakpointsService } from "../services/breakpoints.service";
 import { LocalizationService } from "../services/localization.service";
 import { Router } from "@angular/router";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-participate",
@@ -19,6 +20,7 @@ export class ParticipatePage implements OnInit {
   public language: string = this.localization.getLanguage();
 
   public stepDisplay = {
+    about: this.language === "ro" ? "Despre Noi" : "About Us",
     guide:
       this.language === "ro" ? "Ghidul Participantului" : "Participant's Guide",
     rules:
@@ -34,7 +36,8 @@ export class ParticipatePage implements OnInit {
     public auth: AuthService,
     public localization: LocalizationService,
     public translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public authFire: AngularFireAuth
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
@@ -42,6 +45,13 @@ export class ParticipatePage implements OnInit {
 
   ionViewDidEnter() {
     this.isLoggedIn = this.auth.isLoggedInStatus();
+    if(!this.isLoggedIn) {
+      this.authFire.user.subscribe((user) => {
+        if(user && !user.emailVerified) {
+          user.reload();
+        }
+      }); 
+    }
   }
 
   ngOnInit() {
@@ -58,9 +68,13 @@ export class ParticipatePage implements OnInit {
     if(this.router.url.includes("rules")) {
       this.step = "rules";
     }
+    if(this.router.url.includes("about")) {
+      this.step = "about";
+    }
 
     this.localization.languageChange.subscribe((value) => {
       this.stepDisplay = {
+        about: value === "ro" ? "Despre Noi" : "About Us",
         guide:
           value === "ro" ? "Ghidul Participantului" : "Participant's Guide",
         rules:

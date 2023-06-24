@@ -55,8 +55,8 @@
         </ion-button>
         <ion-button fill="clear" *ngIf="!mobile" expand="full" [attr.color]="router.url == '/home' ? 'light' : 'dark'"
           class="navbar-button">
-          <ion-select okText="OK" [cancelText]="language == 'ro' ? 'Închide' : 'Cancel'" [(ngModel)]="language"
-            [value]="language" (ionChange)="changeLanguage()">
+          <ion-select okText="OK" interface="popover" [cancelText]="language == 'ro' ? 'Închide' : 'Cancel'"
+            [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
             <ion-select-option value="ro"> 🇷🇴 RO </ion-select-option>
             <ion-select-option value="en"> 🇺🇸 EN </ion-select-option>
           </ion-select>
