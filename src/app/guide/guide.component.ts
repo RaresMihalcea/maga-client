@@ -28,8 +28,12 @@ export class GuideComponent implements OnInit {
 		});
 	}
 
-	navigateToParticipate(): void {
-		this.navCtrl.navigateForward('/participate', { animated: false });
+	navigateToParticipateGuide(): void {
+		this.navCtrl.navigateForward('/participate/guide', { animated: false });
+	}
+
+	navigateToParticipateRules(): void {
+		this.navCtrl.navigateForward('/participate/rules', { animated: false });
 	}
 
 }

@@ -1,9 +1,16 @@
-Pentru a instala si rula va trebuie Node.js. Puteti downloada Node gratuit de aici https://nodejs.org/en/.
+Recomand NVM daca nu ai node instalat 
 
-Dupa ce ati clonat repoul trebuie sa navigati in folderul server "cd server".
+Cerinte: 
+npm - 6.14.17
+node - v14.20.1
+firebase cli 
 
-Pentru a instala dependentele "npm i".
+Instalare: 
+npm i 
 
-Pentru a rula "npm start".
+Start: 
+npm start -> deschide localhost:4200
 
-Consultati documentatia Ionic https://ionicframework.com/.
+Deploy:
+ng build --prod
+firebase deploy

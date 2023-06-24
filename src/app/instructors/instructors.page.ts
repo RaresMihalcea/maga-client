@@ -17,7 +17,7 @@ export class InstructorsPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
-	public language: string = this.translate.getDefaultLang();
+	public language: string = this.localization.getLanguage();
 
 	isLoading: boolean = true;
 
@@ -71,10 +71,9 @@ export class InstructorsPage implements OnInit {
 		}
 	}
 
-	changeActiveYear(activeYear: number) {
-		this.activeYear = activeYear
+	changeActiveYear(activeYear: string) {
+		this.activeYear = parseInt(activeYear)
 		this.fetchData();
-		console.log(this.activeYear)
 	}
 
 	filter(instructors: Instructor[]): Instructor[] {

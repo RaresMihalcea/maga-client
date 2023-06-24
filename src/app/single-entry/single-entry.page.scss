@@ -3,58 +3,41 @@ ion-content {
 }
 
 .single-entry-image {
-	// background: 
-    // linear-gradient(
-    //     rgba(68, 68, 68, 0.1), 
-    //     rgba(17, 17, 17, 0.7)
-    // ),
-	// url('../../assets/images/0ba3d60362c7e6d256cfc1f37156bad9.jpg');
-	// background: rgba(0, 0, 0, 0.8);
-//   box-shadow: 0 0 5rem rgba(0, 0, 0.5);
-	margin: 0 auto;
-	justify-content: center;
-	max-height: 365px;
-	width: 100vw;
-	// margin-top: -10px;
+    margin: 0 auto;
+    justify-content: center;
+    max-height: 365px;
+    width: 100vw;
 }
 
 .single-entry-title {
     position: absolute;
-    /* display: block; */
-    /* margin: 0 auto; */
-    /* width: 80%; */
-    /* max-width: 500px; */
-    /* justify-content: center; */
     text-align: center;
     margin-left: auto;
     left: 0;
     right: 0;
     margin-top: 5vh;
-	font-size: 42px;
+    font-size: 42px;
     color: white;
 }
 
 #material-card {
     background-color: white;
-	border-radius: 10px;
-	box-shadow: 380px;
-	left: 0;
-	margin: -70px auto 0 auto;
-	margin-left: auto;
-	margin-right: auto;
-	// margin-top: -10px;
+    border-radius: 10px;
+    box-shadow: 380px;
+    left: 0;
+    margin: -70px auto 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     right: 0;
     padding-top: 60px;
-	width: 90%;
+    width: 90%;
 }
 
 #hero-container {
-    background: 
-    linear-gradient(
-        rgba(68, 68, 68, 0.1), 
-        rgba(17, 17, 17, 0.7)
-    ),
-    url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
+    background:
+        linear-gradient(rgba(68, 68, 68, 0.1),
+            rgba(17, 17, 17, 0.7)),
+        url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 35%;
@@ -62,8 +45,8 @@ ion-content {
 }
 
 .single-entry-title {
-	color: white;
-	text-align: center;
+    color: white;
+    text-align: center;
     margin-top: 0;
     padding: 104px;
 }
@@ -94,10 +77,10 @@ ion-content {
 }
 
 .pseudo-fancy-card {
-    width: 230px !important;
-    height: 250px !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
+    min-width: 230px !important;
+    min-height: 250px !important;
+    max-width: 500px !important;
+    max-height: 400px !important;
     border-radius: 10px;
     margin: 0 0 60px 30px;
     margin-top: inherit;

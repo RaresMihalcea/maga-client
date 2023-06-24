@@ -40,11 +40,28 @@ const routes: Routes = [
     loadChildren: () => import('./participate/participate.module').then(m => m.ParticipatePageModule)
   },
   {
+    path: 'participate/guide',
+    pathMatch: 'full',
+    loadChildren: () => import('./participate/participate.module').then(m => m.ParticipatePageModule)
+  },
+  {
+    path: 'participate/rules',
+    pathMatch: 'full',
+    loadChildren: () => import('./participate/participate.module').then(m => m.ParticipatePageModule)
+  },
+  {
+    path: 'participate/about',
+    pathMatch: 'full',
+    loadChildren: () => import('./participate/participate.module').then(m => m.ParticipatePageModule)
+  },
+  {
     path: 'privacy-policy',
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then(m => m.PrivacyPolicyPageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./terms/terms.module').then( m => m.TermsPageModule)
   }
-
-
 ];
 
 @NgModule({

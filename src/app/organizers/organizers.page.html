@@ -8,28 +8,15 @@
           <ion-spinner name="circular"></ion-spinner>
         </div>
 
-        <h2
-          *ngIf="!isLoading"
-          class="section"
-          [ngClass]='{"section-center": mobile || tablet}'
-        >
+        <h2 *ngIf="!isLoading" class="section" [ngClass]='{"section-center": mobile || tablet}'>
           {{ 'organizers' | translate }}
         </h2>
-        <p
-          *ngIf="!isLoading"
-          class="section"
-          [ngClass]='{"section-center": mobile || tablet}'
-        >
+        <p *ngIf="!isLoading" class="section" [ngClass]='{"section-center": mobile || tablet}'>
           {{ 'organizigTeam' | translate }}
         </p>
         <ion-row class="card-grid">
-          <app-fancy-card
-            *ngFor="let organizer of organizers"
-            class="central-cards"
-            [image]="organizer.pictureLink"
-            [title]="language == 'ro' ? organizer.roTitle : organizer.enTitle"
-            [name]="organizer.name"
-          ></app-fancy-card>
+          <app-fancy-card *ngFor="let organizer of organizers" [image]="organizer.pictureLink"
+            [title]="language == 'ro' ? organizer.roTitle : organizer.enTitle" [name]="organizer.name"></app-fancy-card>
         </ion-row>
       </ion-col>
     </ion-row>

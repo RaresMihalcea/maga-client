@@ -3,9 +3,7 @@
     <p class="isLoggedIn">{{ 'ensureLogged' | translate }}</p>
     <p class="isLoggedIn">
       {{ 'youCanLogIn' | translate }}
-      <span class="link" (click)="navigateToLogin()"
-        >{{ 'here' | translate }}.</span
-      >
+      <span class="link" (click)="navigateToLogin()">{{ 'here' | translate }}.</span>
     </p>
   </div>
 
@@ -14,34 +12,28 @@
   </div>
 
   <ion-col *ngIf="isLoggedIn && !isLoading" id="form-col">
-    <p>Toate câmpurile sunt obligatorii</p>
+    <p>{{ 'allFieldsAreMandatory' | translate }}</p>
 
     <ion-item class="form-item">
       <ion-label position="floating">*E-mail</ion-label>
-      <ion-input
-        type="email"
-        [(ngModel)]="email"
-        ngModel
-        email
-        required
-      ></ion-input>
+      <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
     <ion-item class="form-item">
-      <ion-label position="floating">*Nume</ion-label>
+      <ion-label position="floating">{{ 'surname' | translate }}</ion-label>
       <ion-input [(ngModel)]="surname" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
     <ion-item class="form-item">
-      <ion-label position="floating">*Prenume</ion-label>
+      <ion-label position="floating">{{ 'firstName' | translate }}</ion-label>
       <ion-input [(ngModel)]="firstName" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
     <ion-item class="form-item" (ionChange)="onAgeChange($event)">
-      <ion-label position="floating">*Vârstă</ion-label>
+      <ion-label position="floating">{{ 'age' | translate }}</ion-label>
       <ion-input type="number" [(ngModel)]="age" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
@@ -49,36 +41,29 @@
     <ion-list *ngIf="age >= 18">
       <ion-radio-group (ionChange)="onIsCaretakerChange($event)" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >*Sunteţi însoţitor pentru un participant/paticipanţi cu vâsta sub
-            16 ani?</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'areYouCaretaker' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item>
-          <ion-label>Da</ion-label>
+          <ion-label>{{ 'yes' | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label>Nu</ion-label>
+          <ion-label>{{ 'no' | translate }}</ion-label>
           <ion-radio value="false"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
 
     <ion-item *ngIf="age >= 18 && isCaretaker" class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >*Paticipanţi pe care îi însoţiţi</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'caretakerOf' | translate }}</ion-label>
       <ion-input [(ngModel)]="dependant" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
 
     <ion-item *ngIf="age < 18" class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >*Numele persoanei care vă însoţeşte</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'caretaker' | translate }}</ion-label>
       <ion-input [(ngModel)]="caretaker" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
@@ -86,7 +71,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="occupation" required>
         <ion-list-header>
-          <ion-label>*Ocupație</ion-label>
+          <ion-label>{{ 'occupation' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item *ngFor="let occupation of occupations">
@@ -97,9 +82,7 @@
     </ion-list>
 
     <ion-item class="form-item">
-      <ion-label class="ion-text-wrap" position="floating"
-        >*Localitatea de reşedinţă</ion-label
-      >
+      <ion-label class="ion-text-wrap" position="floating">{{ 'residency' | translate }}</ion-label>
       <ion-input [(ngModel)]="cityOfResidence" required></ion-input>
       <ion-note slot="error"></ion-note>
     </ion-item>
@@ -107,18 +90,16 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="participatedBefore" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >*Aţi mai participat la ediţiile anterioare?</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'participatedBefore' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item>
-          <ion-label>Da</ion-label>
+          <ion-label>{{ 'yes' | translate }}</ion-label>
           <ion-radio value="true"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label>Nu</ion-label>
+          <ion-label>{{ 'no' | translate }}</ion-label>
           <ion-radio value="false"></ion-radio>
         </ion-item>
       </ion-radio-group>
@@ -127,9 +108,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="howDidYouFindOut" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap"
-            >*Cum aţi aflat de Atlantykron?</ion-label
-          >
+          <ion-label class="ion-text-wrap">{{ 'howDidYouFindOut' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item *ngFor="let findOutMethod of findOutMethods">
@@ -142,23 +121,16 @@
     <ion-list>
       <!-- <ion-checkbox-group disabled="selectedCourses.length >=5"  required> -->
       <ion-list-header>
-        <ion-label class="ion-text-wrap"
-          >*Alege 5 cursuri la care vei participa</ion-label
-        >
+        <ion-label class="ion-text-wrap">{{ 'pick5Courses' | translate }}</ion-label>
       </ion-list-header>
 
-      <ion-item
-        *ngFor="let course of courses"
-        (ionChange)="onCoursesChanged($event)"
-      >
-        <ion-label class="ion-text-wrap">{{ course.roTitle }}</ion-label>
-        <ion-checkbox
-          [disabled]="
+      <ion-item *ngFor="let course of courses" (ionChange)="onCoursesChanged($event)">
+        <ion-label class="ion-text-wrap" *ngIf="language === 'ro'">{{ course.roTitle }}</ion-label>
+        <ion-label class="ion-text-wrap" *ngIf="language === 'en'">{{ course.enTitle }}</ion-label>
+        <ion-checkbox [disabled]="
             selectedCourses.length >= 5 &&
             !selectedCourses.includes(course.roTitle)
-          "
-          value="{{ course.roTitle }}"
-        ></ion-checkbox>
+          " value="{{ course.roTitle }}"></ion-checkbox>
       </ion-item>
       <!-- </ion-checkbox-group> -->
     </ion-list>
@@ -166,7 +138,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="package" required>
         <ion-list-header>
-          <ion-label>*Ce opțiune alegi?</ion-label>
+          <ion-label>{{ 'pickOption' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item *ngFor="let package of packages">
@@ -176,17 +148,13 @@
       </ion-radio-group>
     </ion-list>
     <p>
-      În acest preţ este inclusă taxa de participare şi masa (60 de RON pe zi ->
-      prânz + cină). Pentru minori (sub 18 ani) pachetul de masă este
-      obligatoriu. Masa va fi asigurată în perioada 30 Iulie - 4 August.
+      {{ 'infoTax' | translate }}
     </p>
 
     <ion-list>
       <ion-radio-group [(ngModel)]="payMethod" required>
         <ion-list-header>
-          <ion-label class="ion-text-wrap justify"
-            >*Cum alegi să plateşti? Transferul bancar beneficiază de o reducere
-            de 20 de lei
+          <ion-label class="ion-text-wrap justify">{{ 'howPay' | translate }}
           </ion-label>
         </ion-list-header>
 
@@ -197,28 +165,28 @@
       </ion-radio-group>
     </ion-list>
 
-    <p>Detalii transfer bancar:</p>
+    <p>{{ 'bankDetails' | translate }}</p>
 
-    <p>Cont: RO78RNCB0116172543400001</p>
+    <p>{{ 'bankAccount' | translate }}</p>
 
-    <p>Nume Beneficiar: Asociaţia Atlantykron Topalu</p>
+    <p>{{ 'beneficiary' | translate }}</p>
 
-    <p>Detalii Tranzacţie: Nume + Opţiunea aleasă (8/2 zile cu/fară masă)</p>
+    <p>{{ 'transactionDetails' | translate }}</p>
 
-    <p>* preţuri finale pentru transferul bancar:</p>
+    <p>{{ 'finalPrices' | translate }}</p>
 
-    <p>- 580 (8 zile cu masa inclusă)</p>
+    <p>{{ 'package1' | translate }}</p>
 
-    <p>- 270 (2 zile cu masa inclusă)</p>
+    <p>{{ 'package2' | translate }}</p>
 
-    <p>- 250 (8 zile fără masa inclusă)</p>
+    <p>{{ 'package3' | translate }}</p>
 
-    <p>- 150 (2 zile fără masa inclusă)</p>
+    <p>{{ 'package4' | translate }}</p>
 
     <ion-list *ngIf="package === packages[0] || package === packages[2]">
       <ion-radio-group [(ngModel)]="dietaryPreference" required>
         <ion-list-header>
-          <ion-label>*Preferinţe alimentare</ion-label>
+          <ion-label>{{ 'dietaryPreferences' | translate }}</ion-label>
         </ion-list-header>
 
         <ion-item *ngFor="let dietaryPreference of dietaryPreferences">
@@ -230,8 +198,8 @@
 
     <p class="errors" *ngFor="let error of errors">{{ error }}</p>
 
-    <ion-button fill="outline" class="login-button" (click)="submitForm()"
-      >Finalizare</ion-button
-    >
+    <ion-button fill="outline" class="login-button" (click)="submitForm()">{{ 'finish' | translate }}</ion-button>
+
+    <p class="success" *ngIf="success">{{ 'successSignUp' | translate }}</p>
   </ion-col>
 </div>

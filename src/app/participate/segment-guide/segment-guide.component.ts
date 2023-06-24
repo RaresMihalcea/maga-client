@@ -11,7 +11,7 @@ export class SegmentGuideComponent implements OnInit {
 
   public menuBreakpoint = true;
 
-  constructor(public breakpointObserver: BreakpointObserver, public breakpoints: BreakpointsService,) { }
+  constructor(public breakpointObserver: BreakpointObserver, public breakpoints: BreakpointsService) { }
 
   ngOnInit() {
     this.breakpointObserver.observe(this.breakpoints.menuBreakpoint).subscribe(result => {

@@ -17,6 +17,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { MapComponent } from '../map/map.component';
 import { SponsorsShowcaseComponent } from '../sponsors-showcase/sponsors-showcase.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { OrganizersShowcaseComponent } from '../organizers-showcase/organizers-showcase.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { TranslateModule } from '@ngx-translate/core';
         GuideComponent,
         CarouselComponent,
         MapComponent,
-        SponsorsShowcaseComponent
+        SponsorsShowcaseComponent,
+        OrganizersShowcaseComponent
     ],
     imports: [
         CommonModule,

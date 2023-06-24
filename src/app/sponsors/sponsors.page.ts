@@ -17,7 +17,7 @@ export class SponsorsPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
-	public language: string = this.translate.getDefaultLang();
+	public language: string = this.localization.getLanguage();
 
 	isLoading: boolean = true;
 
@@ -71,8 +71,8 @@ export class SponsorsPage implements OnInit {
 		}
 	}
 
-	changeActiveYear(activeYear: number) {
-		this.activeYear = activeYear
+	changeActiveYear(activeYear: string) {
+		this.activeYear = parseInt(activeYear)
 		this.fetchData();
 	}
 

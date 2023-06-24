@@ -12,6 +12,7 @@ import { SegmentFormComponent } from './segment-form/segment-form.component';
 import { SegmentGuideComponent } from './segment-guide/segment-guide.component';
 import { SegmentRulesComponent } from './segment-rules/segment-rules.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SegmentAboutComponent } from './segment-about/segment-about.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ParticipatePage,
     SegmentGuideComponent,
     SegmentRulesComponent,
-    SegmentFormComponent
+    SegmentFormComponent,
+    SegmentAboutComponent
   ]
 })
 export class ParticipatePageModule { }

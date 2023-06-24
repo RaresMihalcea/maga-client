@@ -38,17 +38,17 @@ ion-content {
 
 #material-card {
     background-color: white;
-	border-radius: 10px;
+    border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
-	box-shadow: 380px;
-	left: 0;
-	margin: 0 auto 0 auto;
-	margin-left: auto;
-	margin-right: auto;
+    box-shadow: 380px;
+    left: 0;
+    margin: 0 auto 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     right: 0;
     padding-top: 60px;
-	width: 90%;
+    width: 90%;
 }
 
 .svg-login {
@@ -57,4 +57,9 @@ ion-content {
     margin-right: 80px;
     width: 400px;
     z-index: 1;
+}
+
+.section {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

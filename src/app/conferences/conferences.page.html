@@ -5,12 +5,8 @@
     <ion-row class="main-col">
       <ion-col size="2" *ngIf="!mobile && !tablet">
         <div class="year-selection-div">
-          <p
-            *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
-            class="year-selection"
-            (click)="changeActiveYear(year)"
-            [ngClass]="{active: activeYear==year}"
-          >
+          <p *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2]" class="year-selection"
+            (click)="changeActiveYear(year)" [ngClass]="{active: activeYear==year}">
             {{ 'conferences' | translate }} {{year}}
           </p>
         </div>
@@ -18,17 +14,11 @@
 
       <ion-col justify-content-start float-left>
         <ion-row *ngIf="mobile || tablet">
-          <ion-item class="select-year central-cards">
+          <ion-item class="select-year selector-central">
             <ion-label>{{ 'selectYear' | translate }}</ion-label>
-            <ion-select
-              interface="popover"
-              (ionChange)="changeActiveYear($event.target.value)"
-            >
-              <ion-select-option
-                *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2, defaultYear-3, defaultYear-4]"
-                value="{{year}}"
-                >{{year}}</ion-select-option
-              >
+            <ion-select interface="popover" (ionChange)="changeActiveYear($event.target.value)">
+              <ion-select-option *ngFor="let year of [defaultYear, defaultYear-1, defaultYear-2]"
+                value="{{year}}">{{year}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-row>
@@ -37,22 +27,13 @@
           <ion-spinner name="circular"></ion-spinner>
         </div>
 
-        <h2
-          *ngIf="!isLoading"
-          class="section"
-          [ngClass]='{"section-center": mobile || tablet}'
-        >
+        <h2 *ngIf="!isLoading" class="section" [ngClass]='{"section-center": mobile || tablet}'>
           {{ 'conferences' | translate }}
         </h2>
         <ion-row class="card-grid">
-          <app-fancy-card
-            *ngFor="let conference of filter(conferences)"
-            class="central-cards"
-            [image]="conference.pictureLink"
-            [name]="language == 'ro' ? conference.roTitle : conference.enTitle"
-            [title]="conference.instructors"
-            (click)="navToSingleEntry(conference)"
-          ></app-fancy-card>
+          <app-fancy-card *ngFor="let conference of filter(conferences)" class="central-cards"
+            [image]="conference.pictureLink" [name]="language == 'ro' ? conference.roTitle : conference.enTitle"
+            [title]="conference.instructors" (click)="navToSingleEntry(conference)"></app-fancy-card>
         </ion-row>
       </ion-col>
     </ion-row>

@@ -8,6 +8,6 @@ export class ActiveYearService {
   constructor() { }
 
   getDefaultActiveYear(): number {
-    return 2022
+    return 2023
   }
 }

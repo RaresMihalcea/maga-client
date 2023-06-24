@@ -8,7 +8,8 @@
         <ion-content>
             <ion-list>
                 <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-                    <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" id="{{p.title}}" (click)="logout($event)">
+                    <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" id="{{p.title}}"
+                        (click)="logout($event)">
                         <ion-icon slot="start" [name]="p.icon"></ion-icon>
                         <ion-label>
                             {{p.title}}
@@ -16,7 +17,8 @@
                     </ion-item>
                 </ion-menu-toggle>
                 <ion-item>
-                    <ion-select interface="popover" [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+                    <ion-select okText="OK" interface="popover" [cancelText]="language == 'ro' ? 'Închide' : 'Cancel'"
+                        [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
                         <ion-select-option value="ro">🇷🇴 Română</ion-select-option>
                         <ion-select-option value="en">🇺🇸 English</ion-select-option>
                     </ion-select>

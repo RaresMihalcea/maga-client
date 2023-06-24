@@ -17,7 +17,7 @@ export class GuestsPage implements OnInit {
 
 	public mobile = true;
 	public tablet = true;
-	public language: string = this.translate.getDefaultLang();
+	public language: string = this.localization.getLanguage();
 
 	isLoading: boolean = true;
 
@@ -71,11 +71,10 @@ export class GuestsPage implements OnInit {
 			this.alreadyFetchedYears.push(this.activeYear)
 		}
 	}
-
-	changeActiveYear(activeYear: number) {
-		this.activeYear = activeYear
+	
+	changeActiveYear(activeYear: string) {
+		this.activeYear = parseInt(activeYear)
 		this.fetchData();
-		console.log(this.activeYear)
 	}
 
 	filter(guests: Guest[]): Guest[] {
