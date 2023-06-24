@@ -2,18 +2,30 @@
 
 <ion-content>
   <div id="hero-container" class="overlay-navbar">
-    <h1 *ngIf="!isLoading && type != 'guests' && type != 'instructors'" class="single-entry-title">
+    <h1 *ngIf="!isLoading && type != 'guests' && type != 'instructors' && !mobile && !tablet"
+      class="single-entry-title">
       {{language === 'ro' ? data.roTitle : data.enTitle}}
     </h1>
-    <h1 *ngIf="!isLoading && (type == 'guests' || type == 'instructors')" class="single-entry-title">
+    <h7 *ngIf="!isLoading && type != 'guests' && type != 'instructors' && (mobile || tablet)"
+      class="single-entry-title single-entry-title-mobile">
+      {{language === 'ro' ? data.roTitle : data.enTitle}}
+    </h7>
+    <h1 *ngIf="!isLoading && (type == 'guests' || type == 'instructors') && !mobile && !tablet"
+      class="single-entry-title">
       {{data.name}}
     </h1>
+    <h7 *ngIf="!isLoading && (type == 'guests' || type == 'instructors') && (mobile || tablet)"
+      class="single-entry-title single-entry-title-mobile">
+      {{data.name}}
+    </h7>
   </div>
 
   <ion-grid id="material-card" justify-content-center>
     <div *ngIf="isLoading" justify-content-center class="spinner">
       <ion-spinner name="circular"></ion-spinner>
     </div>
+
+
 
     <ion-row *ngIf="!isLoading" justify-content-center
       [ngClass]='{"center-on-mobile": mobile || tablet, "main-col": !mobile && !tablet}'>
