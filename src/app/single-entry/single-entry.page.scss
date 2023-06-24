@@ -5,8 +5,8 @@ ion-content {
 .single-entry-image {
     margin: 0 auto;
     justify-content: center;
-    max-height: 365px;
-    width: 100vw;
+    max-height: 350px;
+    width: 90vw;
 }
 
 .single-entry-title {
@@ -37,7 +37,7 @@ ion-content {
     background:
         linear-gradient(rgba(68, 68, 68, 0.1),
             rgba(17, 17, 17, 0.7)),
-        url('../../assets/images/17017233_10210709430104890_7762668526959517728_o.jpg');
+        url('../../assets/images/hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 35%;
@@ -49,6 +49,11 @@ ion-content {
     text-align: center;
     margin-top: 0;
     padding: 104px;
+}
+
+.single-entry-title-mobile {
+    font-size: 25px;
+    padding: 40px
 }
 
 .spinner {
