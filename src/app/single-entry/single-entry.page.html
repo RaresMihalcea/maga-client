@@ -6,18 +6,18 @@
       class="single-entry-title">
       {{language === 'ro' ? data.roTitle : data.enTitle}}
     </h1>
-    <h7 *ngIf="!isLoading && type != 'guests' && type != 'instructors' && (mobile || tablet)"
+    <h6 *ngIf="!isLoading && type != 'guests' && type != 'instructors' && (mobile || tablet)"
       class="single-entry-title single-entry-title-mobile">
       {{language === 'ro' ? data.roTitle : data.enTitle}}
-    </h7>
+    </h6>
     <h1 *ngIf="!isLoading && (type == 'guests' || type == 'instructors') && !mobile && !tablet"
       class="single-entry-title">
       {{data.name}}
     </h1>
-    <h7 *ngIf="!isLoading && (type == 'guests' || type == 'instructors') && (mobile || tablet)"
+    <h6 *ngIf="!isLoading && (type == 'guests' || type == 'instructors') && (mobile || tablet)"
       class="single-entry-title single-entry-title-mobile">
       {{data.name}}
-    </h7>
+    </h6>
   </div>
 
   <ion-grid id="material-card" justify-content-center>
