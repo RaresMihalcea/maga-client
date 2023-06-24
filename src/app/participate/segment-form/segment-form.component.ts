@@ -46,7 +46,7 @@ export class SegmentFormComponent implements OnInit {
 
   errors: string[] = [];
 
-  email: string;
+  // email: string;
   surname: string;
   firstName: string;
   age: number;
@@ -190,7 +190,7 @@ export class SegmentFormComponent implements OnInit {
       this.dietaryPreference === undefined ? "N/A" : this.dietaryPreference;
 
     return {
-      email: this.email,
+      // email: this.email,
       surname: this.surname,
       firstName: this.firstName,
       age: this.age,
@@ -211,9 +211,9 @@ export class SegmentFormComponent implements OnInit {
 
   validateForm(): boolean {
     this.errors = [];
-    if (!this.auth.validateEmail(this.email)) {
-      this.addError("E-mailul trebuie sa fie valid");
-    }
+    // if (!this.auth.validateEmail(this.email)) {
+    //   this.addError("E-mailul trebuie sa fie valid");
+    // }
     if (this.firstName === undefined || this.firstName.length == 0) {
       this.addError("Prenumele nu poate fi gol");
     }
