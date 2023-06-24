@@ -41,7 +41,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         if(!result.user.emailVerified) {
-          // this.auth.signOut();
+          this.auth.signOut();
           window.alert("E-mailul nu a fost verificat. The e-mail has not been verified.")
         }
         else {
