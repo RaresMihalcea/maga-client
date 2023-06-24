@@ -8,17 +8,16 @@
 }
 
 #hero-container {
-    background: 
-    linear-gradient(
-        rgba(68, 68, 68, 0.1), 
-        rgba(17, 17, 17, 0.7)
-    ),
-    url('../../assets/images/hero.jpg');
+    background:
+        linear-gradient(rgba(68, 68, 68, 0.1),
+            rgba(17, 17, 17, 0.7)),
+        url('../../assets/images/hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     background-position-y: bottom;
     width: 100%;
+    min-height: 875px;
 }
 
 #hero-image {
@@ -38,7 +37,7 @@
     color: white;
     font-size: 60px;
     font-weight: bolder;
-background:         rgba(17, 17, 17, 0.7)       ;
+    background: rgba(17, 17, 17, 0.7);
 }
 
 #logo {
@@ -57,6 +56,12 @@ background:         rgba(17, 17, 17, 0.7)       ;
 .space-hero-subt {
     margin-top: 4%;
     margin-bottom: 1%;
+}
+
+.space-hero-subt-years {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-size: 35px;
 }
 
 .space-hero-title {
