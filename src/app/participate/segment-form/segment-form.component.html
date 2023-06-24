@@ -14,11 +14,11 @@
   <ion-col *ngIf="isLoggedIn && !isLoading" id="form-col">
     <p>{{ 'allFieldsAreMandatory' | translate }}</p>
 
-    <ion-item class="form-item">
+    <!-- <ion-item class="form-item">
       <ion-label position="floating">*E-mail</ion-label>
       <ion-input type="email" [(ngModel)]="email" ngModel email required></ion-input>
       <ion-note slot="error"></ion-note>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item class="form-item">
       <ion-label position="floating">{{ 'surname' | translate }}</ion-label>
