@@ -102,7 +102,8 @@ export class AppComponent implements OnInit {
         this.localization.init("ro");
 
         const logoutItem = this.appPages[this.appPages.length - 1]
-        this.authFire.authState.subscribe(value => {
+        this.auth.isLoggedIn.subscribe(value => {
+            console.log(value)
             if (value) {
                 logoutItem.enabled = true
                 logoutItem.title = 'Logout'
@@ -125,7 +126,7 @@ export class AppComponent implements OnInit {
     }
 
     logout(event) {
-        if (event.target.innerHTML === ' Logout ') {
+        if (event.target.innerHTML.includes( ' Logout ')) {
             this.auth.logout()
         }
     }
