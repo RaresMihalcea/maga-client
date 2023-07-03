@@ -57,8 +57,10 @@
           class="navbar-button">
           <ion-select okText="OK" interface="popover" [cancelText]="language == 'ro' ? 'Închide' : 'Cancel'"
             [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
-            <ion-select-option value="ro"> 🇷🇴 RO </ion-select-option>
-            <ion-select-option value="en"> 🇺🇸 EN </ion-select-option>
+            <ion-select-option value="ro"> RO
+            </ion-select-option>
+            <ion-select-option value="en"> EN
+            </ion-select-option>
           </ion-select>
         </ion-button>
       </ion-row>

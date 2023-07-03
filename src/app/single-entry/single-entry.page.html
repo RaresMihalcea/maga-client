@@ -48,7 +48,7 @@
           {{language === 'ro' ? data.roDescription : data.enDescription}}
         </p>
 
-        <h3 class="space" *ngIf="type == 'conferences'">
+        <h3 class="space" *ngIf="type == 'conferences' && data.dateAndTime">
           {{ 'date' | translate }} {{data.dateAndTime}}
         </h3>
 
@@ -62,7 +62,7 @@
           <span *ngIf="!data.isLive">{{ 'virtual' | translate }}</span>
         </h3>
 
-        <h3 class="space" *ngIf="type == 'conferences' || type == 'courses' && data.instructors.length > 0">
+        <h3 class="space" *ngIf="(type == 'conferences' || type == 'courses') && data.instructors.length > 0">
           {{ 'instructors' | translate }}: {{data.instructors}}
         </h3>
       </ion-col>

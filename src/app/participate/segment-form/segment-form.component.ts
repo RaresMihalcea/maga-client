@@ -31,10 +31,10 @@ export class SegmentFormComponent implements OnInit {
     "Antreprenor",
   ];
   packages: string[] = [
-    "8 zile cu masa inclusă - 600 RON",
-    "8 zile fără masă - 250 RON",
-    "2 zile (Weekend) cu masa inclusă - 270 RON",
-    "2 zile (Weekend) fără masă - 150 RON",
+    "8 zile cu masa inclusă - 750 RON",
+    "8 zile fără masă - 320 RON",
+    "2 zile (Weekend) cu masa inclusă - 320 RON",
+    "2 zile (Weekend) fără masă - 220 RON",
   ];
   payMethods: string[] = ["Transfer Bancar", "Cash la Insulă"];
   findOutMethods: string[] = ["Prieteni", "Facebook", "Instagram", "Presă"];
@@ -115,10 +115,10 @@ export class SegmentFormComponent implements OnInit {
         ];
 
         this.packages = [
-          "8 days with meals included - 600 RON",
-          "8 days without meals - 250 RON",
-          "2 days (Weekend) with meals included - 270 RON",
-          "2 days (Weekend) without meals - 150 RON",
+          "8 days with meals included - 750 RON",
+          "8 days without meals - 320 RON",
+          "2 days (Weekend) with meals included - 320 RON",
+          "2 days (Weekend) without meals - 220 RON",
         ];
 
         this.payMethods = ["Bank Transfer", "Cash on arrival"];
@@ -137,10 +137,10 @@ export class SegmentFormComponent implements OnInit {
           "Antreprenor",
         ];
         this.packages = [
-          "8 zile cu masa inclusă - 600 RON",
-          "8 zile fără masă - 250 RON",
-          "2 zile (Weekend) cu masa inclusă - 270 RON",
-          "2 zile (Weekend) fără masă - 150 RON",
+          "8 zile cu masa inclusă - 750 RON",
+          "8 zile fără masă - 320 RON",
+          "2 zile (Weekend) cu masa inclusă - 320 RON",
+          "2 zile (Weekend) fără masă - 220 RON",
         ];
         this.payMethods = ["Transfer Bancar", "Cash la Insulă"];
         this.findOutMethods = ["Prieteni", "Facebook", "Instagram", "Presă"];
