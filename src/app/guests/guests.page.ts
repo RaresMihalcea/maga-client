@@ -68,6 +68,8 @@ export class GuestsPage implements OnInit {
 				this.isLoading = false;
 			})
 
+
+
 			this.alreadyFetchedYears.push(this.activeYear)
 		}
 	}
@@ -85,6 +87,11 @@ export class GuestsPage implements OnInit {
 				result.push(el)
 			}
 		})
+
+		result.sort((a, b) => {
+			if(a.priority > b.priority) return 1;
+			if(a.priority <= b.priority) return -1;
+		});
 
 		return result
 	}

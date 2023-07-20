@@ -15,4 +15,6 @@ export interface Participant {
     payMethod: string;
     dietaryPreference: string;
     paid: boolean;
+    priority: number;
+
 }

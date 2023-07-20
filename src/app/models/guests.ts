@@ -8,5 +8,6 @@ export interface Guest {
     pictureLink: string;
     roDescription: string;
     enDescription: string;
+    priority: number;
 
 }

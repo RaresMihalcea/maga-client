@@ -8,5 +8,6 @@ export interface Instructor {
     pictureLink: string;
     roDescription: string;
     enDescription: string;
+    priority: number;
 
 }

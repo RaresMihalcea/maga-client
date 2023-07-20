@@ -10,5 +10,6 @@ export interface Conference {
     enDescription: string;
     instructors: string;
     dateAndTime: string;
+    priority: number;
     
 }

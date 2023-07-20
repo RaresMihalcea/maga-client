@@ -9,5 +9,6 @@ export interface Course {
     enDescription: string;
     category: string;
     instructors: string[];
+    priority: number;
     
 }

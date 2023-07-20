@@ -54,5 +54,10 @@ export class OrganizersPage implements OnInit {
       })
       this.isLoading = false;
     })
+
+    this.organizers.sort((a, b) => {
+      if(a.priority > b.priority) return 1;
+      if(a.priority <= b.priority) return -1;
+    });
   }
 }

@@ -5,5 +5,6 @@ export interface Organizer {
     roTitle: string;
     enTitle: string;
     pictureLink: string;
-    
+    priority: number;
+
 }

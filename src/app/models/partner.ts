@@ -8,5 +8,6 @@ export interface Partner {
     roDescription: string;
     enDescription: string;
     category: string;
+    priority: number;
     
 }
